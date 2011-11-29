@@ -1,0 +1,21 @@
+//
+//  Address.m
+//  Maishoku
+//
+//  Created by Jonathan Sweemer on 11/1/11.
+//  Copyright (c) 2011 Dynaptico LLC. All rights reserved.
+//
+
+#import "Address.h"
+
+@implementation Address
+
+@synthesize address;
+@synthesize firstDate;
+@synthesize lastDate;
+@synthesize id;
+@synthesize frequency;
+@synthesize lat;
+@synthesize lon;
+
+@end

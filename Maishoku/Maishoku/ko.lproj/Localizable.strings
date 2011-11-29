@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Maishoku
+
+  Created by Jonathan Sweemer on 11/25/11.
+  Copyright (c) 2011 Dynaptico LLC. All rights reserved.
+*/
+
+/* CartViewController */
+"Total Price" = "합계";
+"Cart" = "카트트";
+"Checkout" = "체크아웃";
+
+/* CheckoutViewController */
+"Order Failed" = "주문은 실패했습니다";
+"Contact Support" = "support@maishoku.com한테 연락하세요";
+"Confirm Order" = "주문 확인";
+"Order Confirmed" = "주문은 완료되었습니다.\n배달 예정 시간은";
+"Cash" = "현금";
+"Credit Card" = "신용카드";
+
+/* ItemViewController */
+"Quantity In Cart" = "카트 안에";
+"Failed To Load Item" = "서버에 접속하지 못했습니다";
+"Load Screen Again" = "한 번 더 시도하세요";
+"Add To Cart" = "카트에 넣기";
+
+/* LocationViewController */
+"Select Address" = "주소를 선택하세요";
+"Add New Address" = "새 주소 추가";
+"Logout" = "로그아웃";
+"Delivery" = "배달";
+"Pickup" = "포장";
+"Restaurants" = "음식점";
+"Favorites" = "즐겨 찾기";
+"Groups" = "그룹";
+"Getting Location" = "현위치 검색중...";
+"Locating Failed" = "현위치 찾을 수 없습니다";
+
+/* LoginViewController */
+"Username" = "회원이름";
+"Password" = "비밀번호";
+"Login" = "로그인";
+"Sign Up" = "회원가입";
+"Login Failed" = "로그인 실패했습니다";
+"Please Try Again" = "다시 한 번 입력하세요";
+
+/* NewAddressViewController */
+"Enter New Address" = "새 주소를 입력하세요";
+"Failed To Add New Address" = "잘못된 주소입니다";
+"Submit" = "전송";
+"Cancel" = "취소";
+
+/* RestaurantTableViewController */
+"Restaurants" = "음식점";
+
+/* RestaurantViewController */
+"Delivery Time" = "배달 예정 시간";
+"Minimum Order" = "최저 주문 가격";
+"Cuisines" = "장르";
+"See Items" = "메뉴 보기";
+
+/* SignUpViewController */
+"Passwords Are Not Same" = "비밀번호가 일치하지 않습니다";
+"Phone Number Invalid" = "잘못된 전화번호입니다";
+"Phone Number Format" = "0로 시작하고 10숫자 이상의 번호를 입력하세요";
+"Email Invalid" = "잘못된 이메일 주소입니다";
+"Please Enter Valid Email" = "정확한 이메일 주소를 다시 입력해 주세요";
+"Error" = "에러";
+"Sign Up Complete" = "회원등록 완료";
+"Check Your Email" = "이메일을 확인해 주세요";
+"Password Confirm" = "비밀번호 재입력";
+"Email" = "이메일";
+"Phone Number" = "전화 번호";

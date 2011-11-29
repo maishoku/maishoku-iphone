@@ -1,0 +1,2 @@
+# Don't include user-specific directories added by XCode
+xcuserdata

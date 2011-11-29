@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Maishoku
+
+  Created by Jonathan Sweemer on 11/25/11.
+  Copyright (c) 2011 Dynaptico LLC. All rights reserved.
+*/
+
+/* CartViewController */
+"Total Price" = "合計";
+"Cart" = "カート";
+"Checkout" = "チェックアウト";
+
+/* CheckoutViewController */
+"Order Failed" = "注文が失敗しました";
+"Contact Support" = "support@maishoku.comへお問い合わせください";
+"Confirm Order" = "注文を確認";
+"Order Confirmed" = "注文は完了しました。\nお待ちの時間は";
+"Cash" = "現金";
+"Credit Card" = "クレジットカード";
+
+/* ItemViewController */
+"Quantity In Cart" = "カートに入った品数";
+"Failed To Load Item" = "商品を読み込めないです";
+"Load Screen Again" = "もう一度スクリーンを読み込んでください";
+"Add To Cart" = "カートに入れる";
+
+/* LocationViewController */
+"Select Address" = "住所を選びください";
+"Add New Address" = "新規住所の登録";
+"Logout" = "ログアウト";
+"Delivery" = "宅配";
+"Pickup" = "お持ち帰り";
+"Restaurants" = "お店";
+"Favorites" = "好きな商品";
+"Groups" = "グループ";
+"Getting Location" = "現在地を読み込み中...";
+"Locating Failed" = "現在地を読み込めないです";
+
+/* LoginViewController */
+"Username" = "ユーザー名";
+"Password" = "パスワード";
+"Login" = "ログイン";
+"Sign Up" = "入会登録";
+"Login Failed" = "ログインできませんでした";
+"Please Try Again" = "もう一度入力してください";
+
+/* NewAddressViewController */
+"Enter New Address" = "新規住所を入力してください";
+"Failed To Add New Address" = "エーラが発生しました";
+"Submit" = "送信";
+"Cancel" = "キャンセル";
+
+/* RestaurantTableViewController */
+"Restaurants" = "お店";
+
+/* RestaurantViewController */
+"Delivery Time" = "お届けの時間";
+"Minimum Order" = "最低注文合計";
+"Cuisines" = "ジャンル";
+"See Items" = "この店のメニューを見る";
+
+/* SignUpViewController */
+"Passwords Are Not Same" = "パスワードは一致しません";
+"Phone Number Invalid" = "電話番号問題";
+"Phone Number Format" = "０から始まる１０桁以上の番号を入力してください";
+"Email Invalid" = "メールアドレス問題";
+"Please Enter Valid Email" = "本当のメールアドレスを入力してください";
+"Error" = "エーラ";
+"Sign Up Complete" = "入会登録完了";
+"Check Your Email" = "メールをチェックしてください";
+"Password Confirm" = "パスワード確認";
+"Email" = "メール";
+"Phone Number" = "電話番号";

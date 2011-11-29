@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  Maishoku
+
+  Created by Jonathan Sweemer on 11/25/11.
+  Copyright (c) 2011 Dynaptico LLC. All rights reserved.
+*/
+
+/* CartViewController */
+"Total Price" = "Total Price";
+"Cart" = "Cart";
+"Checkout" = "Checkout";
+
+/* CheckoutViewController */
+"Order Failed" = "Order Failed";
+"Contact Support" = "Please contact support@maishoku.com for assistance.";
+"Confirm Order" = "Confirm Order";
+"Order Confirmed" = "Your order has been confirmed.\nEstimated wait time is";
+"Cash" = "Cash";
+"Credit Card" = "Credit Card";
+
+/* FavoritesViewController */
+"Items" = "Items";
+
+/* ItemViewController */
+"Quantity In Cart" = "Quantity currently in cart";
+"Failed To Load Item" = "Failed to load item";
+"Load Screen Again" = "Please try to load screen again";
+"Add To Cart" = "Add To Cart";
+
+/* LocationViewController */
+"Select Address" = "Select your address";
+"Add New Address" = "Add New Address";
+"Logout" = "Logout";
+"Delivery" = "Delivery";
+"Pickup" = "Pickup";
+"Restaurants" = "Restaurants";
+"Favorites" = "Favorites";
+"Groups" = "Groups";
+"Getting Location" = "Retrieving your location...";
+"Locating Failed" = "Failed to retrieve your location";
+
+/* LoginViewController */
+"Username" = "username";
+"Password" = "password";
+"Login" = "Login";
+"Sign Up" = "Sign Up";
+"Login Failed" = "Login Failed";
+"Please Try Again" = "Please try again";
+
+/* NewAddressViewController */
+"Enter New Address" = "Enter New Address";
+"Failed To Add New Address" = "Failed to add new address";
+"Submit" = "Submit";
+"Cancel" = "Cancel";
+
+/* RestaurantTableViewController */
+"Restaurants" = "Restaurants";
+
+/* RestaurantViewController */
+"Delivery Time" = "Delivery Time";
+"Minimum Order" = "Minimum Order";
+"Cuisines" = "Cuisines";
+"See Items" = "See items from this restaurant";
+
+/* SignUpViewController */
+"Passwords Are Not Same" = "Passwords are not the same";
+"Phone Number Invalid" = "Phone number invalid";
+"Phone Number Format" = "Phone number should start with 0 and be at least 10 digits long";
+"Email Invalid" = "Email invalid";
+"Please Enter Valid Email" = "Please enter a valid email address";
+"Error" = "Error";
+"Sign Up Complete" = "Sign Up Complete";
+"Check Your Email" = "Check your email to complete activation";
+"Password Confirm" = "password (again)";
+"Email" = "email";
+"Phone Number" = "phone number";
