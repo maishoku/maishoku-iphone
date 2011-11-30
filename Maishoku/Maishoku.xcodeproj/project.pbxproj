@@ -46,9 +46,9 @@
 		4EBF1927148396A60098089B /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1926148396A60098089B /* heart.png */; };
 		4EBF19291483B11D0098089B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBF19281483B11D0098089B /* CoreLocation.framework */; };
 		4EBF192C1483EA020098089B /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF192B1483EA020098089B /* Group.m */; };
-		4EBF192F14840C390098089B /* shoku57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF192D14840C390098089B /* shoku57.png */; };
-		4EBF193014840C390098089B /* shoku114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF192E14840C390098089B /* shoku114.png */; };
 		4EBF1945148548810098089B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF1944148548810098089B /* Reachability.m */; };
+		4EBF1948148659EA0098089B /* shoku57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1946148659EA0098089B /* shoku57.png */; };
+		4EBF1949148659EA0098089B /* shoku114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1947148659EA0098089B /* shoku114.png */; };
 		4EC1275D147A045500323016 /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1275C147A045500323016 /* NewAddressViewController.m */; };
 		4EC12760147A68EA00323016 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1275F147A68EA00323016 /* Category.m */; };
 		4EC12763147A8D7100323016 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC12762147A8D7100323016 /* ItemViewController.m */; };
@@ -213,10 +213,10 @@
 		4EBF19281483B11D0098089B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4EBF192A1483EA020098089B /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = Models/Group.h; sourceTree = "<group>"; };
 		4EBF192B1483EA020098089B /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = Models/Group.m; sourceTree = "<group>"; };
-		4EBF192D14840C390098089B /* shoku57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoku57.png; path = ../../../../Downloads/shoku57.png; sourceTree = "<group>"; };
-		4EBF192E14840C390098089B /* shoku114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoku114.png; path = ../../../../Downloads/shoku114.png; sourceTree = "<group>"; };
 		4EBF1943148548810098089B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4EBF1944148548810098089B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4EBF1946148659EA0098089B /* shoku57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoku57.png; sourceTree = "<group>"; };
+		4EBF1947148659EA0098089B /* shoku114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoku114.png; sourceTree = "<group>"; };
 		4EC1275B147A045500323016 /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
 		4EC1275C147A045500323016 /* NewAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAddressViewController.m; sourceTree = "<group>"; };
 		4EC1275E147A68EA00323016 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = Models/Category.h; sourceTree = "<group>"; };
@@ -352,8 +352,8 @@
 		4E608C1714596A92007134EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4EBF192D14840C390098089B /* shoku57.png */,
-				4EBF192E14840C390098089B /* shoku114.png */,
+				4EBF1946148659EA0098089B /* shoku57.png */,
+				4EBF1947148659EA0098089B /* shoku114.png */,
 				4EBF1926148396A60098089B /* heart.png */,
 				4E608C1C14596A92007134EA /* main.m */,
 				4E608C1E14596A92007134EA /* Maishoku-Prefix.pch */,
@@ -612,8 +612,8 @@
 				4EBF1923148395AC0098089B /* group.png in Resources */,
 				4EBF1925148395D70098089B /* utensils.png in Resources */,
 				4EBF1927148396A60098089B /* heart.png in Resources */,
-				4EBF192F14840C390098089B /* shoku57.png in Resources */,
-				4EBF193014840C390098089B /* shoku114.png in Resources */,
+				4EBF1948148659EA0098089B /* shoku57.png in Resources */,
+				4EBF1949148659EA0098089B /* shoku114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
