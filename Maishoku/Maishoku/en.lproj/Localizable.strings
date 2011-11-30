@@ -6,6 +6,10 @@
   Copyright (c) 2011 Dynaptico LLC. All rights reserved.
 */
 
+/* AppDelegate */
+"Network Error" = "Network Error";
+"Check Connection" = "Please check your network connectivity.";
+
 /* CartViewController */
 "Total Price" = "Total Price";
 "Cart" = "Cart";

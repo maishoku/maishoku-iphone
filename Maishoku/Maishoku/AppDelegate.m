@@ -8,11 +8,15 @@
 
 #import "Address.h"
 #import "AppDelegate.h"
+#import "Reachability.h"
 #import "KeychainItemWrapper.h"
 #import "TargetConditionals.h"
 #import <RestKit/RestKit.h>
 
 @implementation AppDelegate
+{
+	Reachability *reachabilityWithHostName;
+}
 
 @synthesize window;
 @synthesize keychain;
@@ -24,6 +28,18 @@
 @synthesize storyboard;
 @synthesize addressesLoaded;
 @synthesize restaurantsLoaded;
+
+// Called by Reachability whenever status changes
+- (void)reachabilityChanged:(NSNotification *)notification
+{
+	Reachability *reachability = [notification object];
+    if (reachability == reachabilityWithHostName) {
+        NetworkStatus currentReachabilityStatus = [reachability currentReachabilityStatus];
+        if (currentReachabilityStatus == NotReachable || [reachability connectionRequired]) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Network Error", nil) message:NSLocalizedString(@"Check Connection", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        }
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -44,9 +60,11 @@
     //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api.local/%@", API_VERSION]];
     [RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
     objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
+	reachabilityWithHostName = [Reachability reachabilityWithHostName: @"api-dev.maishoku.com"];
 #else
     [RKClient clientWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
     objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
+	reachabilityWithHostName = [Reachability reachabilityWithHostName: @"api.maishoku.com"];
 #endif
     
     objectManager.serializationMIMEType = RKMIMETypeJSON;
@@ -61,6 +79,11 @@
     // Set up routing for models that require it
     RKObjectRouter *router = [objectManager router];
     [router routeClass:[Address class] toResourcePath:@"/user/address"];
+    
+    // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method "reachabilityChanged" will be called.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+	[reachabilityWithHostName startNotifier];
     
     return YES;
 }

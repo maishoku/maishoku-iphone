@@ -6,6 +6,10 @@
   Copyright (c) 2011 Dynaptico LLC. All rights reserved.
 */
 
+/* AppDelegate */
+"Network Error" = "네트워크 에러";
+"Check Connection" = "네트워크 연결 상태를 확인해주세요";
+
 /* CartViewController */
 "Total Price" = "합계";
 "Cart" = "카트트";
@@ -15,7 +19,7 @@
 "Order Failed" = "주문은 실패했습니다";
 "Contact Support" = "support@maishoku.com한테 연락하세요";
 "Confirm Order" = "주문 확인";
-"Order Confirmed" = "주문은 완료되었습니다.\n배달 예정 시간은";
+"Order Confirmed" = "주문은 완료되었습니다\n배달 예정 시간은";
 "Cash" = "현금";
 "Credit Card" = "신용카드";
 
@@ -65,10 +69,10 @@
 "Phone Number Invalid" = "잘못된 전화번호입니다";
 "Phone Number Format" = "0로 시작하고 10숫자 이상의 번호를 입력하세요";
 "Email Invalid" = "잘못된 이메일 주소입니다";
-"Please Enter Valid Email" = "정확한 이메일 주소를 다시 입력해 주세요";
+"Please Enter Valid Email" = "정확한 이메일 주소를 다시 입력해주세요";
 "Error" = "에러";
 "Sign Up Complete" = "회원등록 완료";
-"Check Your Email" = "이메일을 확인해 주세요";
+"Check Your Email" = "이메일을 확인해주세요";
 "Password Confirm" = "비밀번호 재입력";
 "Email" = "이메일";
 "Phone Number" = "전화 번호";

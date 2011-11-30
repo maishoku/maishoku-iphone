@@ -6,6 +6,10 @@
   Copyright (c) 2011 Dynaptico LLC. All rights reserved.
 */
 
+/* AppDelegate */
+"Network Error" = "ネットワークエラー";
+"Check Connection" = "ネットワークの接続状態を確認してください";
+
 /* CartViewController */
 "Total Price" = "合計";
 "Cart" = "カート";
@@ -15,7 +19,7 @@
 "Order Failed" = "注文が失敗しました";
 "Contact Support" = "support@maishoku.comへお問い合わせください";
 "Confirm Order" = "注文を確認";
-"Order Confirmed" = "注文は完了しました。\nお待ちの時間は";
+"Order Confirmed" = "注文は完了しました\nお待ちの時間は";
 "Cash" = "現金";
 "Credit Card" = "クレジットカード";
 
@@ -47,12 +51,12 @@
 
 /* NewAddressViewController */
 "Enter New Address" = "新規住所を入力してください";
-"Failed To Add New Address" = "エーラが発生しました";
+"Failed To Add New Address" = "エラーが発生しました";
 "Submit" = "送信";
 "Cancel" = "キャンセル";
 
 /* RestaurantTableViewController */
-"Restaurants" = "お店";
+"Restaurants" = "店舗";
 
 /* RestaurantViewController */
 "Delivery Time" = "お届けの時間";
@@ -66,7 +70,7 @@
 "Phone Number Format" = "０から始まる１０桁以上の番号を入力してください";
 "Email Invalid" = "メールアドレス問題";
 "Please Enter Valid Email" = "本当のメールアドレスを入力してください";
-"Error" = "エーラ";
+"Error" = "エラー";
 "Sign Up Complete" = "入会登録完了";
 "Check Your Email" = "メールをチェックしてください";
 "Password Confirm" = "パスワード確認";
