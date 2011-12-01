@@ -22,6 +22,9 @@
 "Order Confirmed" = "注文完了しました\n待ち時間は";
 "Cash" = "現金";
 "Credit Card" = "クレジットカード";
+"Credit Card Number" = "クレジットカード番号";
+"Expiration Date" = "有効期限";
+"Security Code" = "セキュリティコード";
 
 /* ItemViewController */
 "Quantity In Cart" = "カートにある商品数";

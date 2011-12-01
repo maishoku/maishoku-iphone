@@ -22,6 +22,9 @@
 "Order Confirmed" = "주문은 완료되었습니다\n배달 예정 시간은";
 "Cash" = "현금";
 "Credit Card" = "신용카드";
+"Credit Card Number" = "신용카드 번호";
+"Expiration Date" = "유효 기간";
+"Security Code" = "보안 코드";
 
 /* ItemViewController */
 "Quantity In Cart" = "카트 안에";

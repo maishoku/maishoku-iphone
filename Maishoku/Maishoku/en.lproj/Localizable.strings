@@ -22,6 +22,9 @@
 "Order Confirmed" = "Your order has been confirmed.\nEstimated wait time is";
 "Cash" = "Cash";
 "Credit Card" = "Credit Card";
+"Credit Card Number" = "Credit Card Number";
+"Expiration Date" = "Expiration Date";
+"Security Code" = "Security Code";
 
 /* FavoritesViewController */
 "Items" = "Items";

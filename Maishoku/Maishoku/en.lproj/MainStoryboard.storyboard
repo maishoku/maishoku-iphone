@@ -204,7 +204,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Ro-b9-X6I">
-                                <rect key="frame" x="45" y="189" width="225" height="37"/>
+                                <rect key="frame" x="45" y="225" width="230" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -219,11 +219,55 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="9Uv-Oe-KgG">
-                                <rect key="frame" x="151" y="197" width="20" height="20"/>
+                                <rect key="frame" x="150" y="234" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" minimumFontSize="10" id="9ic-xf-KCN">
-                                <rect key="frame" x="57" y="101" width="207" height="80"/>
+                                <rect key="frame" x="57" y="270" width="207" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="unlessEditing" id="xOK-AB-ULK">
+                                <rect key="frame" x="45" y="83" width="230" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="cardNumberEditingChanged:" destination="Nc2-f2-gvD" eventType="editingChanged" id="zQa-qN-QAH"/>
+                                    <outlet property="delegate" destination="Nc2-f2-gvD" id="Ucf-XJ-AL3"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Ktu-PN-Ngm">
+                                <rect key="frame" x="211" y="159" width="64" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="securityCodeEditingChanged:" destination="Nc2-f2-gvD" eventType="editingChanged" id="cLt-8f-i2O"/>
+                                    <outlet property="delegate" destination="Nc2-f2-gvD" id="FxQ-6O-3gt"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="32q-GF-xQE">
+                                <rect key="frame" x="211" y="121" width="64" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="expirationDateEditingChanged:" destination="Nc2-f2-gvD" eventType="editingChanged" id="G9I-BP-7zH"/>
+                                    <outlet property="delegate" destination="Nc2-f2-gvD" id="lRv-fp-JrI"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="t2U-md-dhY">
+                                <rect key="frame" x="45" y="121" width="158" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="495-9L-tBd">
+                                <rect key="frame" x="45" y="159" width="158" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -241,9 +285,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cardNumberTextField" destination="xOK-AB-ULK" id="3JJ-wd-ad8"/>
                         <outlet property="confirmOrderButton" destination="3Ro-b9-X6I" id="wWN-Iu-Cnl"/>
                         <outlet property="confirmedLabel" destination="9ic-xf-KCN" id="Lhc-l8-TW7"/>
                         <outlet property="doneButton" destination="kVX-vb-2Jf" id="KV8-9q-eJ1"/>
+                        <outlet property="expirationDateLabel" destination="t2U-md-dhY" id="D2B-8D-Ala"/>
+                        <outlet property="expirationDateTextField" destination="32q-GF-xQE" id="Raw-A7-tYh"/>
+                        <outlet property="securityCodeLabel" destination="495-9L-tBd" id="Jx7-uL-qs7"/>
+                        <outlet property="securityCodeTextField" destination="Ktu-PN-Ngm" id="r7g-I7-x2b"/>
                         <outlet property="segmentedControl" destination="afs-gb-cQI" id="uAy-sh-sad"/>
                         <outlet property="spinner" destination="9Uv-Oe-KgG" id="W5Z-bC-LZs"/>
                     </connections>
@@ -1059,12 +1108,20 @@
         <class className="CheckoutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckoutViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cardNumberEditingChanged:"/>
                 <relationship kind="action" name="confirmOrder:"/>
                 <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="expirationDateEditingChanged:"/>
+                <relationship kind="action" name="securityCodeEditingChanged:"/>
                 <relationship kind="action" name="valueChanged:"/>
+                <relationship kind="outlet" name="cardNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="confirmOrderButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="confirmedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="expirationDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expirationDateTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="securityCodeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="securityCodeTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
