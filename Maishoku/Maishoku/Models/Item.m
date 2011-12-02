@@ -16,7 +16,7 @@
 @synthesize nameJapanese;
 @synthesize available;
 @synthesize price;
-@synthesize id;
+@synthesize identifier;
 
 - (NSString *)name
 {

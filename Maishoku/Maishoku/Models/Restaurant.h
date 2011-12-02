@@ -10,16 +10,16 @@
 
 @interface Restaurant : NSObject
 
-@property (nonatomic, retain) NSArray *hours;
-@property (nonatomic, retain) NSArray *cuisines;
-@property (nonatomic, retain) NSString *deliveryTime;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *nameJapanese;
-@property (nonatomic, retain) NSString *nameEnglish;
-@property (nonatomic, retain) NSString *phoneContact;
-@property (nonatomic, retain) NSString *address;
-@property (nonatomic, retain) NSString *commaSeparatedCuisines;
-@property (nonatomic, assign) NSInteger id;
-@property (nonatomic, assign) NSInteger minimumOrder;
+@property (nonatomic, strong) NSArray *hours;
+@property (nonatomic, strong) NSArray *cuisines;
+@property (nonatomic, strong) NSString *deliveryTime;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *nameJapanese;
+@property (nonatomic, strong) NSString *nameEnglish;
+@property (nonatomic, strong) NSString *phoneContact;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *commaSeparatedCuisines;
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSNumber *minimumOrder;
 
 @end

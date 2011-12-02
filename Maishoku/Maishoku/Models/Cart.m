@@ -24,7 +24,7 @@ static NSMutableDictionary *cart; // {itemId: position}
 
 + (void)addToCart:(Item *)item quantity:(NSInteger)quantity
 {
-    NSNumber *itemId = [NSNumber numberWithInt:item.id];
+    NSNumber *itemId = item.identifier;
     id obj = [cart objectForKey:itemId];
     Position *position;
     if (obj) {
@@ -40,13 +40,12 @@ static NSMutableDictionary *cart; // {itemId: position}
 
 + (void)removeFromCart:(Item *)item
 {
-    NSNumber *itemId = [NSNumber numberWithInt:item.id];
-    [cart removeObjectForKey:itemId];
+    [cart removeObjectForKey:item.identifier];
 }
 
 + (void)updateQuantity:(Item *)item quantity:(NSInteger)quantity
 {
-    NSNumber *itemId = [NSNumber numberWithInt:item.id];
+    NSNumber *itemId = item.identifier;
     id obj = [cart objectForKey:itemId];
     Position *position;
     if (obj) {
@@ -66,8 +65,7 @@ static NSMutableDictionary *cart; // {itemId: position}
 
 + (NSInteger)quantityForItem:(Item *)item
 {
-    NSNumber *itemId = [NSNumber numberWithInt:item.id];
-    id obj = [cart objectForKey:itemId];
+    id obj = [cart objectForKey:item.identifier];
     NSInteger quantity;
     if (obj) {
         Position *position = (Position *)obj;

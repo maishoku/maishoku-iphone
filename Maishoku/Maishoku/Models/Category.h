@@ -14,6 +14,6 @@
 @property (nonatomic, strong) NSString *nameEnglish;
 @property (nonatomic, strong) NSString *nameJapanese;
 @property (nonatomic, strong) NSArray *items;
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, strong) NSNumber *identifier;
 
 @end

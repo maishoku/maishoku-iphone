@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *lastDate;
 @property (nonatomic, strong) NSDate *firstDate;
-@property (nonatomic, assign) NSInteger id;
-@property (nonatomic, assign) NSInteger frequency;
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSNumber *frequency;
 @property (nonatomic, assign) double lat;
 @property (nonatomic, assign) double lon;
 

@@ -10,7 +10,7 @@
 
 @interface Group : NSObject
 
-@property (nonatomic, assign) NSInteger id;
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSString *name;
 
 @end

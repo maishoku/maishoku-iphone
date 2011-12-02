@@ -15,7 +15,7 @@
 @synthesize nameEnglish;
 @synthesize nameJapanese;
 @synthesize items;
-@synthesize id;
+@synthesize identifier;
 
 - (NSString *)name
 {

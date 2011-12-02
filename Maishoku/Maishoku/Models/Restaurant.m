@@ -23,7 +23,7 @@
 @synthesize phoneContact;
 @synthesize address;
 @synthesize commaSeparatedCuisines;
-@synthesize id;
+@synthesize identifier;
 @synthesize minimumOrder;
 
 - (NSString *)name

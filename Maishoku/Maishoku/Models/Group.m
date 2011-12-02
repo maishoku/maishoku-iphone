@@ -10,7 +10,7 @@
 
 @implementation Group
 
-@synthesize id;
+@synthesize identifier;
 @synthesize name;
 
 @end

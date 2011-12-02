@@ -13,7 +13,7 @@
 @synthesize address;
 @synthesize firstDate;
 @synthesize lastDate;
-@synthesize id;
+@synthesize identifier;
 @synthesize frequency;
 @synthesize lat;
 @synthesize lon;
