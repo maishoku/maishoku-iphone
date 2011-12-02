@@ -77,7 +77,7 @@
     [objectMapping mapKeyPath:@"first_date" toAttribute:@"firstDate"];
     [objectMapping mapKeyPath:@"last_date" toAttribute:@"lastDate"];
     [objectMapping mapKeyPath:@"frequency" toAttribute:@"frequency"];
-    [objectMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     [objectMapping mapKeyPath:@"lat" toAttribute:@"lat"];
     [objectMapping mapKeyPath:@"lon" toAttribute:@"lon"];
     
@@ -200,8 +200,8 @@
 {
     if (tableView == addressView && editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
-        NSInteger id = ((Address *)[addresses objectAtIndex:indexPath.row]).id;
-        NSString *resourcePath = [NSString stringWithFormat:@"/user/address/%d", id];
+        NSNumber *identifier = ((Address *)[addresses objectAtIndex:indexPath.row]).identifier;
+        NSString *resourcePath = [NSString stringWithFormat:@"/user/address/%@", identifier];
         [[RKClient sharedClient] delete:resourcePath delegate:nil]; // Should 'always' succeed, so don't care about the response
         [addresses removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:YES];

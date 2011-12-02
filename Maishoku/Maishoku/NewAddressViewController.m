@@ -49,7 +49,7 @@
     [responseObjectMapping mapKeyPath:@"first_date" toAttribute:@"firstDate"];
     [responseObjectMapping mapKeyPath:@"last_date" toAttribute:@"lastDate"];
     [responseObjectMapping mapKeyPath:@"frequency" toAttribute:@"frequency"];
-    [responseObjectMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [responseObjectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     [responseObjectMapping mapKeyPath:@"lat" toAttribute:@"lat"];
     [responseObjectMapping mapKeyPath:@"lon" toAttribute:@"lon"];
     

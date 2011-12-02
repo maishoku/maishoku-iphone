@@ -51,14 +51,15 @@
     [spinner startAnimating];
     
     // 'item' is not yet loaded, so disable adding to cart until it is loaded
-    addToCartButton.enabled = NO;
-
+    [addToCartButton setEnabled:NO];
+    [addToCartButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
     // Set up the Item object mapping
     RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[Item class]];
     [objectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [objectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
     [objectMapping mapKeyPath:@"price" toAttribute:@"price"];
-    [objectMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     // Retrieve the item from the server
     NSString *resourcePath = [NSString stringWithFormat:@"/item/%d", itemId];
@@ -97,11 +98,12 @@
     [spinner stopAnimating];
     
     // 'item' is now set, so it is safe to add items to the cart
-    addToCartButton.enabled = YES;
+    [addToCartButton setEnabled:YES];
+    [addToCartButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     if ([[objectLoader response] isOK]) {
         item = (Item *)object;
-        [priceLabel setText:[NSString stringWithFormat:@"¥%d", item.price]];
+        [priceLabel setText:[NSString stringWithFormat:@"¥%@", item.price]];
         NSString *name = UIAppDelegate.displayLanguage == english ? item.nameEnglish : item.nameJapanese;
         [nameLabel setText:name];
         [categoryLabel setText:categoryName];

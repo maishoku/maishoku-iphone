@@ -25,6 +25,9 @@
 "Credit Card Number" = "Credit Card Number";
 "Expiration Date" = "Expiration Date";
 "Security Code" = "Security Code";
+"Save Card" = "Save Card Details";
+"New Card" = "New Card";
+"Saved Card" = "Saved Card";
 
 /* FavoritesViewController */
 "Items" = "Items";

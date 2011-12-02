@@ -44,10 +44,10 @@
     [objectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
     [objectMapping mapKeyPath:@"available" toAttribute:@"available"];
     [objectMapping mapKeyPath:@"items" toAttribute:@"items"];
-    [objectMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     // Retrieve the list of categories for this restaurant from the server
-    NSString *resourcePath = [NSString stringWithFormat:@"/restaurant/%d/categories", UIAppDelegate.restaurant.id];
+    NSString *resourcePath = [NSString stringWithFormat:@"/restaurant/%@/categories", UIAppDelegate.restaurant.identifier];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath objectMapping:objectMapping delegate:self];
 }
 
@@ -85,7 +85,7 @@
     NSDictionary *dict = [[[categories objectAtIndex:indexPath.section] objectForKey:@"items"] objectAtIndex:indexPath.row];
     NSString *name = UIAppDelegate.displayLanguage == english ? @"name_english" : @"name_japanese";
     cell.textLabel.text = [dict objectForKey:name];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"¥%d", [[dict objectForKey:@"price"] intValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"¥%@", [dict objectForKey:@"price"]];
     
     return cell;
 }

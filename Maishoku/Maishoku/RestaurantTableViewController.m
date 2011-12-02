@@ -49,7 +49,7 @@
     [objectMapping mapKeyPath:@"cuisines" toAttribute:@"cuisines"];
     [objectMapping mapKeyPath:@"address" toAttribute:@"address"];
     [objectMapping mapKeyPath:@"hours" toAttribute:@"hours"];
-    [objectMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     // Format the GET query params
     NSArray *keys = [NSArray arrayWithObjects:@"lat", @"lon", nil];

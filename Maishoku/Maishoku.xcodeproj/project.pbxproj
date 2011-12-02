@@ -49,6 +49,7 @@
 		4EBF1945148548810098089B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF1944148548810098089B /* Reachability.m */; };
 		4EBF1948148659EA0098089B /* shoku57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1946148659EA0098089B /* shoku57.png */; };
 		4EBF1949148659EA0098089B /* shoku114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1947148659EA0098089B /* shoku114.png */; };
+		4EBF194C1488B7100098089B /* CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF194B1488B7100098089B /* CreditCard.m */; };
 		4EC1275D147A045500323016 /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1275C147A045500323016 /* NewAddressViewController.m */; };
 		4EC12760147A68EA00323016 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1275F147A68EA00323016 /* Category.m */; };
 		4EC12763147A8D7100323016 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC12762147A8D7100323016 /* ItemViewController.m */; };
@@ -217,6 +218,8 @@
 		4EBF1944148548810098089B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		4EBF1946148659EA0098089B /* shoku57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoku57.png; sourceTree = "<group>"; };
 		4EBF1947148659EA0098089B /* shoku114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoku114.png; sourceTree = "<group>"; };
+		4EBF194A1488B7100098089B /* CreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreditCard.h; path = Models/CreditCard.h; sourceTree = "<group>"; };
+		4EBF194B1488B7100098089B /* CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreditCard.m; path = Models/CreditCard.m; sourceTree = "<group>"; };
 		4EC1275B147A045500323016 /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
 		4EC1275C147A045500323016 /* NewAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAddressViewController.m; sourceTree = "<group>"; };
 		4EC1275E147A68EA00323016 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = Models/Category.h; sourceTree = "<group>"; };
@@ -422,6 +425,8 @@
 				4EC12775147D00D800323016 /* Position.m */,
 				4EBF192A1483EA020098089B /* Group.h */,
 				4EBF192B1483EA020098089B /* Group.m */,
+				4EBF194A1488B7100098089B /* CreditCard.h */,
+				4EBF194B1488B7100098089B /* CreditCard.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -672,6 +677,7 @@
 				4EC1277C147E30C800323016 /* SignUpViewController.m in Sources */,
 				4EBF192C1483EA020098089B /* Group.m in Sources */,
 				4EBF1945148548810098089B /* Reachability.m in Sources */,
+				4EBF194C1488B7100098089B /* CreditCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

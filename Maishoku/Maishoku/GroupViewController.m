@@ -32,7 +32,7 @@
     // Set up the Group object mapping
     RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[Group class]];
     [objectMapping mapKeyPath:@"name" toAttribute:@"name"];
-    [objectMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     // Retrieve the list of restaurants from the server
     RKObjectManager *manager = [RKObjectManager sharedManager];

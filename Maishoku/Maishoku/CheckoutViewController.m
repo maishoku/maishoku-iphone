@@ -9,10 +9,14 @@
 #import "AppDelegate.h"
 #import "Cart.h"
 #import "CheckoutViewController.h"
+#import "CreditCard.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/Network/RKRequestSerialization.h>
 
 @implementation CheckoutViewController
+{
+    NSMutableArray *savedCards;
+}
 
 @synthesize segmentedControl;
 @synthesize confirmOrderButton;
@@ -24,16 +28,22 @@
 @synthesize securityCodeTextField;
 @synthesize expirationDateLabel;
 @synthesize securityCodeLabel;
+@synthesize saveCardLabel;
+@synthesize saveCardSwitch;
+@synthesize savedCardsTableView;
+@synthesize savedCardsSpinner;
+@synthesize savedCardId;
 
 - (void)setButtonStatus
 {
-    if (UIAppDelegate.paymentMethod == credit_card
-      && (12  > [cardNumberTextField.text length]
-        || 4 != [expirationDateTextField.text length]
-        || 3  > [securityCodeTextField.text length]
-    )) {
-        [confirmOrderButton setEnabled:NO];
-        [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    if (UIAppDelegate.paymentMethod == credit_card) {
+        if (savedCardId != -1 || (12 <= [cardNumberTextField.text length] && 4 == [expirationDateTextField.text length] && 3 <= [securityCodeTextField.text length])) {
+            [confirmOrderButton setEnabled:YES];
+            [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        } else {
+            [confirmOrderButton setEnabled:NO];
+            [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        }
     } else {
         [confirmOrderButton setEnabled:YES];
         [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -43,6 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    savedCards = [NSMutableArray arrayWithCapacity:4];
     [segmentedControl setTitle:NSLocalizedString(@"Cash", nil) forSegmentAtIndex:0];
     [segmentedControl setTitle:NSLocalizedString(@"Credit Card", nil) forSegmentAtIndex:1];
     [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
@@ -54,25 +65,31 @@
     formatter = nil;
     [expirationDateTextField setPlaceholder:[NSString stringWithFormat:@"09%@", date]];
     [securityCodeTextField setPlaceholder:@"123"];
+    [self setSavedCardId:-1];
     [self valueChanged:nil];
 }
 
 - (IBAction)valueChanged:(id)sender
 {
-    if ([segmentedControl selectedSegmentIndex] == 0) {
-        UIAppDelegate.paymentMethod = cash_on_delivery;
-        [cardNumberTextField setHidden:YES];
-        [expirationDateTextField setHidden:YES];
-        [securityCodeTextField setHidden:YES];
-        [expirationDateLabel setText:nil];
-        [securityCodeLabel setText:nil];
-    } else {
-        UIAppDelegate.paymentMethod = credit_card;
-        [cardNumberTextField setHidden:NO];
-        [expirationDateTextField setHidden:NO];
-        [securityCodeTextField setHidden:NO];
-        [expirationDateLabel setText:NSLocalizedString(@"Expiration Date", nil)];
-        [securityCodeLabel setText:NSLocalizedString(@"Security Code", nil)];
+    NSInteger index = [segmentedControl selectedSegmentIndex];
+    switch (index) {
+        case CASH:
+            UIAppDelegate.paymentMethod = cash_on_delivery;
+            [cardNumberTextField setHidden:YES];
+            [expirationDateTextField setHidden:YES];
+            [securityCodeTextField setHidden:YES];
+            [saveCardSwitch setHidden:YES];
+            [savedCardsTableView setHidden:YES];
+            [expirationDateLabel setText:nil];
+            [securityCodeLabel setText:nil];
+            [saveCardLabel setText:nil];
+            break;
+        case CARD:
+            UIAppDelegate.paymentMethod = credit_card;
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"New Card", nil), NSLocalizedString(@"Saved Card", nil), nil];
+            [actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+            [actionSheet showInView:[self view]];
+            break;
     }
     [self setButtonStatus];
 }
@@ -88,9 +105,13 @@
      * 
      * {"restaurant_id": 9, "payment_method": 2, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}]}
      *
-     * And like this for credit card payments:
+     * And like this for credit card payments with a new credit card:
      * 
      * {"restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "card_number": "4111111111111111", "expiration_date": "12/13", "security_code": "1234"}
+     *
+     * And like this for credit card payments with a saved credit card:
+     * 
+     * {"restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "credit_card_id": 1}
      */
 
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:4];
@@ -99,7 +120,7 @@
     [[Cart allItems] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSArray *keys = [NSArray arrayWithObjects:@"item_id", @"quantity", nil];
         Item *item = (Item *)obj;
-        NSNumber *itemId = [NSNumber numberWithInt:item.id];
+        NSNumber *itemId = item.identifier;
         NSNumber *quantity = [NSNumber numberWithInt:[Cart quantityForItem:item]];
         NSArray *objects = [NSArray arrayWithObjects:itemId, quantity, nil];
         NSDictionary *itemDict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
@@ -107,14 +128,21 @@
     }];
     
     [dict setObject:items forKey:@"items"];
-    [dict setObject:[NSNumber numberWithInt:UIAppDelegate.restaurant.id] forKey:@"restaurant_id"];
+    [dict setObject:UIAppDelegate.restaurant.identifier forKey:@"restaurant_id"];
     [dict setObject:[NSNumber numberWithInt:UIAppDelegate.paymentMethod] forKey:@"payment_method"];
     [dict setObject:[NSNumber numberWithBool:UIAppDelegate.orderMethod] forKey:@"is_delivery"];
     
     if (UIAppDelegate.paymentMethod == credit_card) {
-        [dict setObject:cardNumberTextField.text forKey:@"card_number"];
-        [dict setObject:expirationDateTextField.text forKey:@"expiration_date"];
-        [dict setObject:securityCodeTextField.text forKey:@"security_code"];
+        if ([self savedCardId] != -1) {
+            [dict setObject:[NSNumber numberWithInt:savedCardId] forKey:@"credit_card_id"];
+        } else {
+            [dict setObject:cardNumberTextField.text forKey:@"card_number"];
+            [dict setObject:expirationDateTextField.text forKey:@"expiration_date"];
+            [dict setObject:securityCodeTextField.text forKey:@"security_code"];
+            if (saveCardSwitch.on) {
+                [dict setObject:[NSNumber numberWithBool:TRUE] forKey:@"save_card"];
+            }
+        }
     }
     
     id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:RKMIMETypeJSON];
@@ -153,6 +181,39 @@
 }
 
 /*------------------------------------------------------------------------------------*/
+/* UIActionSheetDelegate                                                              */
+/*------------------------------------------------------------------------------------*/
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case NEW_CARD: {
+            [cardNumberTextField setHidden:NO];
+            [expirationDateTextField setHidden:NO];
+            [securityCodeTextField setHidden:NO];
+            [saveCardSwitch setHidden:NO];
+            [expirationDateLabel setText:NSLocalizedString(@"Expiration Date", nil)];
+            [securityCodeLabel setText:NSLocalizedString(@"Security Code", nil)];
+            [saveCardLabel setText:NSLocalizedString(@"Save Card", nil)];
+            break;
+        }
+        case SAVED_CARD: {
+            [savedCardsSpinner startAnimating];
+            RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[CreditCard class]];
+            [objectMapping mapKeyPath:@"card_number" toAttribute:@"cardNumber"];
+            [objectMapping mapKeyPath:@"expiration_date" toAttribute:@"expirationDate"];
+            [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+            [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/credit_cards" objectMapping:objectMapping delegate:self];
+            break;
+        }
+        case CANCEL: {
+            [segmentedControl setSelectedSegmentIndex:CASH];
+            break;
+        }
+    }
+}
+
+/*------------------------------------------------------------------------------------*/
 /* UITextFieldDelegate                                                                */
 /*------------------------------------------------------------------------------------*/
 
@@ -186,6 +247,76 @@
 }
 
 /*------------------------------------------------------------------------------------*/
+/* UITableViewDelegate                                                                */
+/*------------------------------------------------------------------------------------*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == savedCardsTableView) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        NSUInteger row = indexPath.row;
+        if (row != NSNotFound) {
+            CreditCard *creditCard = [savedCards objectAtIndex:indexPath.row];
+            [self setSavedCardId:[creditCard.identifier integerValue]];
+            NSInteger n = [tableView numberOfRowsInSection:0];
+            for (int i = 0; i < n; i++) {
+                [[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]] setAccessoryType:UITableViewCellAccessoryNone];
+            }
+            [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+            [confirmOrderButton setEnabled:YES];
+            [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+    }
+}
+
+/*------------------------------------------------------------------------------------*/
+/* UITableViewDataSource                                                              */
+/*------------------------------------------------------------------------------------*/
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == savedCardsTableView && editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView beginUpdates];
+        NSNumber *creditCardId = ((CreditCard *)[savedCards objectAtIndex:indexPath.row]).identifier;
+        NSString *resourcePath = [NSString stringWithFormat:@"/credit_cards/%@", creditCardId];
+        [[RKClient sharedClient] delete:resourcePath delegate:nil]; // Should 'always' succeed, so don't care about the response
+        [savedCards removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:YES];
+        if ([creditCardId integerValue] == savedCardId) {
+            [self setSavedCardId:-1];
+            [self setButtonStatus];
+        }
+        [tableView endUpdates];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SavedCardCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    CreditCard *creditCard = [savedCards objectAtIndex:indexPath.row];
+    cell.textLabel.text = creditCard.cardNumber;
+    cell.detailTextLabel.text = creditCard.expirationDate;
+    
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [savedCards count];
+}
+
+/*------------------------------------------------------------------------------------*/
 /* RKRequestDelegate                                                                  */
 /*------------------------------------------------------------------------------------*/
 
@@ -199,7 +330,7 @@
     [spinner stopAnimating];
     [Cart clear];
     [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
-    [confirmOrderButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [confirmOrderButton setEnabled:NO];
     [doneButton setEnabled:YES];
     [segmentedControl setEnabled:NO];
@@ -209,14 +340,19 @@
     [expirationDateTextField setEnabled:NO];
     [securityCodeTextField setText:nil];
     [securityCodeTextField setEnabled:NO];
+    [saveCardSwitch setEnabled:NO];
+    [savedCardsTableView setHidden:YES];
 }
 
 - (void)request:(RKRequest *)request didLoadResponse:(RKResponse *)response
 {
-    [self lockDown];
     if ([response isCreated]) {
+        [self lockDown];
         [confirmedLabel setText:[NSString stringWithFormat:@"%@\n%@.", NSLocalizedString(@"Order Confirmed", nil), UIAppDelegate.restaurant.deliveryTime]];
+    } else if ([response isOK]) {
+        // Saved credit cards were loaded, ignore here
     } else {
+        [self lockDown];
         [self showAlert];
     }
 }
@@ -228,11 +364,32 @@
 }
 
 /*------------------------------------------------------------------------------------*/
+/* RKObjectLoaderDelegate                                                             */
+/*------------------------------------------------------------------------------------*/
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    [savedCards removeAllObjects];
+    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [savedCards addObject:(CreditCard *)obj];
+    }];
+    [savedCardsSpinner stopAnimating];
+    [savedCardsTableView setHidden:NO];
+    [savedCardsTableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    NSLog(@"Encountered an error: %@", error);
+}
+
+/*------------------------------------------------------------------------------------*/
 /* XCode-generated stuff below                                                        */
 /*------------------------------------------------------------------------------------*/
 
 - (void)viewDidUnload
 {
+    savedCards = nil;
     [self setSegmentedControl:nil];
     [self setConfirmOrderButton:nil];
     [self setSpinner:nil];
@@ -243,6 +400,10 @@
     [self setSecurityCodeTextField:nil];
     [self setExpirationDateLabel:nil];
     [self setSecurityCodeLabel:nil];
+    [self setSaveCardLabel:nil];
+    [self setSaveCardSwitch:nil];
+    [self setSavedCardsTableView:nil];
+    [self setSavedCardsSpinner:nil];
     [super viewDidUnload];
 }
 

@@ -9,7 +9,13 @@
 #import <RestKit/RestKit.h>
 #import <UIKit/UIKit.h>
 
-@interface CheckoutViewController : UIViewController <RKRequestDelegate, UITextFieldDelegate>
+#define CASH 0
+#define CARD 1
+#define NEW_CARD 0
+#define SAVED_CARD 1
+#define CANCEL 2
+
+@interface CheckoutViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *confirmOrderButton;
@@ -21,6 +27,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *securityCodeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *expirationDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *securityCodeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saveCardLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *saveCardSwitch;
+@property (weak, nonatomic) IBOutlet UITableView *savedCardsTableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *savedCardsSpinner;
+
+@property (atomic) NSInteger savedCardId;
 
 - (IBAction)valueChanged:(id)sender;
 - (IBAction)confirmOrder:(id)sender;

@@ -25,6 +25,9 @@
 "Credit Card Number" = "クレジットカード番号";
 "Expiration Date" = "有効期限";
 "Security Code" = "セキュリティコード";
+"Save Card" = "カード情報の保存";
+"New Card" = "新しいカード";
+"Saved Card" = "保存済のカード";
 
 /* ItemViewController */
 "Quantity In Cart" = "カートにある商品数";

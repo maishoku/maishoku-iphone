@@ -27,7 +27,7 @@
     __block NSInteger price = 0;
     [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Item *item = (Item *)obj;
-        price += item.price * [Cart quantityForItem:item];
+        price += [item.price intValue] * [Cart quantityForItem:item];
     }];
     totalPrice = price;
     if (totalPrice == 0) {
