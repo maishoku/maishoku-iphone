@@ -61,6 +61,10 @@
 "Submit" = "전송";
 "Cancel" = "취소";
 
+/* NewGroupViewController */
+"Group Name" = "그룹 이름";
+"Awesome Group" = "짱그룹";
+
 /* RestaurantTableViewController */
 "Restaurants" = "음식점";
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 Dynaptico LLC. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "Group.h"
 #import "GroupViewController.h"
 #import <RestKit/RestKit.h>
@@ -41,7 +42,8 @@
 
 - (IBAction)addGroup:(id)sender
 {
-    
+    UIViewController *newAddressViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"NewGroupViewController"];
+    [self presentModalViewController:newAddressViewController animated:YES];
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -105,7 +107,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    NSLog(@"Encountered an error: %@", error);
+    [[[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 /*------------------------------------------------------------------------------------*/

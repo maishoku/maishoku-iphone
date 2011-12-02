@@ -50,6 +50,7 @@
 		4EBF1948148659EA0098089B /* shoku57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1946148659EA0098089B /* shoku57.png */; };
 		4EBF1949148659EA0098089B /* shoku114.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBF1947148659EA0098089B /* shoku114.png */; };
 		4EBF194C1488B7100098089B /* CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF194B1488B7100098089B /* CreditCard.m */; };
+		4EBF194F148931F80098089B /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF194E148931F50098089B /* NewGroupViewController.m */; };
 		4EC1275D147A045500323016 /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1275C147A045500323016 /* NewAddressViewController.m */; };
 		4EC12760147A68EA00323016 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1275F147A68EA00323016 /* Category.m */; };
 		4EC12763147A8D7100323016 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC12762147A8D7100323016 /* ItemViewController.m */; };
@@ -220,6 +221,8 @@
 		4EBF1947148659EA0098089B /* shoku114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoku114.png; sourceTree = "<group>"; };
 		4EBF194A1488B7100098089B /* CreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreditCard.h; path = Models/CreditCard.h; sourceTree = "<group>"; };
 		4EBF194B1488B7100098089B /* CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreditCard.m; path = Models/CreditCard.m; sourceTree = "<group>"; };
+		4EBF194D148931F40098089B /* NewGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroupViewController.h; sourceTree = "<group>"; };
+		4EBF194E148931F50098089B /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
 		4EC1275B147A045500323016 /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
 		4EC1275C147A045500323016 /* NewAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAddressViewController.m; sourceTree = "<group>"; };
 		4EC1275E147A68EA00323016 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = Models/Category.h; sourceTree = "<group>"; };
@@ -315,7 +318,6 @@
 		4E608C1614596A92007134EA /* Maishoku */ = {
 			isa = PBXGroup;
 			children = (
-				4EBF1942148548800098089B /* Reachability */,
 				4E608C1F14596A92007134EA /* AppDelegate.h */,
 				4EC12766147CE85100323016 /* CartViewController.h */,
 				4EC1276B147CEC3C00323016 /* CheckoutViewController.h */,
@@ -327,6 +329,7 @@
 				4E814913145EA40F0028CE51 /* LocationViewController.h */,
 				4E608C5514597BE2007134EA /* LoginViewController.h */,
 				4EC1275B147A045500323016 /* NewAddressViewController.h */,
+				4EBF194D148931F40098089B /* NewGroupViewController.h */,
 				4E608CB9145AB12E007134EA /* RestaurantTableViewController.h */,
 				4E608C2514596A92007134EA /* RestaurantViewController.h */,
 				4EC1277A147E30C700323016 /* SignUpViewController.h */,
@@ -341,12 +344,14 @@
 				4E814914145EA40F0028CE51 /* LocationViewController.m */,
 				4E608C5614597BE2007134EA /* LoginViewController.m */,
 				4EC1275C147A045500323016 /* NewAddressViewController.m */,
+				4EBF194E148931F50098089B /* NewGroupViewController.m */,
 				4E608CBA145AB12E007134EA /* RestaurantTableViewController.m */,
 				4E608C2614596A92007134EA /* RestaurantViewController.m */,
 				4EC1277B147E30C700323016 /* SignUpViewController.m */,
 				4E814909145E68EC0028CE51 /* Keychain */,
 				4E608C2214596A92007134EA /* MainStoryboard.storyboard */,
 				4E608CBF145ABE7C007134EA /* Models */,
+				4EBF1942148548800098089B /* Reachability */,
 				4E608C1714596A92007134EA /* Supporting Files */,
 			);
 			path = Maishoku;
@@ -678,6 +683,7 @@
 				4EBF192C1483EA020098089B /* Group.m in Sources */,
 				4EBF1945148548810098089B /* Reachability.m in Sources */,
 				4EBF194C1488B7100098089B /* CreditCard.m in Sources */,
+				4EBF194F148931F80098089B /* NewGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

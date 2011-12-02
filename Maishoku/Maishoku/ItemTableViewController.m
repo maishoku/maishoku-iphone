@@ -58,6 +58,16 @@
     [itemViewController setCategoryName:categoryName];
 }
 
+- (IBAction)showCart:(id)sender
+{
+    UIViewController *cartViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"CartNavigationViewController"];
+    [self presentModalViewController:cartViewController animated:YES];
+}
+
+/*------------------------------------------------------------------------------------*/
+/* UITableViewDelegate                                                                */
+/*------------------------------------------------------------------------------------*/
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -72,6 +82,10 @@
         [self performSegueWithIdentifier:@"ItemSegue" sender:nil];
     }
 }
+
+/*------------------------------------------------------------------------------------*/
+/* UITableViewDataSource                                                              */
+/*------------------------------------------------------------------------------------*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -105,17 +119,12 @@
     return [[[categories objectAtIndex:section] objectForKey:@"items"] count];
 }
 
-- (IBAction)showCart:(id)sender
-{
-    UIViewController *cartViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"CartNavigationViewController"];
-    [self presentModalViewController:cartViewController animated:YES];
-}
-
 /*------------------------------------------------------------------------------------*/
 /* RKObjectLoaderDelegate                                                             */
 /*------------------------------------------------------------------------------------*/
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
     [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSArray *keys = [NSArray arrayWithObjects:@"title", @"items", nil];
         Category *category = (Category *)obj;
@@ -130,8 +139,9 @@
     [self.tableView reloadData];
 }
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    NSLog(@"Encountered an error: %@", error);
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    [[[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 /*------------------------------------------------------------------------------------*/

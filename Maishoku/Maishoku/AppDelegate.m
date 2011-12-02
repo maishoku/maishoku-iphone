@@ -8,6 +8,7 @@
 
 #import "Address.h"
 #import "AppDelegate.h"
+#import "Group.h"
 #import "Reachability.h"
 #import "KeychainItemWrapper.h"
 #import "TargetConditionals.h"
@@ -62,10 +63,10 @@
     objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
 	reachabilityWithHostName = [Reachability reachabilityWithHostName: @"api-dev.maishoku.com"];
 #else
-    [RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
-    objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
-    //[RKClient clientWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
-    //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
+    //[RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
+    //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
+    [RKClient clientWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
+    objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
 	reachabilityWithHostName = [Reachability reachabilityWithHostName: @"api.maishoku.com"];
 #endif
     
@@ -81,6 +82,7 @@
     // Set up routing for models that require it
     RKObjectRouter *router = [objectManager router];
     [router routeClass:[Address class] toResourcePath:@"/user/address"];
+    [router routeClass:[Group class] toResourcePath:@"/group"];
     
     // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method "reachabilityChanged" will be called.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

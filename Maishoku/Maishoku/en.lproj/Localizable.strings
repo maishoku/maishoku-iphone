@@ -64,6 +64,10 @@
 "Submit" = "Submit";
 "Cancel" = "Cancel";
 
+/* NewGroupViewController */
+"Group Name" = "Group Name";
+"Awesome Group" = "Awesome Group";
+
 /* RestaurantTableViewController */
 "Restaurants" = "Restaurants";
 

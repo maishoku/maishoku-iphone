@@ -84,6 +84,15 @@
     }
 }
 
+- (IBAction)refresh:(id)sender
+{
+    [self loadRestaurants];
+}
+
+/*------------------------------------------------------------------------------------*/
+/* UITableViewDelegate                                                                */
+/*------------------------------------------------------------------------------------*/
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -95,6 +104,10 @@
         [self performSegueWithIdentifier:@"RestaurantViewSegue" sender:nil];
     }
 }
+
+/*------------------------------------------------------------------------------------*/
+/* UITableViewDataSource                                                              */
+/*------------------------------------------------------------------------------------*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -122,11 +135,6 @@
     return [restaurants count];
 }
 
-- (IBAction)refresh:(id)sender
-{
-    [self loadRestaurants];
-}
-
 /*------------------------------------------------------------------------------------*/
 /* RKObjectLoaderDelegate                                                             */
 /*------------------------------------------------------------------------------------*/
@@ -144,7 +152,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    NSLog(@"Encountered an error: %@", error);
+    [[[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 /*------------------------------------------------------------------------------------*/

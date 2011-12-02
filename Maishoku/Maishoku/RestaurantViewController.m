@@ -25,7 +25,7 @@
     [phoneNumberLabel setText:UIAppDelegate.restaurant.phoneContact];
     [addressLabel setText:UIAppDelegate.restaurant.address];
     [deliveryTimeLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Delivery Time", nil), UIAppDelegate.restaurant.deliveryTime]];
-    [minimumOrderLabel setText:[NSString stringWithFormat:@"%@: ¥%i", NSLocalizedString(@"Minimum Order", nil), UIAppDelegate.restaurant.minimumOrder]];
+    [minimumOrderLabel setText:[NSString stringWithFormat:@"%@: ¥%@", NSLocalizedString(@"Minimum Order", nil), UIAppDelegate.restaurant.minimumOrder]];
     [cuisinesLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Cuisines", nil), UIAppDelegate.restaurant.commaSeparatedCuisines]];
     [seeItemsButton setTitle:NSLocalizedString(@"See Items", nil) forState:UIControlStateNormal];
     [navigationItem setTitle:UIAppDelegate.restaurant.name];

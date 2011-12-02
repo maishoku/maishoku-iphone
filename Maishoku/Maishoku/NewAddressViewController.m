@@ -90,7 +90,7 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
     [self restoreButton];
-    if ([[objectLoader response] isOK]) {
+    if ([[objectLoader response] isCreated]) {
         [UIAppDelegate setAddressesLoaded:NO];
         [self dismissModalViewControllerAnimated:YES];
     } else {
