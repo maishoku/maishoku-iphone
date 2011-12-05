@@ -194,6 +194,7 @@
         }
         case CANCEL: {
             [segmentedControl setSelectedSegmentIndex:CASH];
+            [self valueChanged:nil];
             break;
         }
     }
