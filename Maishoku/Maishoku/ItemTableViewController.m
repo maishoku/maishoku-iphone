@@ -23,7 +23,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.navigationItem setTitle:UIAppDelegate.restaurant.name];
+    [self.navigationItem setTitle:NSLocalizedString(@"Menu", nil)];
     
     if (categories == NULL) {
         categories = [NSMutableArray arrayWithCapacity:16];

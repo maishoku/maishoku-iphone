@@ -32,6 +32,9 @@
 /* FavoritesViewController */
 "Items" = "Items";
 
+/* ItemTableViewController */
+"Menu" = "Menu";
+
 /* ItemViewController */
 "Quantity In Cart" = "Quantity currently in cart";
 "Failed To Load Item" = "Failed to load item";
@@ -75,7 +78,7 @@
 "Delivery Time" = "Delivery Time";
 "Minimum Order" = "Minimum Order";
 "Cuisines" = "Cuisines";
-"See Items" = "See items from this restaurant";
+"See Menu" = "See menu for this restaurant";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "Passwords are not the same";

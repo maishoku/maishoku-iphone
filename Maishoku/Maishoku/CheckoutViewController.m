@@ -25,9 +25,7 @@
 @synthesize doneButton;
 @synthesize cardNumberTextField;
 @synthesize expirationDateTextField;
-@synthesize securityCodeTextField;
 @synthesize expirationDateLabel;
-@synthesize securityCodeLabel;
 @synthesize saveCardLabel;
 @synthesize saveCardSwitch;
 @synthesize savedCardsTableView;
@@ -37,7 +35,7 @@
 - (void)setButtonStatus
 {
     if (UIAppDelegate.paymentMethod == credit_card) {
-        if (savedCardId != -1 || (12 <= [cardNumberTextField.text length] && 4 == [expirationDateTextField.text length] && 3 <= [securityCodeTextField.text length])) {
+        if (savedCardId != -1 || (12 <= [cardNumberTextField.text length] && 4 == [expirationDateTextField.text length])) {
             [confirmOrderButton setEnabled:YES];
             [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         } else {
@@ -64,7 +62,6 @@
     NSString *date = [formatter stringFromDate:[[NSDate date] dateByAddingTimeInterval:oneYear]];
     formatter = nil;
     [expirationDateTextField setPlaceholder:[NSString stringWithFormat:@"09%@", date]];
-    [securityCodeTextField setPlaceholder:@"123"];
     [self setSavedCardId:-1];
     [self valueChanged:nil];
 }
@@ -77,11 +74,9 @@
             UIAppDelegate.paymentMethod = cash_on_delivery;
             [cardNumberTextField setHidden:YES];
             [expirationDateTextField setHidden:YES];
-            [securityCodeTextField setHidden:YES];
             [saveCardSwitch setHidden:YES];
             [savedCardsTableView setHidden:YES];
             [expirationDateLabel setText:nil];
-            [securityCodeLabel setText:nil];
             [saveCardLabel setText:nil];
             break;
         case CARD:
@@ -138,7 +133,6 @@
         } else {
             [dict setObject:cardNumberTextField.text forKey:@"card_number"];
             [dict setObject:expirationDateTextField.text forKey:@"expiration_date"];
-            [dict setObject:securityCodeTextField.text forKey:@"security_code"];
             if (saveCardSwitch.on) {
                 [dict setObject:[NSNumber numberWithBool:TRUE] forKey:@"save_card"];
             }
@@ -167,17 +161,11 @@
     [self setButtonStatus];
 }
 
-- (IBAction)securityCodeEditingChanged:(id)sender
-{
-    [self setButtonStatus];
-}
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
     [cardNumberTextField resignFirstResponder];
     [expirationDateTextField resignFirstResponder];
-    [securityCodeTextField resignFirstResponder];
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -190,10 +178,8 @@
         case NEW_CARD: {
             [cardNumberTextField setHidden:NO];
             [expirationDateTextField setHidden:NO];
-            [securityCodeTextField setHidden:NO];
             [saveCardSwitch setHidden:NO];
             [expirationDateLabel setText:NSLocalizedString(@"Expiration Date", nil)];
-            [securityCodeLabel setText:NSLocalizedString(@"Security Code", nil)];
             [saveCardLabel setText:NSLocalizedString(@"Save Card", nil)];
             break;
         }
@@ -221,10 +207,7 @@
 {
     [self setButtonStatus];
     
-    if (textField == cardNumberTextField
-     || textField == expirationDateTextField
-     || textField == securityCodeTextField
-    ) {
+    if (textField == cardNumberTextField || textField == expirationDateTextField) {
         [textField resignFirstResponder];
     }
     
@@ -238,8 +221,6 @@
     if (textField == cardNumberTextField) {
         return [textField.text length] + length <= 20;
     } else if (textField == expirationDateTextField) {
-        return [textField.text length] + length <= 4;
-    } else if (textField == securityCodeTextField) {
         return [textField.text length] + length <= 4;
     }
     
@@ -338,8 +319,6 @@
     [cardNumberTextField setEnabled:NO];
     [expirationDateTextField setText:nil];
     [expirationDateTextField setEnabled:NO];
-    [securityCodeTextField setText:nil];
-    [securityCodeTextField setEnabled:NO];
     [saveCardSwitch setEnabled:NO];
     [savedCardsTableView setHidden:YES];
 }
@@ -397,9 +376,7 @@
     [self setDoneButton:nil];
     [self setCardNumberTextField:nil];
     [self setExpirationDateTextField:nil];
-    [self setSecurityCodeTextField:nil];
     [self setExpirationDateLabel:nil];
-    [self setSecurityCodeLabel:nil];
     [self setSaveCardLabel:nil];
     [self setSaveCardSwitch:nil];
     [self setSavedCardsTableView:nil];

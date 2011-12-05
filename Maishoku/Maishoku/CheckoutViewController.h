@@ -24,9 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *expirationDateTextField;
-@property (weak, nonatomic) IBOutlet UITextField *securityCodeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *expirationDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *securityCodeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *saveCardLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *saveCardSwitch;
 @property (weak, nonatomic) IBOutlet UITableView *savedCardsTableView;
@@ -39,6 +37,5 @@
 - (IBAction)done:(id)sender;
 - (IBAction)cardNumberEditingChanged:(id)sender;
 - (IBAction)expirationDateEditingChanged:(id)sender;
-- (IBAction)securityCodeEditingChanged:(id)sender;
 
 @end

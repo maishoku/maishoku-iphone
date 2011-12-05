@@ -29,6 +29,9 @@
 "New Card" = "新しいカード";
 "Saved Card" = "保存済のカード";
 
+/* ItemTableViewController */
+"Menu" = "メニュー";
+
 /* ItemViewController */
 "Quantity In Cart" = "カートにある商品数";
 "Failed To Load Item" = "商品を読み込めませんでした";
@@ -72,7 +75,7 @@
 "Delivery Time" = "お届けの時間";
 "Minimum Order" = "最低注文金額";
 "Cuisines" = "ジャンル";
-"See Items" = "この店のメニューを見る";
+"See Menu" = "この店のメニューを見る";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "パスワードが一致していません";
