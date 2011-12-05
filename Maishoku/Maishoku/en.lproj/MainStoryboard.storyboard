@@ -1227,7 +1227,6 @@
                 <relationship kind="outlet" name="saveCardSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="savedCardsSpinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="savedCardsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="securityCodeTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
