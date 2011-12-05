@@ -20,10 +20,15 @@
     NSString *categoryName;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:NSLocalizedString(@"Menu", nil)];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.navigationItem setTitle:NSLocalizedString(@"Menu", nil)];
     
     if (categories == NULL) {
         categories = [NSMutableArray arrayWithCapacity:16];
