@@ -62,7 +62,7 @@
     [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     
     // Retrieve the item from the server
-    NSString *resourcePath = [NSString stringWithFormat:@"/item/%d", itemId];
+    NSString *resourcePath = [NSString stringWithFormat:@"/items/%d", itemId];
     RKObjectManager *manager = [RKObjectManager sharedManager];
     [manager loadObjectsAtResourcePath:resourcePath objectMapping:objectMapping delegate:self];
 }

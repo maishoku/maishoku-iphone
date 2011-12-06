@@ -14,6 +14,9 @@
 "Total Price" = "Total Price";
 "Cart" = "Cart";
 "Checkout" = "Checkout";
+"Add To Favorites" = "Add To Favorites";
+"Favorite Added" = "Added to favorites.";
+"Favorite Failed" = "Failed to add to favorites.";
 
 /* CheckoutViewController */
 "Order Failed" = "Order Failed";

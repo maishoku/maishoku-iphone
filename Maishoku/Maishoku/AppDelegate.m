@@ -81,8 +81,8 @@
     
     // Set up routing for models that require it
     RKObjectRouter *router = [objectManager router];
-    [router routeClass:[Address class] toResourcePath:@"/user/address"];
-    [router routeClass:[Group class] toResourcePath:@"/group"];
+    [router routeClass:[Address class] toResourcePath:@"/addresses"];
+    [router routeClass:[Group class] toResourcePath:@"/groups"];
     
     // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method "reachabilityChanged" will be called.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

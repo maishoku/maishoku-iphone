@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface FavoritesViewController : UIViewController <RKRequestDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface FavoritesViewController : UIViewController <RKObjectLoaderDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *itemsTable;
+@property (weak, nonatomic) IBOutlet UITableView *favoritesTable;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

@@ -61,9 +61,9 @@
     
     NSString *resourcePath;
     if (UIAppDelegate.orderMethod == delivery) {
-        resourcePath = @"/restaurant/search/delivery";
+        resourcePath = @"/restaurants/search/delivery";
     } else {
-        resourcePath = @"/restaurant/search/pickup";
+        resourcePath = @"/restaurants/search/pickup";
     }
     
     // Retrieve the list of restaurants from the server

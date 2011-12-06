@@ -14,6 +14,9 @@
 "Total Price" = "合計";
 "Cart" = "カート";
 "Checkout" = "チェックアウト";
+"Add To Favorites" = "お気に入り追加";
+"Favorite Added" = "お気に入り追加しました";
+"Favorite Failed" = "お気に入り追加できませんでした";
 
 /* CheckoutViewController */
 "Order Failed" = "注文できませんでした";

@@ -143,7 +143,7 @@
     NSString *json = [parser stringFromObject:dict error:nil];
     NSObject<RKRequestSerializable> *params = [RKRequestSerialization serializationWithData:[json dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON];
     
-    [[RKClient sharedClient] post:@"/order" params:params delegate:self];
+    [[RKClient sharedClient] post:@"/orders" params:params delegate:self];
 }
 
 - (IBAction)done:(id)sender

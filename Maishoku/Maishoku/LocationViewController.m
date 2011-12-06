@@ -81,7 +81,7 @@
     [objectMapping mapKeyPath:@"lat" toAttribute:@"lat"];
     [objectMapping mapKeyPath:@"lon" toAttribute:@"lon"];
     
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/address" objectMapping:objectMapping delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/addresses" objectMapping:objectMapping delegate:self];
 }
 
 - (IBAction)addAddress:(id)sender
@@ -201,7 +201,7 @@
     if (tableView == addressView && editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         NSNumber *identifier = ((Address *)[addresses objectAtIndex:indexPath.row]).identifier;
-        NSString *resourcePath = [NSString stringWithFormat:@"/user/address/%@", identifier];
+        NSString *resourcePath = [NSString stringWithFormat:@"/addresses/%@", identifier];
         [[RKClient sharedClient] delete:resourcePath delegate:nil]; // Should 'always' succeed, so don't care about the response
         [addresses removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:YES];

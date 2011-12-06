@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Cart.h"
 #import "CartViewController.h"
+#import "Favorite.h"
 
 @implementation CartViewController
 {

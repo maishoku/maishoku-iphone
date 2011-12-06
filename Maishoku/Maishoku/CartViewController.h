@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
 
 - (IBAction)checkout:(id)sender;
-
 - (IBAction)cancel:(id)sender;
 
 @end

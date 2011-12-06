@@ -60,6 +60,7 @@
 		4EC12776147D00D800323016 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC12775147D00D800323016 /* Position.m */; };
 		4EC1277C147E30C800323016 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1277B147E30C700323016 /* SignUpViewController.m */; };
 		4EC1278B147FA3CA00323016 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1278D147FA3CA00323016 /* Localizable.strings */; };
+		4EFB116B148E2CEF006F3200 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB116A148E2CEF006F3200 /* Favorite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,8 @@
 		4EC1278C147FA3CA00323016 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EC1278E147FA3DD00323016 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EC1278F147FA3E200323016 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EFB1169148E2CEF006F3200 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		4EFB116A148E2CEF006F3200 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +435,8 @@
 				4EBF192B1483EA020098089B /* Group.m */,
 				4EBF194A1488B7100098089B /* CreditCard.h */,
 				4EBF194B1488B7100098089B /* CreditCard.m */,
+				4EFB1169148E2CEF006F3200 /* Favorite.h */,
+				4EFB116A148E2CEF006F3200 /* Favorite.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 				4EBF1945148548810098089B /* Reachability.m in Sources */,
 				4EBF194C1488B7100098089B /* CreditCard.m in Sources */,
 				4EBF194F148931F80098089B /* NewGroupViewController.m in Sources */,
+				4EFB116B148E2CEF006F3200 /* Favorite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
