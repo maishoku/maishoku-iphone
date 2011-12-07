@@ -322,6 +322,7 @@
     [expirationDateTextField setEnabled:NO];
     [saveCardSwitch setEnabled:NO];
     [savedCardsTableView setHidden:YES];
+    [self.navigationItem setHidesBackButton:YES animated:NO];
 }
 
 - (void)request:(RKRequest *)request didLoadResponse:(RKResponse *)response
