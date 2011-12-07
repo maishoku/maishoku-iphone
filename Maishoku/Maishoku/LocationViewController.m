@@ -153,6 +153,7 @@
     Address *address = [[Address alloc] init];
     [address setLat:newLocation.coordinate.latitude];
     [address setLon:newLocation.coordinate.longitude];
+    [address setIdentifier:[NSNumber numberWithInt:1]];
     [UIAppDelegate setAddress:address];
     [alertView dismissWithClickedButtonIndex:1 animated:YES];
 }

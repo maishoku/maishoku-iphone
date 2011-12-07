@@ -123,6 +123,7 @@
     }];
     
     [dict setObject:items forKey:@"items"];
+    [dict setObject:UIAppDelegate.address.identifier forKey:@"address_id"];
     [dict setObject:UIAppDelegate.restaurant.identifier forKey:@"restaurant_id"];
     [dict setObject:[NSNumber numberWithInt:UIAppDelegate.paymentMethod] forKey:@"payment_method"];
     [dict setObject:[NSNumber numberWithBool:UIAppDelegate.orderMethod] forKey:@"is_delivery"];
