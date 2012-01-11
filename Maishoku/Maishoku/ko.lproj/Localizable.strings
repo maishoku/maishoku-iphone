@@ -34,6 +34,7 @@
 
 /* ItemTableViewController */
 "Menu" = "메뉴";
+"Failed To Load Items" = "서버에 접속하지 못했습니다";
 
 /* ItemViewController */
 "Quantity In Cart" = "카트 안에";
@@ -72,7 +73,7 @@
 "Awesome Group" = "짱그룹";
 
 /* RestaurantTableViewController */
-"Restaurants" = "음식점";
+"Failed To Load Restaurants" = "서버에 접속하지 못했습니다";
 
 /* RestaurantViewController */
 "Delivery Time" = "배달 예정 시간";

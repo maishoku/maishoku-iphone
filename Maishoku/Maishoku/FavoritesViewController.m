@@ -117,7 +117,7 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     [spinner stopAnimating];
-    [[[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [[[UIAlertView alloc] initWithTitle:nil message:[[objectLoader response] bodyAsString] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 /*------------------------------------------------------------------------------------*/

@@ -89,9 +89,9 @@
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
 }
 
-- (void)showAlert
+- (void)showAlert:(NSString *)message
 {
-    [[[UIAlertView alloc] initWithTitle:@"Failed To Create New Group" message:@"Please Try Again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Failed To Create New Group" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 //    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed To Create New Group", nil) message:NSLocalizedString(@"Please Try Again", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
@@ -101,14 +101,15 @@
     if ([[objectLoader response] isCreated]) {
         [self dismissModalViewControllerAnimated:YES];
     } else {
-        [self showAlert];
+        // Should never happen - errors should result in a call to didFailWithError
+        [self showAlert:NSLocalizedString(@"Please Try Again", nil)];
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     [self restoreButton];
-    [self showAlert];
+    [self showAlert:[[objectLoader response] bodyAsString]];
 }
 
 /*------------------------------------------------------------------------------------*/

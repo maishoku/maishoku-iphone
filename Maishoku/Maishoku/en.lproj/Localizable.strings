@@ -37,6 +37,7 @@
 
 /* ItemTableViewController */
 "Menu" = "Menu";
+"Failed To Load Items" = "Failed to load items";
 
 /* ItemViewController */
 "Quantity In Cart" = "Quantity currently in cart";
@@ -75,7 +76,7 @@
 "Awesome Group" = "Awesome Group";
 
 /* RestaurantTableViewController */
-"Restaurants" = "Restaurants";
+"Failed To Load Restaurants" = "Failed to load restaurants";
 
 /* RestaurantViewController */
 "Delivery Time" = "Delivery Time";
@@ -87,7 +88,7 @@
 "Passwords Are Not Same" = "Passwords are not the same";
 "Phone Number Invalid" = "Phone number invalid";
 "Phone Number Format" = "Phone number should start with 0 and be at least 10 digits long";
-"Email Invalid" = "Email invalid";
+"Email Invalid" = "Email address invalid";
 "Please Enter Valid Email" = "Please enter a valid email address";
 "Error" = "Error";
 "Sign Up Complete" = "Sign Up Complete";

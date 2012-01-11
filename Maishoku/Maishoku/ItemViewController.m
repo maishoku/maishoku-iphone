@@ -88,9 +88,9 @@
 /* RKObjectLoaderDelegate                                                             */
 /*------------------------------------------------------------------------------------*/
 
-- (void)showAlert
+- (void)showAlert:(NSString *)message
 {
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed To Load Item", nil) message:NSLocalizedString(@"Load Screen Again", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed To Load Item", nil) message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
@@ -109,15 +109,15 @@
         [categoryLabel setText:categoryName];
         [self reloadLabel];
     } else {
-        [self showAlert];
+        // Should never happen - errors should result in a call to didFailWithError
+        [self showAlert:NSLocalizedString(@"Load Screen Again", nil)];
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     [spinner stopAnimating];
-    [self showAlert];
-//    [[[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [self showAlert:[[objectLoader response] bodyAsString]];
 }
 
 /*------------------------------------------------------------------------------------*/

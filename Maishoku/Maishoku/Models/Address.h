@@ -11,7 +11,7 @@
 @interface Address : NSObject
 
 @property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSString *lastDate;
+@property (nonatomic, strong) NSDate *lastDate;
 @property (nonatomic, strong) NSDate *firstDate;
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSNumber *frequency;

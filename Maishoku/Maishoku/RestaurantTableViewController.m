@@ -152,7 +152,8 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    [[[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [spinner stopAnimating];
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed To Load Restaurants", nil) message:NSLocalizedString(@"Load Screen Again", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 /*------------------------------------------------------------------------------------*/

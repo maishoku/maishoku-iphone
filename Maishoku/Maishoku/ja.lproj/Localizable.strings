@@ -34,6 +34,7 @@
 
 /* ItemTableViewController */
 "Menu" = "メニュー";
+"Failed To Load Items" = "商品を読み込めませんでした";
 
 /* ItemViewController */
 "Quantity In Cart" = "カートにある商品数";
@@ -47,7 +48,7 @@
 "Logout" = "ログアウト";
 "Delivery" = "宅配";
 "Pickup" = "お持ち帰り";
-"Restaurants" = "お店";
+"Restaurants" = "店舗";
 "Favorites" = "お気に入り商品";
 "Groups" = "グループ";
 "Getting Location" = "現在地を確認中...";
@@ -72,7 +73,7 @@
 "Awesome Group" = "素晴らしいグループ";
 
 /* RestaurantTableViewController */
-"Restaurants" = "店舗";
+"Failed To Load Restaurants" = "店舗を読み込めませんでした";
 
 /* RestaurantViewController */
 "Delivery Time" = "お届けの時間";

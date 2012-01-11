@@ -45,11 +45,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Cache the language to display for items and restaurants received from the server
-    NSArray *preferredLanguages = [NSLocale preferredLanguages];
-    if ([preferredLanguages count] == 0 || [((NSString *)[preferredLanguages objectAtIndex:0]) isEqualToString:@"en"]) {
-        displayLanguage = english;
-    } else {
+    if ([[[NSLocale preferredLanguages] objectAtIndex:0] isEqualToString:@"ja"]) {
         displayLanguage = japanese;
+    } else {
+        displayLanguage = english;
     }
     
     // Pre-instantiate the RKClient and RKObjectManager. They can now be accessed anywhere via

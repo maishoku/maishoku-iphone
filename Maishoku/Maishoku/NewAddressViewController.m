@@ -61,6 +61,12 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    [addressTextField resignFirstResponder];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITextFieldDelegate                                                                */
 /*------------------------------------------------------------------------------------*/
@@ -82,9 +88,9 @@
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
 }
 
-- (void)showAlert
+- (void)showAlert:(NSString *)message
 {
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed To Add New Address", nil) message:NSLocalizedString(@"Please Try Again", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed To Add New Address", nil) message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
@@ -94,14 +100,15 @@
         [UIAppDelegate setAddressesLoaded:NO];
         [self dismissModalViewControllerAnimated:YES];
     } else {
-        [self showAlert];
+        // Should never happen - errors should result in a call to didFailWithError
+        [self showAlert:NSLocalizedString(@"Please Try Again", nil)];
     }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     [self restoreButton];
-    [self showAlert];
+    [self showAlert:[[objectLoader response] bodyAsString]];
 }
 
 /*------------------------------------------------------------------------------------*/
