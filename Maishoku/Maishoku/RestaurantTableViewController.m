@@ -89,6 +89,11 @@
     [self loadRestaurants];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITableViewDelegate                                                                */
 /*------------------------------------------------------------------------------------*/

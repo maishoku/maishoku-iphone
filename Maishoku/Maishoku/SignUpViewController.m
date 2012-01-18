@@ -146,6 +146,11 @@ static NSString *emailRegex =
     [phoneNumberTextField resignFirstResponder];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITextFieldDelegate                                                                */
 /*------------------------------------------------------------------------------------*/

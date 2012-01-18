@@ -98,15 +98,15 @@
     /*
      * The JSON message should look like this for cash payments:
      * 
-     * {"restaurant_id": 9, "payment_method": 2, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}]}
+     * {"address_id": 1, "restaurant_id": 9, "payment_method": 2, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}]}
      *
      * And like this for credit card payments with a new credit card:
      * 
-     * {"restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "card_number": "4111111111111111", "expiration_date": "12/13", "security_code": "1234"}
+     * {"address_id": 1, "restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "card_number": "4111111111111111", "expiration_date": "12/13", "save_card": true}
      *
      * And like this for credit card payments with a saved credit card:
      * 
-     * {"restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "credit_card_id": 1}
+     * {"address_id": 1, "restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "credit_card_id": 1}
      */
 
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:4];
@@ -167,6 +167,11 @@
     [super touchesBegan:touches withEvent:event];
     [cardNumberTextField resignFirstResponder];
     [expirationDateTextField resignFirstResponder];
+}
+
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
 }
 
 /*------------------------------------------------------------------------------------*/

@@ -66,6 +66,11 @@
     [objectManager postObject:group mapResponseWith:responseObjectMapping delegate:self];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITextFieldDelegate                                                                */
 /*------------------------------------------------------------------------------------*/

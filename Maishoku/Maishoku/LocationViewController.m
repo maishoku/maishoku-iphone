@@ -118,6 +118,11 @@
     [locationManager startUpdatingLocation];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UIAlertViewDelegate                                                                */
 /*------------------------------------------------------------------------------------*/

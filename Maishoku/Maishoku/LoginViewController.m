@@ -107,6 +107,11 @@
     [passwordTextField resignFirstResponder];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITextFieldDelegate                                                                */
 /*------------------------------------------------------------------------------------*/

@@ -69,6 +69,11 @@
     [self presentModalViewController:cartViewController animated:YES];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITableViewDelegate                                                                */
 /*------------------------------------------------------------------------------------*/

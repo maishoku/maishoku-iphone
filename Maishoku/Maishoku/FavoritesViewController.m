@@ -42,6 +42,11 @@
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/user/favorites" objectMapping:objectMapping delegate:self];
 }
 
+- (void)dealloc
+{
+    [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITableViewDelegate                                                                */
 /*------------------------------------------------------------------------------------*/
