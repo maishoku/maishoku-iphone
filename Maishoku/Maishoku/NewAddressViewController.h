@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
+- (IBAction)addressEditingChanged:(id)sender;
+
 - (IBAction)submit:(id)sender;
 
 - (IBAction)cancel:(id)sender;

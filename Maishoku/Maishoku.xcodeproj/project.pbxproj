@@ -60,6 +60,7 @@
 		4EC12776147D00D800323016 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC12775147D00D800323016 /* Position.m */; };
 		4EC1277C147E30C800323016 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1277B147E30C700323016 /* SignUpViewController.m */; };
 		4EC1278B147FA3CA00323016 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1278D147FA3CA00323016 /* Localizable.strings */; };
+		4EC896F314C8624E00A577BB /* maishoku.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC896F214C8624E00A577BB /* maishoku.png */; };
 		4EFB116B148E2CEF006F3200 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB116A148E2CEF006F3200 /* Favorite.m */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +244,7 @@
 		4EC1278C147FA3CA00323016 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EC1278E147FA3DD00323016 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EC1278F147FA3E200323016 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EC896F214C8624E00A577BB /* maishoku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maishoku.png; sourceTree = "<group>"; };
 		4EFB1169148E2CEF006F3200 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		4EFB116A148E2CEF006F3200 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,6 +365,7 @@
 		4E608C1714596A92007134EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4EC896F214C8624E00A577BB /* maishoku.png */,
 				4EBF1946148659EA0098089B /* shoku57.png */,
 				4EBF1947148659EA0098089B /* shoku114.png */,
 				4EBF1926148396A60098089B /* heart.png */,
@@ -629,6 +632,7 @@
 				4EBF1927148396A60098089B /* heart.png in Resources */,
 				4EBF1948148659EA0098089B /* shoku57.png in Resources */,
 				4EBF1949148659EA0098089B /* shoku114.png in Resources */,
+				4EC896F314C8624E00A577BB /* maishoku.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

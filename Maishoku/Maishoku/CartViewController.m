@@ -44,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setTintColor:MAISHOKU_RED];
     [self.navigationItem setTitle:NSLocalizedString(@"Cart", nil)];
     [checkoutButton setTitle:NSLocalizedString(@"Checkout", nil) forState:UIControlStateNormal];
 }

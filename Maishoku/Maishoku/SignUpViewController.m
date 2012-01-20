@@ -42,6 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [label setTextColor:MAISHOKU_RED];
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [usernameTextField setPlaceholder:NSLocalizedString(@"Username", nil)];
     [passwordTextField1 setPlaceholder:NSLocalizedString(@"Password", nil)];

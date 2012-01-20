@@ -17,6 +17,7 @@
     NSString *password;
 }
 
+@synthesize label;
 @synthesize loginButton;
 @synthesize signupButton;
 @synthesize usernameTextField;
@@ -44,6 +45,7 @@
 {
     [super viewDidLoad];
     [self setLoginButtonState];
+    [label setTextColor:MAISHOKU_RED];
     [usernameTextField setPlaceholder:NSLocalizedString(@"Username", nil)];
     [passwordTextField setPlaceholder:NSLocalizedString(@"Password", nil)];
     [loginButton setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
@@ -169,6 +171,7 @@
     [self setSpinner:nil];
     [self setLoginButton:nil];
     [self setSignupButton:nil];
+    [self setLabel:nil];
     [super viewDidUnload];
 }
 

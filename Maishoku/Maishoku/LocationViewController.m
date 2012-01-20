@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar setTintColor:MAISHOKU_RED];
+    
     [[self.tabBarController viewControllers] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIViewController *viewController = (UIViewController *)obj;
         switch (viewController.tabBarItem.tag) {
@@ -226,7 +228,7 @@
     
     Address *address = [addresses objectAtIndex:indexPath.row];
     cell.textLabel.text = address.address;
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     
     return cell;

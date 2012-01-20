@@ -11,6 +11,7 @@
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate, RKRequestDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;

@@ -19,14 +19,29 @@
 @synthesize cancelButton;
 @synthesize spinner;
 
+- (void)setButtonStatus
+{
+    if (0 == [addressTextField.text length]) {
+        [submitButton setEnabled:NO];
+    } else {
+        [submitButton setEnabled:YES];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setButtonStatus];
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [cancelButton setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
     [addressLabel setText:NSLocalizedString(@"Enter New Address", nil)];
     NSString *placeholder = UIAppDelegate.displayLanguage == english ? @"Roppongi 6-10-1, Minato-ku, Tokyo" : @"東京都港区六本木６−１０−１";
     [addressTextField setPlaceholder:placeholder];
+}
+
+- (IBAction)addressEditingChanged:(id)sender
+{
+    [self setButtonStatus];
 }
 
 - (IBAction)submit:(id)sender
