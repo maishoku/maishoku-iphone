@@ -13,7 +13,6 @@
 
 @implementation SignUpViewController
 
-@synthesize label;
 @synthesize usernameTextField;
 @synthesize passwordTextField1;
 @synthesize passwordTextField2;
@@ -42,7 +41,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [label setTextColor:MAISHOKU_RED];
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [usernameTextField setPlaceholder:NSLocalizedString(@"Username", nil)];
     [passwordTextField1 setPlaceholder:NSLocalizedString(@"Password", nil)];
@@ -224,7 +222,6 @@ static NSString *emailRegex =
     [self setPasswordTextField1:nil];
     [self setPasswordTextField2:nil];
     [self setToolbar:nil];
-    [self setLabel:nil];
     [self setSpinner:nil];
     [self setEmailTextField:nil];
     [self setPhoneNumberTextField:nil];

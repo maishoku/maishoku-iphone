@@ -45,7 +45,6 @@
 {
     [super viewDidLoad];
     [self setLoginButtonState];
-    [label setTextColor:MAISHOKU_RED];
     [usernameTextField setPlaceholder:NSLocalizedString(@"Username", nil)];
     [passwordTextField setPlaceholder:NSLocalizedString(@"Password", nil)];
     [loginButton setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
@@ -89,6 +88,7 @@
 - (IBAction)signup:(id)sender
 {
     UIViewController *newAddressViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+    [newAddressViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentModalViewController:newAddressViewController animated:YES];
 }
 

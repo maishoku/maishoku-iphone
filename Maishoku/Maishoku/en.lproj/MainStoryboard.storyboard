@@ -106,15 +106,15 @@
                                     <action selector="checkout:" destination="jZb-fU-s3e" eventType="touchUpInside" id="hJh-sE-BCi"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bTp-FP-i60">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bTp-FP-i60">
                                 <rect key="frame" x="20" y="84" width="280" height="206"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="ltS-QA-RPL" detailTextLabel="oHZ-wt-Bbc" style="IBUITableViewCellStyleValue1" id="AfX-TE-n9T">
-                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <rect key="frame" x="0.0" y="46" width="280" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="260" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ltS-QA-RPL">
@@ -132,7 +132,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -188,7 +188,7 @@
                                     <segment title=""/>
                                     <segment title=""/>
                                 </segments>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="valueChanged:" destination="Nc2-f2-gvD" eventType="valueChanged" id="ZJ6-e1-CFq"/>
                                 </connections>
@@ -481,7 +481,7 @@
                                     <segment title=""/>
                                     <segment title=""/>
                                 </segments>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="valueChanged:" destination="HHc-5w-uXn" eventType="valueChanged" id="H7f-e4-eSh"/>
                                 </connections>
@@ -955,12 +955,6 @@
                                     <outlet property="delegate" destination="ogB-7H-iQu" id="8ni-Jl-CeN"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="マイ食" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="wci-Yg-Qvt">
-                                <rect key="frame" x="55" y="20" width="211" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="65"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bGx-8i-6JX">
                                 <rect key="frame" x="97" y="186" width="126" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -995,12 +989,23 @@
                                     <action selector="signup:" destination="ogB-7H-iQu" eventType="touchUpInside" id="GRq-Up-oNS"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="top" image="maishoku.png" id="XzU-LU-oVb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="bGs-m4-Gbm">
+                                <rect key="frame" x="20" y="290" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="X0o-rp-2ml"/>
                     <connections>
-                        <outlet property="label" destination="wci-Yg-Qvt" id="S8r-2J-4bC"/>
+                        <outlet property="label" destination="bGs-m4-Gbm" id="8PT-nc-G8J"/>
                         <outlet property="loginButton" destination="bGx-8i-6JX" id="g50-hs-B0b"/>
                         <outlet property="passwordTextField" destination="pco-gf-8pV" id="HPR-9A-eh4"/>
                         <outlet property="signupButton" destination="RUG-VS-BaZ" id="Bwo-gc-h6q"/>
@@ -1097,22 +1102,19 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="マイ食" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="N4i-hw-nSH">
-                                <rect key="frame" x="55" y="20" width="211" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="65"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="6hU-4I-9Nt">
                                 <rect key="frame" x="150" y="240" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="top" image="maishoku.png" id="qHc-1b-xTV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="dP9-kF-gk9" id="qCM-fi-JwW"/>
-                        <outlet property="label" destination="N4i-hw-nSH" id="T32-Wh-maK"/>
                         <outlet property="passwordTextField1" destination="mj4-27-VDn" id="lKB-h9-fzf"/>
                         <outlet property="passwordTextField2" destination="T8Q-4t-GoZ" id="uXk-jL-eWI"/>
                         <outlet property="phoneNumberTextField" destination="qGd-Dt-4eJ" id="RLB-hw-zZt"/>
@@ -1171,6 +1173,7 @@
         <image name="group.png" width="32" height="21"/>
         <image name="heart.png" width="24" height="21"/>
         <image name="location.png" width="20" height="20"/>
+        <image name="maishoku.png" width="320" height="88"/>
         <image name="utensils.png" width="18" height="26"/>
     </resources>
     <classes>
@@ -1336,7 +1339,6 @@
                 <relationship kind="action" name="submit:"/>
                 <relationship kind="action" name="usernameEditingChanged:"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordTextField1" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordTextField2" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
@@ -1353,7 +1355,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gCk-1J-Qhc"/>
-        <segue reference="IT0-WV-YnJ"/>
+        <segue reference="ck7-xW-1On"/>
+        <segue reference="ZEf-ag-ENC"/>
     </inferredMetricsTieBreakers>
 </document>

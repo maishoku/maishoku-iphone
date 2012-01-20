@@ -11,7 +11,6 @@
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, RKRequestDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField1;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField2;
