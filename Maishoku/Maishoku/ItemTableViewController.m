@@ -37,7 +37,7 @@
     }
     
     // Show a spinner while we wait
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     struct CGSize size = [[UIScreen mainScreen] bounds].size;
     [spinner setCenter:CGPointMake(size.width/2.0, ((size.height)/2.0)-49)]; // tab bar is 49 pixels high
     [self.view addSubview:spinner];

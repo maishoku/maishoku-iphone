@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
     [self.navigationItem setTitle:NSLocalizedString(@"Restaurants", nil)];
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     restaurants = [NSMutableArray arrayWithCapacity:4];
 }
 
@@ -104,8 +104,11 @@
     
     NSUInteger row = indexPath.row;
     if (row != NSNotFound) {
-        [Cart clear];
-        UIAppDelegate.restaurant = [restaurants objectAtIndex:row];
+        Restaurant *restaurant = [restaurants objectAtIndex:row];
+        if (restaurant != UIAppDelegate.restaurant) {
+            [Cart clear];
+            UIAppDelegate.restaurant = restaurant;
+        }
         [self performSegueWithIdentifier:@"RestaurantViewSegue" sender:nil];
     }
 }
