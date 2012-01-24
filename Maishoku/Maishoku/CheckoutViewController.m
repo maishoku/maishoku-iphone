@@ -335,7 +335,9 @@
     } else if ([response isOK]) {
         // Saved credit cards were loaded, ignore here
     } else {
-        [self lockDown];
+        [spinner stopAnimating];
+        [confirmOrderButton setEnabled:YES];
+        [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
         [self showAlert:[response bodyAsString]];
     }
 }
