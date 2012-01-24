@@ -17,6 +17,7 @@
 "Add To Favorites" = "즐거 찾기 추가";
 "Favorite Added" = "즐겨 찾기 추가 완료";
 "Favorite Failed" = "즐겨 찾기 추가 에러";
+"Amount Remaining" = "%d엔은 부족합니다";
 
 /* CheckoutViewController */
 "Order Failed" = "주문은 실패했습니다";

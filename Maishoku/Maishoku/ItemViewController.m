@@ -37,6 +37,7 @@
 {
     [super viewDidLoad];
     [addToCartButton setTitle:NSLocalizedString(@"Add To Cart", nil) forState:UIControlStateNormal];
+    [addToCartButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -52,7 +53,6 @@
     
     // 'item' is not yet loaded, so disable adding to cart until it is loaded
     [addToCartButton setEnabled:NO];
-    [addToCartButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
     // Set up the Item object mapping
     RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[Item class]];
@@ -104,7 +104,6 @@
     
     // 'item' is now set, so it is safe to add items to the cart
     [addToCartButton setEnabled:YES];
-    [addToCartButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     if ([[objectLoader response] isOK]) {
         item = (Item *)object;

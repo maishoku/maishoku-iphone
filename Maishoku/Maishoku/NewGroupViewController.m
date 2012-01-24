@@ -22,6 +22,7 @@
     [groupNameLabel setText:NSLocalizedString(@"Group Name", nil)];
     [groupNameTextField setPlaceholder:NSLocalizedString(@"Awesome Group", nil)];
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
+    [submitButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [self groupNameChanged:nil];
 }
 
@@ -36,10 +37,8 @@
     
     if ([text length] > 0) {
         [submitButton setEnabled:YES];
-        [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     } else {
         [submitButton setEnabled:NO];
-        [submitButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
     
     [self.navigationItem setTitle:text];

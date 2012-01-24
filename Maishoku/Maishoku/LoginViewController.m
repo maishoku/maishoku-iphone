@@ -34,10 +34,8 @@
 {
     if ([usernameTextField.text length] == 0 || [passwordTextField.text length] == 0) {
         [loginButton setEnabled:NO];
-        [loginButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     } else {
         [loginButton setEnabled:YES];
-        [loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
 }
 
@@ -48,6 +46,7 @@
     [usernameTextField setPlaceholder:NSLocalizedString(@"Username", nil)];
     [passwordTextField setPlaceholder:NSLocalizedString(@"Password", nil)];
     [loginButton setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
+    [loginButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [signupButton setTitle:NSLocalizedString(@"Sign Up", nil) forState:UIControlStateNormal];
 }
 

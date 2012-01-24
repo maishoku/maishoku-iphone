@@ -37,14 +37,11 @@
     if (UIAppDelegate.paymentMethod == credit_card) {
         if (savedCardId != -1 || (12 <= [cardNumberTextField.text length] && 4 == [expirationDateTextField.text length])) {
             [confirmOrderButton setEnabled:YES];
-            [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         } else {
             [confirmOrderButton setEnabled:NO];
-            [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         }
     } else {
         [confirmOrderButton setEnabled:YES];
-        [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
 }
 
@@ -55,6 +52,7 @@
     [segmentedControl setTitle:NSLocalizedString(@"Cash", nil) forSegmentAtIndex:0];
     [segmentedControl setTitle:NSLocalizedString(@"Credit Card", nil) forSegmentAtIndex:1];
     [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
+    [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [cardNumberTextField setPlaceholder:NSLocalizedString(@"Credit Card Number", nil)];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YY"];
@@ -252,7 +250,6 @@
             }
             [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
             [confirmOrderButton setEnabled:YES];
-            [confirmOrderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }
     }
 }
@@ -308,9 +305,9 @@
 /* RKRequestDelegate                                                                  */
 /*------------------------------------------------------------------------------------*/
 
-- (void)showAlert
+- (void)showAlert:(NSString *)message
 {
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Order Failed", nil) message:NSLocalizedString(@"Contact Support", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Order Failed", nil) message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 - (void)lockDown
@@ -318,7 +315,6 @@
     [spinner stopAnimating];
     [Cart clear];
     [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
-    [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [confirmOrderButton setEnabled:NO];
     [doneButton setEnabled:YES];
     [segmentedControl setEnabled:NO];
@@ -340,14 +336,14 @@
         // Saved credit cards were loaded, ignore here
     } else {
         [self lockDown];
-        [self showAlert];
+        [self showAlert:[response bodyAsString]];
     }
 }
 
 - (void)request:(RKRequest *)request didFailLoadWithError:(NSError *)error
 {
     [self lockDown];
-    [self showAlert];
+    [self showAlert:NSLocalizedString(@"Contact Support", nil)];
 }
 
 /*------------------------------------------------------------------------------------*/

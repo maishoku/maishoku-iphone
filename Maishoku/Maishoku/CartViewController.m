@@ -19,6 +19,7 @@
 
 @synthesize restaurantLabel;
 @synthesize priceLabel;
+@synthesize amountRemainingLabel;
 @synthesize itemsTable;
 @synthesize checkoutButton;
 
@@ -31,9 +32,12 @@
         price += [item.price intValue] * [Cart quantityForItem:item];
     }];
     totalPrice = price;
-    if (totalPrice == 0) {
+    NSInteger amountRemaining = [UIAppDelegate.restaurant.minimumOrder integerValue] - totalPrice;
+    if (amountRemaining > 0) {
+        [amountRemainingLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Amount Remaining", nil), amountRemaining]];
         [checkoutButton setEnabled:NO];
     } else {
+        [amountRemainingLabel setText:nil];
         [checkoutButton setEnabled:YES];
     }
     [restaurantLabel setText:[NSString stringWithFormat:@"%@", UIAppDelegate.restaurant.name]];
@@ -47,6 +51,7 @@
     [self.navigationController.navigationBar setTintColor:MAISHOKU_RED];
     [self.navigationItem setTitle:NSLocalizedString(@"Cart", nil)];
     [checkoutButton setTitle:NSLocalizedString(@"Checkout", nil) forState:UIControlStateNormal];
+    [checkoutButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -119,6 +124,7 @@
     [self setRestaurantLabel:nil];
     [self setPriceLabel:nil];
     [self setCheckoutButton:nil];
+    [self setAmountRemainingLabel:nil];
     [super viewDidUnload];
 }
 

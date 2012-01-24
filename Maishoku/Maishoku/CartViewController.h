@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *restaurantLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amountRemainingLabel;
 @property (weak, nonatomic) IBOutlet UITableView *itemsTable;
 @property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
 

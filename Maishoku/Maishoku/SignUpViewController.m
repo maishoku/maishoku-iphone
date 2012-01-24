@@ -31,16 +31,15 @@
      || 0 == [phoneNumberTextField.text length]
     ) {
         [submitButton setEnabled:NO];
-        [submitButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     } else {
         [submitButton setEnabled:YES];
-        [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [submitButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [usernameTextField setPlaceholder:NSLocalizedString(@"Username", nil)];
     [passwordTextField1 setPlaceholder:NSLocalizedString(@"Password", nil)];

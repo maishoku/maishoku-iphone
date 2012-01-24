@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HpW-uw-sDg">
-                                <rect key="frame" x="20" y="298" width="280" height="37"/>
+                                <rect key="frame" x="20" y="359" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -107,7 +107,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bTp-FP-i60">
-                                <rect key="frame" x="20" y="84" width="280" height="206"/>
+                                <rect key="frame" x="20" y="84" width="280" height="238"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="ltS-QA-RPL" detailTextLabel="oHZ-wt-Bbc" style="IBUITableViewCellStyleValue1" id="AfX-TE-n9T">
@@ -151,6 +151,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="sBF-hB-FfB">
+                                <rect key="frame" x="20" y="330" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
@@ -163,6 +170,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
+                        <outlet property="amountRemainingLabel" destination="sBF-hB-FfB" id="TL2-vT-sY1"/>
                         <outlet property="checkoutButton" destination="HpW-uw-sDg" id="7a0-Zn-beF"/>
                         <outlet property="itemsTable" destination="bTp-FP-i60" id="jod-oz-7hM"/>
                         <outlet property="priceLabel" destination="gp3-e4-avT" id="cOH-GA-G0E"/>
@@ -1182,6 +1190,7 @@
             <relationships>
                 <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="checkout:"/>
+                <relationship kind="outlet" name="amountRemainingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="checkoutButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="itemsTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
