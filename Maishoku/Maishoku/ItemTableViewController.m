@@ -31,7 +31,7 @@
     [super viewDidAppear:animated];
     
     if (categories == NULL) {
-        categories = [NSMutableArray arrayWithCapacity:16];
+        categories = [NSMutableArray array];
     } else {
         return;
     }
@@ -135,16 +135,14 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    for (Category *category in objects) {
         NSArray *keys = [NSArray arrayWithObjects:@"title", @"items", nil];
-        Category *category = (Category *)obj;
         NSArray *items = [category.items filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"available == YES", nil]];
-        NSString *name = UIAppDelegate.displayLanguage == english ? category.nameEnglish : category.nameJapanese;
-        NSArray *objects = [NSArray arrayWithObjects:name, items, nil];
+        NSArray *objects = [NSArray arrayWithObjects:category.name, items, nil];
         if ([items count] != 0) {
             [categories addObject:[NSDictionary dictionaryWithObjects:objects forKeys:keys]];
         }
-    }];
+    };
     [spinner stopAnimating];
     [self.tableView reloadData];
 }

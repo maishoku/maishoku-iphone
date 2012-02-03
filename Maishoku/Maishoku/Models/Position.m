@@ -11,6 +11,8 @@
 @implementation Position
 
 @synthesize item;
+@synthesize options;
+@synthesize toppings;
 @synthesize quantity;
 
 @end

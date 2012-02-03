@@ -11,6 +11,8 @@
 
 @implementation Item
 
+@synthesize optionSets;
+@synthesize toppings;
 @synthesize name;
 @synthesize nameEnglish;
 @synthesize nameJapanese;

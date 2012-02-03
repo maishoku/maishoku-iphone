@@ -91,7 +91,7 @@ static NSString *emailRegex =
      * {'username': username, 'password': password, 'email': email, 'phone_number': phoneNumber}
      */
 
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:4];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:username forKey:@"username"];
     [dict setObject:password forKey:@"password"];
     [dict setObject:email forKey:@"email"];

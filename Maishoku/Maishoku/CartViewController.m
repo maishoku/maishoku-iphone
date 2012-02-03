@@ -13,7 +13,7 @@
 
 @implementation CartViewController
 {
-    NSArray *items;
+    NSArray *positions;
     NSInteger totalPrice;
 }
 
@@ -25,12 +25,11 @@
 
 - (void)reloadCart
 {
-    items = [Cart allItems];
-    __block NSInteger price = 0;
-    [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Item *item = (Item *)obj;
-        price += [item.price intValue] * [Cart quantityForItem:item];
-    }];
+    positions = [Cart allPositions];
+    NSInteger price = 0;
+    for (Position *position in positions) {
+        price += [position.item.price intValue] * position.quantity;
+    }
     totalPrice = price;
     NSInteger amountRemaining = [UIAppDelegate.restaurant.minimumOrder integerValue] - totalPrice;
     if (amountRemaining > 0) {
@@ -78,8 +77,8 @@
 {
     if (tableView == itemsTable) {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
-            Item *item = (Item *)[items objectAtIndex:indexPath.row];
-            [Cart removeFromCart:item];
+            Position *position = [positions objectAtIndex:indexPath.row];
+            [Cart removePosition:position];
             [self reloadCart];
             [tableView reloadData];
         }
@@ -95,10 +94,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Item *item = (Item *)[items objectAtIndex:indexPath.row];
-    NSInteger quantity = [Cart quantityForItem:item];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", item.name];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", quantity];
+    Position *position = [positions objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", position.item.name];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", position.quantity];
     
     return cell;
 }
@@ -110,7 +108,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [items count];
+    return [positions count];
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -119,7 +117,7 @@
 
 - (void)viewDidUnload
 {
-    items = nil;
+    positions = nil;
     [self setItemsTable:nil];
     [self setRestaurantLabel:nil];
     [self setPriceLabel:nil];

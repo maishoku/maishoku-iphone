@@ -22,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    groups = [NSMutableArray arrayWithCapacity:4];
+    groups = [NSMutableArray array];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -102,9 +102,9 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     [groups removeAllObjects];
-    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [groups addObject:(Group *)obj];
-    }];
+    for (Group *group in objects) {
+        [groups addObject:group];
+    };
 //    [UIAppDelegate setGroupsLoaded:YES];
     [spinner stopAnimating];
     [groupsTable reloadData];
@@ -130,7 +130,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

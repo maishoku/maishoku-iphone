@@ -32,16 +32,22 @@
 "Save Card" = "カード情報の保存";
 "New Card" = "新しいカード";
 "Saved Card" = "保存済のカード";
+"Add Instructions" = "店舗への要望を書く";
 
 /* ItemTableViewController */
 "Menu" = "メニュー";
 "Failed To Load Items" = "商品を読み込めませんでした";
 
 /* ItemViewController */
+"Quantity" = "商品数";
 "Quantity In Cart" = "カートにある商品数";
 "Failed To Load Item" = "商品を読み込めませんでした";
 "Load Screen Again" = "もう一度スクリーンを読み込んでください";
 "Add To Cart" = "カートに入れる";
+"Update Cart" = "カートの更新";
+"Add Toppings" = "トッピングの追加";
+"No Toppings" = "この商品はトッピングがありません";
+"No Options" = "この商品はオプションがありません";
 
 /* LocationViewController */
 "Select Address" = "登録済みの住所から選択";
@@ -94,3 +100,6 @@
 "Password Confirm" = "パスワード確認";
 "Email" = "メールアドレス";
 "Phone Number" = "電話番号";
+
+/* ToppingsViewController */
+"Choose Toppings" = "下記のトッピングからお選びください";

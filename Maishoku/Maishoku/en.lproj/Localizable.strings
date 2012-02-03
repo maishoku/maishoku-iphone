@@ -32,6 +32,7 @@
 "Save Card" = "Save Card Details";
 "New Card" = "New Card";
 "Saved Card" = "Saved Card";
+"Add Instructions" = "Add Order Instructions";
 
 /* FavoritesViewController */
 "Items" = "Items";
@@ -41,10 +42,15 @@
 "Failed To Load Items" = "Failed to load items";
 
 /* ItemViewController */
-"Quantity In Cart" = "Quantity currently in cart";
+"Quantity" = "Quantity";
+"Quantity In Cart" = "Number of items in cart";
 "Failed To Load Item" = "Failed to load item";
 "Load Screen Again" = "Please try to load screen again";
 "Add To Cart" = "Add To Cart";
+"Update Cart" = "Update Cart";
+"Add Toppings" = "Add Toppings";
+"No Toppings" = "No toppings available for this item";
+"No Options" = "No options available for this item";
 
 /* LocationViewController */
 "Select Address" = "Select your address";
@@ -97,3 +103,6 @@
 "Password Confirm" = "password (again)";
 "Email" = "email";
 "Phone Number" = "phone number";
+
+/* ToppingsViewController */
+"Choose Toppings" = "Choose any of the following toppings";

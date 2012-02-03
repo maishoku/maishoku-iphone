@@ -7,20 +7,25 @@
 //
 
 #import "Item.h"
+#import "Option.h"
+#import "Topping.h"
+#import "Position.h"
 #import <Foundation/Foundation.h>
 
 @interface Cart : NSObject
 
-+ (void)addToCart:(Item *)item quantity:(NSInteger)quantity;
++ (void)setInstructions:(NSString *)instructions;
 
-+ (void)removeFromCart:(Item *)item;
++ (NSString *)instructions;
 
-+ (void)updateQuantity:(Item *)item quantity:(NSInteger)quantity;
++ (void)addPosition:(Position *)position;
+
++ (void)removePosition:(Position *)position;
 
 + (void)clear;
 
-+ (NSInteger)quantityForItem:(Item *)item;
++ (NSArray *)allPositions;
 
-+ (NSArray *)allItems;
++ (NSInteger)size;
 
 @end

@@ -12,6 +12,8 @@
 @interface Position : NSObject
 
 @property (nonatomic, strong) Item *item;
+@property (nonatomic, strong) NSMutableArray *options;
+@property (nonatomic, strong) NSMutableArray *toppings;
 @property (nonatomic, assign) NSInteger quantity;
 
 @end

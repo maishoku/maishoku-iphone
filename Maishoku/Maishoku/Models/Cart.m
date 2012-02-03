@@ -11,78 +11,56 @@
 
 @implementation Cart
 
-static NSMutableDictionary *cart; // {itemId: position}
+static NSString *_instructions;
+static NSMutableArray *positions; // array of Position objects
 
 + (void)initialize
 {
     static BOOL initialized = NO;
     if (!initialized) {
         initialized = YES;
-        cart = [NSMutableDictionary dictionaryWithCapacity:4];
+        positions = [NSMutableArray array];
     }
 }
 
-+ (void)addToCart:(Item *)item quantity:(NSInteger)quantity
++ (void)setInstructions:(NSString *)instructions
 {
-    NSNumber *itemId = item.identifier;
-    id obj = [cart objectForKey:itemId];
-    Position *position;
-    if (obj) {
-        position = (Position *)obj;
-        position.quantity += quantity;
-    } else {
-        position = [[Position alloc] init];
-        position.item = item;
-        position.quantity = quantity;
+    _instructions = instructions;
+}
+
++ (NSString *)instructions
+{
+    return _instructions;
+}
+
++ (void)addPosition:(Position *)position
+{
+    [positions addObject:position];
+}
+
++ (void)removePosition:(Position *)position
+{
+    [positions removeObject:position];
+}
+
++ (void)clear;
+{
+    _instructions = nil;
+    [positions removeAllObjects];
+}
+
++ (NSArray *)allPositions
+{
+    return positions;
+}
+
++ (NSInteger)size
+{
+    NSInteger n = 0;
+    for (Position *position in positions) {
+        n += position.quantity;
     }
-    [cart setObject:position forKey:itemId];
-}
-
-+ (void)removeFromCart:(Item *)item
-{
-    [cart removeObjectForKey:item.identifier];
-}
-
-+ (void)updateQuantity:(Item *)item quantity:(NSInteger)quantity
-{
-    NSNumber *itemId = item.identifier;
-    id obj = [cart objectForKey:itemId];
-    Position *position;
-    if (obj) {
-        position = (Position *)obj;
-    } else {
-        position = [[Position alloc] init];
-        position.item = item;
-    }
-    position.quantity = quantity;
-    [cart setObject:position forKey:itemId];
-}
-
-+ (void)clear
-{
-    [cart removeAllObjects];
-}
-
-+ (NSInteger)quantityForItem:(Item *)item
-{
-    id obj = [cart objectForKey:item.identifier];
-    NSInteger quantity;
-    if (obj) {
-        Position *position = (Position *)obj;
-        quantity = position.quantity;
-    } else {
-        quantity = 0;
-    }
-    return quantity;
-}
-
-+ (NSArray *)allItems
-{
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:4];
-    [cart enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [items addObject:((Position *)obj).item];
-    }];
-    return items;
+    return n;
 }
 
 @end

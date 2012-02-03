@@ -32,16 +32,22 @@
 "Save Card" = "카드 저장";
 "New Card" = "새 카드";
 "Saved Card" = "저장된 카드";
+"Add Instructions" = "음식점에게 코멘트 추가";
 
 /* ItemTableViewController */
 "Menu" = "메뉴";
 "Failed To Load Items" = "서버에 접속하지 못했습니다";
 
 /* ItemViewController */
+"Quantity" = "수량";
 "Quantity In Cart" = "카트 안에";
 "Failed To Load Item" = "서버에 접속하지 못했습니다";
 "Load Screen Again" = "한 번 더 시도하세요";
 "Add To Cart" = "카트에 넣기";
+"Update Cart" = "카트를 갱신";
+"Add Toppings" = "토핑 추가";
+"No Toppings" = "이 상품은 토핑이 없습니다";
+"No Options" = "이 상품은 옵션이 없습니다";
 
 /* LocationViewController */
 "Select Address" = "주소를 선택하세요";
@@ -94,3 +100,6 @@
 "Password Confirm" = "비밀번호 재입력";
 "Email" = "이메일";
 "Phone Number" = "전화 번호";
+
+/* ToppingsViewController */
+"Choose Toppings" = "토핑을 선택하세요";

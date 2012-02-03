@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     [self.navigationItem setTitle:NSLocalizedString(@"Favorites", nil)];
-    favorites = [NSMutableArray arrayWithCapacity:4];
+    favorites = [NSMutableArray array];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -112,9 +112,9 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     [favorites removeAllObjects];
-    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [favorites addObject:(Favorite *)obj];
-    }];
+    for (Favorite *favorite in objects) {
+        [favorites addObject:favorite];
+    };
     [spinner stopAnimating];
     [favoritesTable reloadData];
 }

@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *confirmOrderButton;
+@property (weak, nonatomic) IBOutlet UIButton *addInstructionsButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UILabel *confirmedLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -34,6 +35,7 @@
 
 - (IBAction)valueChanged:(id)sender;
 - (IBAction)confirmOrder:(id)sender;
+- (IBAction)addInstructions:(id)sender;
 - (IBAction)done:(id)sender;
 - (IBAction)cardNumberEditingChanged:(id)sender;
 - (IBAction)expirationDateEditingChanged:(id)sender;

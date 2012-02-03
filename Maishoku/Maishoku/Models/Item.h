@@ -10,6 +10,8 @@
 
 @interface Item : NSObject
 
+@property (nonatomic, strong) NSArray *optionSets;
+@property (nonatomic, strong) NSArray *toppings;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *nameEnglish;
 @property (nonatomic, strong) NSString *nameJapanese;

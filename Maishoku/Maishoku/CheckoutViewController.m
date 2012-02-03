@@ -20,6 +20,7 @@
 
 @synthesize segmentedControl;
 @synthesize confirmOrderButton;
+@synthesize addInstructionsButton;
 @synthesize spinner;
 @synthesize confirmedLabel;
 @synthesize doneButton;
@@ -35,7 +36,7 @@
 - (void)setButtonStatus
 {
     if (UIAppDelegate.paymentMethod == credit_card) {
-        if (savedCardId != -1 || (12 <= [cardNumberTextField.text length] && 4 == [expirationDateTextField.text length])) {
+        if (savedCardId != NSNotFound || (12 <= [cardNumberTextField.text length] && 4 == [expirationDateTextField.text length])) {
             [confirmOrderButton setEnabled:YES];
         } else {
             [confirmOrderButton setEnabled:NO];
@@ -48,11 +49,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    savedCards = [NSMutableArray arrayWithCapacity:4];
+    savedCards = [NSMutableArray array];
+    [doneButton setTintColor:MAISHOKU_RED];
     [segmentedControl setTitle:NSLocalizedString(@"Cash", nil) forSegmentAtIndex:0];
     [segmentedControl setTitle:NSLocalizedString(@"Credit Card", nil) forSegmentAtIndex:1];
     [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
     [confirmOrderButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [addInstructionsButton setTitle:NSLocalizedString(@"Add Instructions", nil) forState:UIControlStateNormal];
+    [addInstructionsButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [cardNumberTextField setPlaceholder:NSLocalizedString(@"Credit Card Number", nil)];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YY"];
@@ -60,7 +64,7 @@
     NSString *date = [formatter stringFromDate:[[NSDate date] dateByAddingTimeInterval:oneYear]];
     formatter = nil;
     [expirationDateTextField setPlaceholder:[NSString stringWithFormat:@"09%@", date]];
-    [self setSavedCardId:-1];
+    [self setSavedCardId:NSNotFound];
     [self valueChanged:nil];
 }
 
@@ -91,12 +95,13 @@
 {
     [confirmOrderButton setEnabled:NO];
     [confirmOrderButton setTitle:nil forState:UIControlStateNormal];
+    [addInstructionsButton setEnabled:NO];
     [spinner startAnimating];
     
     /*
-     * The JSON message should look like this for cash payments:
+     * The JSON message should look like this for cash payments with options and toppings:
      * 
-     * {"address_id": 1, "restaurant_id": 9, "payment_method": 2, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}]}
+     * {"address_id": 1, "restaurant_id": 9, "payment_method": 2, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1, 'toppings': [{'id': 1}, {'id': 2}]}, {"item_id": 22, "quantity": 2, 'options': [{'id': 3}]}]}
      *
      * And like this for credit card payments with a new credit card:
      * 
@@ -107,18 +112,39 @@
      * {"address_id": 1, "restaurant_id": 9, "payment_method": 1, "is_delivery": false, "items": [{"item_id": 21, "quantity": 1}, {"item_id": 22, "quantity": 2}], "credit_card_id": 1}
      */
 
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:4];
-    NSMutableArray *items = [NSMutableArray arrayWithCapacity:4];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableArray *items = [NSMutableArray array];
     
-    [[Cart allItems] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *keys = [NSArray arrayWithObjects:@"item_id", @"quantity", nil];
-        Item *item = (Item *)obj;
-        NSNumber *itemId = item.identifier;
-        NSNumber *quantity = [NSNumber numberWithInt:[Cart quantityForItem:item]];
-        NSArray *objects = [NSArray arrayWithObjects:itemId, quantity, nil];
+    for (Position *position in [Cart allPositions]) {
+        NSNumber *itemId = position.item.identifier;
+        NSNumber *quantity = [NSNumber numberWithInt:position.quantity];
+        NSMutableArray *keys = [NSMutableArray arrayWithObjects:@"item_id", @"quantity", nil];
+        NSMutableArray *objects = [NSMutableArray arrayWithObjects:itemId, quantity, nil];
+        if ([position.toppings count] > 0) {
+            [keys addObject:@"toppings"];
+            NSMutableArray *toppings = [NSMutableArray array];
+            for (Topping *topping in position.toppings) {
+                NSMutableDictionary *d = [NSMutableDictionary dictionaryWithObject:topping.identifier forKey:@"id"];
+                [toppings addObject:d];
+            }
+            [objects addObject:toppings];
+        }
+        if ([position.options count] > 0) {
+            [keys addObject:@"options"];
+            NSMutableArray *options = [NSMutableArray array];
+            for (Option *option in position.options) {
+                NSMutableDictionary *d = [NSMutableDictionary dictionaryWithObject:option.identifier forKey:@"id"];
+                [options addObject:d];
+            }
+            [objects addObject:options];
+        }
         NSDictionary *itemDict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
         [items addObject:itemDict];
-    }];
+    };
+    
+    if ([Cart instructions] != nil) {
+        [dict setObject:[Cart instructions] forKey:@"instructions"];
+    }
     
     [dict setObject:items forKey:@"items"];
     [dict setObject:UIAppDelegate.address.identifier forKey:@"address_id"];
@@ -127,7 +153,7 @@
     [dict setObject:[NSNumber numberWithBool:UIAppDelegate.orderMethod] forKey:@"is_delivery"];
     
     if (UIAppDelegate.paymentMethod == credit_card) {
-        if ([self savedCardId] != -1) {
+        if ([self savedCardId] != NSNotFound) {
             [dict setObject:[NSNumber numberWithInt:savedCardId] forKey:@"credit_card_id"];
         } else {
             [dict setObject:cardNumberTextField.text forKey:@"card_number"];
@@ -143,6 +169,12 @@
     NSObject<RKRequestSerializable> *params = [RKRequestSerialization serializationWithData:[json dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON];
     
     [[RKClient sharedClient] post:@"/orders" params:params delegate:self];
+}
+
+- (IBAction)addInstructions:(id)sender
+{
+    UIViewController *addInstructionsViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"AddInstructionsViewController"];
+    [self presentModalViewController:addInstructionsViewController animated:YES];
 }
 
 - (IBAction)done:(id)sender
@@ -268,7 +300,7 @@
         [savedCards removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:YES];
         if ([creditCardId integerValue] == savedCardId) {
-            [self setSavedCardId:-1];
+            [self setSavedCardId:NSNotFound];
             [self setButtonStatus];
         }
         [tableView endUpdates];
@@ -316,6 +348,7 @@
     [Cart clear];
     [confirmOrderButton setTitle:NSLocalizedString(@"Confirm Order", nil) forState:UIControlStateNormal];
     [confirmOrderButton setEnabled:NO];
+    [addInstructionsButton setEnabled:NO];
     [doneButton setEnabled:YES];
     [segmentedControl setEnabled:NO];
     [cardNumberTextField setText:nil];
@@ -355,9 +388,9 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     [savedCards removeAllObjects];
-    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [savedCards addObject:(CreditCard *)obj];
-    }];
+    for (CreditCard *creditCard in objects) {
+        [savedCards addObject:creditCard];
+    };
     [savedCardsSpinner stopAnimating];
     [savedCardsTableView setHidden:NO];
     [savedCardsTableView reloadData];
@@ -377,6 +410,7 @@
     savedCards = nil;
     [self setSegmentedControl:nil];
     [self setConfirmOrderButton:nil];
+    [self setAddInstructionsButton:nil];
     [self setSpinner:nil];
     [self setConfirmedLabel:nil];
     [self setDoneButton:nil];

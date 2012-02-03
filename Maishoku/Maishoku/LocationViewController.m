@@ -33,8 +33,7 @@
     
     [self.navigationController.navigationBar setTintColor:MAISHOKU_RED];
     
-    [[self.tabBarController viewControllers] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIViewController *viewController = (UIViewController *)obj;
+    for (UIViewController *viewController in [self.tabBarController viewControllers]) {
         switch (viewController.tabBarItem.tag) {
             case 0:
                 [viewController.tabBarItem setTitle:NSLocalizedString(@"Restaurants", nil)];
@@ -46,7 +45,7 @@
                 [viewController.tabBarItem setTitle:NSLocalizedString(@"Groups", nil)];
                 break;
         }
-    }];
+    };
     
     [logoutButton setTitle:NSLocalizedString(@"Logout", nil)];
     [addressLabel setText:NSLocalizedString(@"Select Address", nil)];
@@ -60,7 +59,7 @@
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     
     [UIAppDelegate setAddressesLoaded:NO];
-    addresses = [NSMutableArray arrayWithCapacity:5];
+    addresses = [NSMutableArray array];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -251,9 +250,9 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     [addresses removeAllObjects];
-    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [addresses addObject:(Address *)obj];
-    }];
+    for (Address *address in objects) {
+        [addresses addObject:address];
+    };
     [UIAppDelegate setAddressesLoaded:YES];
     [self.addressView reloadData];
 }

@@ -45,12 +45,12 @@
     NSMutableString *string = [[NSMutableString alloc] initWithString:@""];
     NSString *n = UIAppDelegate.displayLanguage == english ? @"name_english" : @"name_japanese";
     
-    [cuisines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    for (NSDictionary *dict in cuisines) {
         if ([string length] != 0) {
             [string appendString:@", "];
         }
-        [string appendString:[(NSDictionary *)obj objectForKey:n]];
-    }];
+        [string appendString:[dict objectForKey:n]];
+    };
     
     _commaSeparatedCuisines = string;
     

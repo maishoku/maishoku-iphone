@@ -22,7 +22,7 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:NSLocalizedString(@"Restaurants", nil)];
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    restaurants = [NSMutableArray arrayWithCapacity:4];
+    restaurants = [NSMutableArray array];
 }
 
 - (void)loadRestaurants
@@ -150,9 +150,9 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
     [restaurants removeAllObjects];
-    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [restaurants addObject:(Restaurant *)obj];
-    }];
+    for (Restaurant *restaurant in objects) {
+        [restaurants addObject:restaurant];
+    };
     [UIAppDelegate setRestaurantsLoaded:YES];
     [spinner stopAnimating];
     [self.tableView reloadData];
