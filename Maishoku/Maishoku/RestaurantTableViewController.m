@@ -44,7 +44,7 @@
     [objectMapping mapKeyPath:deliveryTime toAttribute:@"deliveryTime"];
     [objectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [objectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
-    [objectMapping mapKeyPath:@"phone_contact" toAttribute:@"phoneContact"];
+    [objectMapping mapKeyPath:@"phone_order" toAttribute:@"phoneOrder"];
     [objectMapping mapKeyPath:@"minimum_order" toAttribute:@"minimumOrder"];
     [objectMapping mapKeyPath:@"cuisines" toAttribute:@"cuisines"];
     [objectMapping mapKeyPath:@"address" toAttribute:@"address"];

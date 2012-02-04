@@ -364,7 +364,7 @@
 {
     if ([response isCreated]) {
         [self lockDown];
-        [confirmedLabel setText:[NSString stringWithFormat:@"%@\n%@.", NSLocalizedString(@"Order Confirmed", nil), UIAppDelegate.restaurant.deliveryTime]];
+        [confirmedLabel setText:[NSString stringWithFormat:@"%@%@.", NSLocalizedString(@"Order Confirmed", nil), UIAppDelegate.restaurant.deliveryTime]];
     } else if ([response isOK]) {
         // Saved credit cards were loaded, ignore here
     } else {

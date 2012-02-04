@@ -40,7 +40,7 @@
         [checkoutButton setEnabled:YES];
     }
     [restaurantLabel setText:[NSString stringWithFormat:@"%@", UIAppDelegate.restaurant.name]];
-    [priceLabel setText:[NSString stringWithFormat:@"%@: ¥%d", NSLocalizedString(@"Total Price", nil), totalPrice]];
+    [priceLabel setText:[NSString stringWithFormat:@"%@: %d円", NSLocalizedString(@"Total Price", nil), totalPrice]];
     [itemsTable reloadData];
 }
 

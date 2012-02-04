@@ -23,7 +23,7 @@
 "Order Failed" = "Order Failed";
 "Contact Support" = "Please contact support@maishoku.com for assistance.";
 "Confirm Order" = "Confirm Order";
-"Order Confirmed" = "Your order has been confirmed.\nEstimated wait time is";
+"Order Confirmed" = "Your order has been confirmed. Estimated wait time is ";
 "Cash" = "Cash";
 "Credit Card" = "Credit Card";
 "Credit Card Number" = "Credit Card Number";
@@ -90,6 +90,8 @@
 "Minimum Order" = "Minimum Order";
 "Cuisines" = "Cuisines";
 "See Menu" = "See menu for this restaurant";
+"Address" = "Address";
+"Phone Order" = "Phone Number";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "Passwords are not the same";

@@ -87,6 +87,8 @@
 "Minimum Order" = "최저 주문 가격";
 "Cuisines" = "장르";
 "See Menu" = "메뉴 보기";
+"Address" = "주소";
+"Phone Order" = "전화 번호";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "비밀번호가 일치하지 않습니다";

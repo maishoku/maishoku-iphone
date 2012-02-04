@@ -20,7 +20,7 @@
 @synthesize name;
 @synthesize nameJapanese;
 @synthesize nameEnglish;
-@synthesize phoneContact;
+@synthesize phoneOrder;
 @synthesize address;
 @synthesize commaSeparatedCuisines;
 @synthesize identifier;

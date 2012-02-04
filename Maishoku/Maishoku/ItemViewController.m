@@ -319,7 +319,7 @@
     
     if ([[objectLoader response] isOK]) {
         item = (Item *)object;
-        [priceLabel setText:[NSString stringWithFormat:@"¥%@", item.price]];
+        [priceLabel setText:[NSString stringWithFormat:@"%@円", item.price]];
         [nameLabel setText:item.name];
         [categoryLabel setText:categoryName];
         [self initPosition];

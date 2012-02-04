@@ -87,6 +87,8 @@
 "Minimum Order" = "最低注文金額";
 "Cuisines" = "ジャンル";
 "See Menu" = "この店のメニューを見る";
+"Address" = "住所";
+"Phone Order" = "電話番号";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "パスワードが一致していません";
