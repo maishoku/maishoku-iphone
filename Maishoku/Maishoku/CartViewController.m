@@ -29,6 +29,12 @@
     NSInteger price = 0;
     for (Position *position in positions) {
         price += [position.item.price intValue] * position.quantity;
+        for (Option *option in position.options) {
+            price += [option.priceDelta integerValue];
+        }
+        for (Topping *topping in position.toppings) {
+            price += [topping.priceFixed integerValue];
+        }
     }
     totalPrice = price;
     NSInteger amountRemaining = [UIAppDelegate.restaurant.minimumOrder integerValue] - totalPrice;
@@ -40,7 +46,7 @@
         [checkoutButton setEnabled:YES];
     }
     [restaurantLabel setText:[NSString stringWithFormat:@"%@", UIAppDelegate.restaurant.name]];
-    [priceLabel setText:[NSString stringWithFormat:@"%@: %d円", NSLocalizedString(@"Total Price", nil), totalPrice]];
+    [priceLabel setText:[NSString stringWithFormat:@"%@: ¥%d", NSLocalizedString(@"Total Price", nil), totalPrice]];
     [itemsTable reloadData];
 }
 

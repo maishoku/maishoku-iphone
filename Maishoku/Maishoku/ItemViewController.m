@@ -281,7 +281,8 @@
     if ([optionSet.options count] <= row) {
         return nil;
     } else {
-        return ((Option *)[optionSet.options objectAtIndex:row]).name;
+        Option *option = [optionSet.options objectAtIndex:row];
+        return [NSString stringWithFormat:@"%@ (%d円)", option.name, [option.priceDelta integerValue]];
     }
 }
 
@@ -319,9 +320,9 @@
     
     if ([[objectLoader response] isOK]) {
         item = (Item *)object;
-        [priceLabel setText:[NSString stringWithFormat:@"%@円", item.price]];
+        [priceLabel setText:[NSString stringWithFormat:@"¥%@", item.price]];
         [nameLabel setText:item.name];
-        [categoryLabel setText:categoryName];
+        [categoryLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Category", nil), categoryName]];
         [self initPosition];
         [extrasTableView reloadData];
     } else {

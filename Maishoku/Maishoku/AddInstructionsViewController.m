@@ -17,12 +17,13 @@
 @synthesize navigationBar;
 @synthesize instructionsTextView;
 
-- (void)loadView
+- (void)viewDidLoad
 {
-    [super loadView];
+    [super viewDidLoad];
     [doneButton setTintColor:MAISHOKU_RED];
     [cancelButton setTintColor:MAISHOKU_RED];
     [navigationBar setTintColor:MAISHOKU_RED];
+    [instructionsTextView becomeFirstResponder];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -109,7 +109,7 @@
     NSDictionary *dict = [[[categories objectAtIndex:indexPath.section] objectForKey:@"items"] objectAtIndex:indexPath.row];
     NSString *name = UIAppDelegate.displayLanguage == english ? @"name_english" : @"name_japanese";
     cell.textLabel.text = [dict objectForKey:name];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@円", [dict objectForKey:@"price"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"¥%@", [dict objectForKey:@"price"]];
     
     return cell;
 }

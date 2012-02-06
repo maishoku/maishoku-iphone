@@ -51,6 +51,7 @@
 "Add Toppings" = "Add Toppings";
 "No Toppings" = "No toppings available for this item";
 "No Options" = "No options available for this item";
+"Category" = "Category";
 
 /* LocationViewController */
 "Select Address" = "Select your address";

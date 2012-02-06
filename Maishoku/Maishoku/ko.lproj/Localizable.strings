@@ -48,6 +48,7 @@
 "Add Toppings" = "토핑 추가";
 "No Toppings" = "이 상품은 토핑이 없습니다";
 "No Options" = "이 상품은 옵션이 없습니다";
+"Category" = "범주";
 
 /* LocationViewController */
 "Select Address" = "주소를 선택하세요";
