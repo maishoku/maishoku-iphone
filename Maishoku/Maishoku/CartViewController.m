@@ -30,10 +30,10 @@
     for (Position *position in positions) {
         price += [position.item.price intValue] * position.quantity;
         for (Option *option in position.options) {
-            price += [option.priceDelta integerValue];
+            price += [option.priceDelta integerValue] * position.quantity;
         }
         for (Topping *topping in position.toppings) {
-            price += [topping.priceFixed integerValue];
+            price += [topping.priceFixed integerValue] * position.quantity;
         }
     }
     totalPrice = price;

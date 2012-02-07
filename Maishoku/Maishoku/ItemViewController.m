@@ -52,11 +52,8 @@
     position.options = [NSMutableArray array];
     position.toppings = [NSMutableArray array];
     for (OptionSet *optionSet in item.optionSets) {
-        // An OptionSet should never be empty, but check just in case
-        if ([optionSet.options count] > 0) {
-            Option *option = [optionSet.options objectAtIndex:0];
-            [position.options addObject:option];
-        }
+        Option *option = [optionSet.options objectAtIndex:0];
+        [position.options addObject:option];
     }
 }
 
@@ -200,7 +197,7 @@
             OptionSet *optionSet = [item.optionSets objectAtIndex:indexPath.row];
             for (Option *option in position.options) {
                 if ([optionSet.options containsObject:option]) {
-                    cell.detailTextLabel.text = option.name;
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%+d円)", option.name, [option.priceDelta integerValue]];
                     break;
                 }
             }
@@ -277,29 +274,21 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     OptionSet *optionSet = [item.optionSets objectAtIndex:index];
-    // This function may be called with 0 passed in for `row` even if the OptionSet has no options
-    if ([optionSet.options count] <= row) {
-        return nil;
-    } else {
-        Option *option = [optionSet.options objectAtIndex:row];
-        return [NSString stringWithFormat:@"%@ (%d円)", option.name, [option.priceDelta integerValue]];
-    }
+    Option *option = [optionSet.options objectAtIndex:row];
+    return [NSString stringWithFormat:@"%@ (%+d円)", option.name, [option.priceDelta integerValue]];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     OptionSet *optionSet = [item.optionSets objectAtIndex:index];
-    // This function may be called with 0 passed in for `row` even if the OptionSet has no options
-    if (row < [optionSet.options count]) {
-        Option *option = [optionSet.options objectAtIndex:row];
-        for (Option *o in position.options) {
-            if ([optionSet.options containsObject:o]) {
-                [position.options removeObject:o];
-                break;
-            }
+    Option *option = [optionSet.options objectAtIndex:row];
+    for (Option *o in position.options) {
+        if ([optionSet.options containsObject:o]) {
+            [position.options removeObject:o];
+            break;
         }
-        [position.options addObject:option];
     }
+    [position.options addObject:option];
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -320,6 +309,14 @@
     
     if ([[objectLoader response] isOK]) {
         item = (Item *)object;
+        // Filter out empty OptionSets
+        NSMutableArray *optionSets = [NSMutableArray array];
+        for (OptionSet *optionSet in item.optionSets) {
+            if ([optionSet.options count] > 0) {
+                [optionSets addObject:optionSet];
+            }
+        }
+        [item setOptionSets:optionSets];
         [priceLabel setText:[NSString stringWithFormat:@"¥%@", item.price]];
         [nameLabel setText:item.name];
         [categoryLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Category", nil), categoryName]];

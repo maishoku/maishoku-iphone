@@ -66,7 +66,7 @@
     }
     
     Topping *topping = [item.toppings objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d円)", topping.name, [topping.priceFixed integerValue]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%+d円)", topping.name, [topping.priceFixed integerValue]];
     cell.detailTextLabel.text = topping.description;
     
     if ([position.toppings containsObject:topping]) {
