@@ -96,14 +96,16 @@
 
 - (IBAction)forgotPassword:(id)sender
 {
-    NSString *subdomain;
+    NSString *protocol, *subdomain;
 #if TARGET_IPHONE_SIMULATOR
+    protocol = @"http";
     subdomain = @"www-dev";
 #else
+    protocol = @"https";
     subdomain = @"www";
 #endif
     NSString *language = UIAppDelegate.displayLanguage == japanese ? @"ja" : @"en";
-    NSString *url = [NSString stringWithFormat:@"http://%@.maishoku.com/user/recovery/recovery/language/%@/", subdomain, language];
+    NSString *url = [NSString stringWithFormat:@"%@://%@.maishoku.com/user/recovery/recovery/language/%@/", protocol, subdomain, language];
     [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
 }
 

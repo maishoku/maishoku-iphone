@@ -40,6 +40,9 @@
     if (UIAppDelegate.orderMethod == delivery && amountRemaining > 0) {
         [amountRemainingLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Amount Remaining", nil), amountRemaining]];
         [checkoutButton setEnabled:NO];
+    } else if (UIAppDelegate.orderMethod == pickup && totalPrice == 0) {
+        [amountRemainingLabel setText:nil];
+        [checkoutButton setEnabled:NO];
     } else {
         [amountRemainingLabel setText:nil];
         [checkoutButton setEnabled:YES];
