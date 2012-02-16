@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "KeychainItemWrapper.h"
+#import "TargetConditionals.h"
 #import <RestKit/RestKit.h>
 
 @implementation LoginViewController
@@ -20,6 +21,7 @@
 @synthesize label;
 @synthesize loginButton;
 @synthesize signupButton;
+@synthesize forgotPasswordButton;
 @synthesize usernameTextField;
 @synthesize passwordTextField;
 @synthesize spinner;
@@ -48,6 +50,7 @@
     [loginButton setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
     [loginButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [signupButton setTitle:NSLocalizedString(@"Sign Up", nil) forState:UIControlStateNormal];
+    [forgotPasswordButton setTitle:NSLocalizedString(@"Forgot Password", nil) forState:UIControlStateNormal];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -89,6 +92,19 @@
     UIViewController *newAddressViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
     [newAddressViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentModalViewController:newAddressViewController animated:YES];
+}
+
+- (IBAction)forgotPassword:(id)sender
+{
+    NSString *subdomain;
+#if TARGET_IPHONE_SIMULATOR
+    subdomain = @"www-dev";
+#else
+    subdomain = @"www";
+#endif
+    NSString *language = UIAppDelegate.displayLanguage == japanese ? @"ja" : @"en";
+    NSString *url = [NSString stringWithFormat:@"http://%@.maishoku.com/user/recovery/recovery/language/%@/", subdomain, language];
+    [UIApplication.sharedApplication openURL:[NSURL URLWithString:url]];
 }
 
 - (IBAction)usernameEditingChanged:(id)sender
@@ -171,6 +187,7 @@
     [self setLoginButton:nil];
     [self setSignupButton:nil];
     [self setLabel:nil];
+    [self setForgotPasswordButton:nil];
     [super viewDidUnload];
 }
 

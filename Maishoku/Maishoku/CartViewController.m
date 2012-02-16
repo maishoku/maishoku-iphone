@@ -37,7 +37,7 @@
     }
     totalPrice = price;
     NSInteger amountRemaining = [UIAppDelegate.restaurant.minimumDelivery integerValue] - totalPrice;
-    if (amountRemaining > 0) {
+    if (UIAppDelegate.orderMethod == delivery && amountRemaining > 0) {
         [amountRemainingLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Amount Remaining", nil), amountRemaining]];
         [checkoutButton setEnabled:NO];
     } else {

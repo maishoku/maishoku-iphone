@@ -69,6 +69,7 @@
 "Sign Up" = "회원가입";
 "Login Failed" = "로그인 실패했습니다";
 "Please Try Again" = "다시 한 번 입력하세요";
+"Forgot Password" = "비밀번호 찾기";
 
 /* NewAddressViewController */
 "Enter New Address" = "새 주소를 입력하세요";

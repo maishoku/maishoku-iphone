@@ -69,6 +69,7 @@
 "Sign Up" = "登録する";
 "Login Failed" = "ログインできませんでした";
 "Please Try Again" = "もう一度入力してください";
+"Forgot Password" = "パスワードお忘れの場合";
 
 /* NewAddressViewController */
 "Enter New Address" = "新しい住所を入力してください";

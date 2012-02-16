@@ -72,6 +72,7 @@
 "Sign Up" = "Sign Up";
 "Login Failed" = "Login Failed";
 "Please Try Again" = "Please try again";
+"Forgot Password" = "Forgot Password?";
 
 /* NewAddressViewController */
 "Enter New Address" = "Enter New Address";
