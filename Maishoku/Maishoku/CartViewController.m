@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "Cart.h"
 #import "CartViewController.h"
-#import "Favorite.h"
 
 @implementation CartViewController
 {
@@ -37,7 +36,7 @@
         }
     }
     totalPrice = price;
-    NSInteger amountRemaining = [UIAppDelegate.restaurant.minimumOrder integerValue] - totalPrice;
+    NSInteger amountRemaining = [UIAppDelegate.restaurant.minimumDelivery integerValue] - totalPrice;
     if (amountRemaining > 0) {
         [amountRemainingLabel setText:[NSString stringWithFormat:NSLocalizedString(@"Amount Remaining", nil), amountRemaining]];
         [checkoutButton setEnabled:NO];

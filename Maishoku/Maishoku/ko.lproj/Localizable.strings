@@ -85,7 +85,7 @@
 
 /* RestaurantViewController */
 "Delivery Time" = "배달 예정 시간";
-"Minimum Order" = "최저 주문 가격";
+"Minimum Delivery" = "최저 배달 가격";
 "Cuisines" = "장르";
 "See Menu" = "메뉴 보기";
 "Address" = "주소";

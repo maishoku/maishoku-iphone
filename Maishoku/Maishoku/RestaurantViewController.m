@@ -70,8 +70,8 @@
             break;
         case MINIMUM_ORDER:
             [cell.textLabel setAdjustsFontSizeToFitWidth:YES];
-            [cell.textLabel setText:[NSString stringWithFormat:@"¥%@", UIAppDelegate.restaurant.minimumOrder]];
-            [cell.detailTextLabel setText:NSLocalizedString(@"Minimum Order", nil)];
+            [cell.textLabel setText:[NSString stringWithFormat:@"¥%@", UIAppDelegate.restaurant.minimumDelivery]];
+            [cell.detailTextLabel setText:NSLocalizedString(@"Minimum Delivery", nil)];
             break;
         case CUISINES:
             [cell.textLabel setAdjustsFontSizeToFitWidth:NO];

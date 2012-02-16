@@ -8,14 +8,17 @@
 
 #import "AppDelegate.h"
 #import "Restaurant.h"
+#import "DeliveryDistance.h"
 
 @implementation Restaurant
 {
     NSString *_commaSeparatedCuisines;
+    NSNumber *_minimumDelivery;
 }
 
 @synthesize hours;
 @synthesize cuisines;
+@synthesize deliveryDistances;
 @synthesize deliveryTime;
 @synthesize name;
 @synthesize nameJapanese;
@@ -25,6 +28,8 @@
 @synthesize commaSeparatedCuisines;
 @synthesize identifier;
 @synthesize minimumOrder;
+@synthesize minimumDelivery;
+@synthesize distance;
 
 - (NSString *)name
 {
@@ -38,7 +43,7 @@
 
 - (NSString *)commaSeparatedCuisines
 {
-    if (_commaSeparatedCuisines != NULL) {
+    if (_commaSeparatedCuisines != nil) {
         return _commaSeparatedCuisines;
     }
     
@@ -57,9 +62,40 @@
     return string;
 }
 
+- (NSNumber *)minimumDelivery
+{
+    if (_minimumDelivery != nil) {
+        return _minimumDelivery;
+    }
+    
+    _minimumDelivery = minimumOrder;
+    
+    NSArray *sortedDeliveryDistances = [deliveryDistances sortedArrayUsingComparator:^(id a, id b) {
+        double first = [[(DeliveryDistance *)a upperBound] doubleValue];
+        double second = [[(DeliveryDistance *)b upperBound] doubleValue];
+        if (first > second) {
+            return 1;
+        } else if (first < second) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }];
+    
+    for (DeliveryDistance *deliveryDistance in sortedDeliveryDistances) {
+        if ([distance doubleValue] <= [deliveryDistance.upperBound doubleValue]) {
+            _minimumDelivery = deliveryDistance.minimumDelivery;
+            break;
+        }
+    }
+    
+    return _minimumDelivery;
+}
+
 - (void)dealloc
 {
     _commaSeparatedCuisines = nil;
+    _minimumDelivery = nil;
 }
 
 @end

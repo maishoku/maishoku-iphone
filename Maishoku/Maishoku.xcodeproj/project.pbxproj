@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F2E8314EC247E005067BF /* DeliveryDistance.m */; };
 		4E608C1114596A92007134EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1014596A92007134EA /* UIKit.framework */; };
 		4E608C1314596A92007134EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1214596A92007134EA /* Foundation.framework */; };
 		4E608C1514596A92007134EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1414596A92007134EA /* CoreGraphics.framework */; };
@@ -164,6 +165,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E0F2E8214EC247D005067BF /* DeliveryDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryDistance.h; sourceTree = "<group>"; };
+		4E0F2E8314EC247E005067BF /* DeliveryDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryDistance.m; sourceTree = "<group>"; };
 		4E243C5A14821A9100677890 /* Maishoku-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Maishoku-Info.plist"; sourceTree = "<group>"; };
 		4E243C5B14821B9B00677890 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E243C5C14821B9D00677890 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -441,30 +444,32 @@
 		4E608CBF145ABE7C007134EA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4E608CBC145ABE75007134EA /* Restaurant.h */,
-				4E608CBD145ABE75007134EA /* Restaurant.m */,
-				4E608CC3145AD517007134EA /* Item.h */,
-				4E608CC4145AD517007134EA /* Item.m */,
 				4E90DD47145EFC0A00CDE9A5 /* Address.h */,
-				4E90DD48145EFC0A00CDE9A5 /* Address.m */,
-				4EC1275E147A68EA00323016 /* Category.h */,
-				4EC1275F147A68EA00323016 /* Category.m */,
 				4EC1276E147CF16400323016 /* Cart.h */,
-				4EC1276F147CF16400323016 /* Cart.m */,
-				4EC12774147D00D800323016 /* Position.h */,
-				4EC12775147D00D800323016 /* Position.m */,
-				4EBF192A1483EA020098089B /* Group.h */,
-				4EBF192B1483EA020098089B /* Group.m */,
+				4EC1275E147A68EA00323016 /* Category.h */,
 				4EBF194A1488B7100098089B /* CreditCard.h */,
-				4EBF194B1488B7100098089B /* CreditCard.m */,
+				4E0F2E8214EC247D005067BF /* DeliveryDistance.h */,
 				4EFB1169148E2CEF006F3200 /* Favorite.h */,
-				4EFB116A148E2CEF006F3200 /* Favorite.m */,
-				4EFB5B7714D6AFE30097E821 /* Topping.h */,
-				4EFB5B7814D6AFE30097E821 /* Topping.m */,
+				4EBF192A1483EA020098089B /* Group.h */,
+				4E608CC3145AD517007134EA /* Item.h */,
 				4EFB5B7A14D6AFEF0097E821 /* Option.h */,
-				4EFB5B7B14D6AFEF0097E821 /* Option.m */,
 				4EDF3E1914DBCC52003DDCAE /* OptionSet.h */,
+				4EC12774147D00D800323016 /* Position.h */,
+				4E608CBC145ABE75007134EA /* Restaurant.h */,
+				4EFB5B7714D6AFE30097E821 /* Topping.h */,
+				4E90DD48145EFC0A00CDE9A5 /* Address.m */,
+				4EC1276F147CF16400323016 /* Cart.m */,
+				4EC1275F147A68EA00323016 /* Category.m */,
+				4EBF194B1488B7100098089B /* CreditCard.m */,
+				4E0F2E8314EC247E005067BF /* DeliveryDistance.m */,
+				4EFB116A148E2CEF006F3200 /* Favorite.m */,
+				4EBF192B1483EA020098089B /* Group.m */,
+				4E608CC4145AD517007134EA /* Item.m */,
+				4EFB5B7B14D6AFEF0097E821 /* Option.m */,
 				4EDF3E1A14DBCC52003DDCAE /* OptionSet.m */,
+				4EC12775147D00D800323016 /* Position.m */,
+				4E608CBD145ABE75007134EA /* Restaurant.m */,
+				4EFB5B7814D6AFE30097E821 /* Topping.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				4E9CC0B914D925230029A0F0 /* ToppingsViewController.m in Sources */,
 				4EDF3E1814D960AC003DDCAE /* AddInstructionsViewController.m in Sources */,
 				4EDF3E1B14DBCC52003DDCAE /* OptionSet.m in Sources */,
+				4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

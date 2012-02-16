@@ -17,7 +17,7 @@
 "Add To Favorites" = "Add To Favorites";
 "Favorite Added" = "Added to favorites.";
 "Favorite Failed" = "Failed to add to favorites.";
-"Amount Remaining" = "¥%d under this restaurant's minimum order amount.";
+"Amount Remaining" = "¥%d under this restaurant's minimum delivery amount.";
 
 /* CheckoutViewController */
 "Order Failed" = "Order Failed";
@@ -88,7 +88,7 @@
 
 /* RestaurantViewController */
 "Delivery Time" = "Delivery Time";
-"Minimum Order" = "Minimum Order";
+"Minimum Delivery" = "Minimum Delivery Amount";
 "Cuisines" = "Cuisines";
 "See Menu" = "See menu for this restaurant";
 "Address" = "Address";

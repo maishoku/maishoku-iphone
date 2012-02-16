@@ -9,6 +9,7 @@
 #import "Cart.h"
 #import "AppDelegate.h"
 #import "Restaurant.h"
+#import "DeliveryDistance.h"
 #import "RestaurantTableViewController.h"
 
 @implementation RestaurantTableViewController
@@ -33,23 +34,30 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
     
-    // Set up the Restaurant object mapping
-    RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[Restaurant class]];
+    // Set up the object mappings
+    RKObjectMapping *deliveryDistanceObjectMapping = [RKObjectMapping mappingForClass:[DeliveryDistance class]];
+    [deliveryDistanceObjectMapping mapKeyPath:@"lower_bound" toAttribute:@"lowerBound"];
+    [deliveryDistanceObjectMapping mapKeyPath:@"upper_bound" toAttribute:@"upperBound"];
+    [deliveryDistanceObjectMapping mapKeyPath:@"minimum_delivery" toAttribute:@"minimumDelivery"];
+    
+    RKObjectMapping *restaurantObjectMapping = [RKObjectMapping mappingForClass:[Restaurant class]];
     NSString *deliveryTime;
     if (UIAppDelegate.displayLanguage == english) {
         deliveryTime = @"delivery_time.value_english";
     } else {
         deliveryTime = @"delivery_time.value_japanese";
     }
-    [objectMapping mapKeyPath:deliveryTime toAttribute:@"deliveryTime"];
-    [objectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
-    [objectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
-    [objectMapping mapKeyPath:@"phone_order" toAttribute:@"phoneOrder"];
-    [objectMapping mapKeyPath:@"minimum_order" toAttribute:@"minimumOrder"];
-    [objectMapping mapKeyPath:@"cuisines" toAttribute:@"cuisines"];
-    [objectMapping mapKeyPath:@"address" toAttribute:@"address"];
-    [objectMapping mapKeyPath:@"hours" toAttribute:@"hours"];
-    [objectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+    [restaurantObjectMapping mapKeyPath:deliveryTime toAttribute:@"deliveryTime"];
+    [restaurantObjectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
+    [restaurantObjectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
+    [restaurantObjectMapping mapKeyPath:@"phone_order" toAttribute:@"phoneOrder"];
+    [restaurantObjectMapping mapKeyPath:@"minimum_order" toAttribute:@"minimumOrder"];
+    [restaurantObjectMapping mapKeyPath:@"distance" toAttribute:@"distance"];
+    [restaurantObjectMapping mapKeyPath:@"cuisines" toAttribute:@"cuisines"];
+    [restaurantObjectMapping mapKeyPath:@"address" toAttribute:@"address"];
+    [restaurantObjectMapping mapKeyPath:@"hours" toAttribute:@"hours"];
+    [restaurantObjectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+    [restaurantObjectMapping mapKeyPath:@"delivery_distances" toRelationship:@"deliveryDistances" withMapping:deliveryDistanceObjectMapping];
     
     // Format the GET query params
     NSArray *keys = [NSArray arrayWithObjects:@"lat", @"lon", nil];
@@ -70,7 +78,7 @@
     RKURL *url = [RKURL URLWithBaseURLString:baseURL resourcePath:resourcePath queryParams:queryParams];
     resourcePath = [url.absoluteString substringFromIndex:[baseURL length]];
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    [manager loadObjectsAtResourcePath:resourcePath objectMapping:objectMapping delegate:self];
+    [manager loadObjectsAtResourcePath:resourcePath objectMapping:restaurantObjectMapping delegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated

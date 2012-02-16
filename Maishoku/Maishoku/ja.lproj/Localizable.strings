@@ -85,7 +85,7 @@
 
 /* RestaurantViewController */
 "Delivery Time" = "お届けの時間";
-"Minimum Order" = "最低注文金額";
+"Minimum Delivery" = "最低宅配金額";
 "Cuisines" = "ジャンル";
 "See Menu" = "この店のメニューを見る";
 "Address" = "住所";
