@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9ZU-Ee-3vG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9ZU-Ee-3vG">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
+        <!--Restaurant View Controller - First-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -83,6 +85,7 @@
             </objects>
             <point key="canvasLocation" x="25" y="100"/>
         </scene>
+        <!--Cart View Controller - Cart-->
         <scene sceneID="CKb-WQ-Zlu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zd6-dk-7sN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,6 +184,7 @@
             </objects>
             <point key="canvasLocation" x="25" y="874"/>
         </scene>
+        <!--Checkout View Controller-->
         <scene sceneID="2cn-X3-XVh">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZX-Z7-q1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,6 +350,7 @@
             </objects>
             <point key="canvasLocation" x="573" y="874"/>
         </scene>
+        <!--Toppings View Controller-->
         <scene sceneID="Lgc-Ld-9Id">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZV-YB-kt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,6 +428,7 @@
             </objects>
             <point key="canvasLocation" x="1185" y="-607"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="Dga-1X-RFQ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgz-3X-pyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -440,6 +446,7 @@
             </objects>
             <point key="canvasLocation" x="-509" y="874"/>
         </scene>
+        <!--Restaurant Table View Controller-->
         <scene sceneID="u96-na-BtT">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxC-cW-TxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,6 +502,7 @@
             </objects>
             <point key="canvasLocation" x="-617" y="100"/>
         </scene>
+        <!--New Address View Controller-->
         <scene sceneID="PJ6-Lv-clx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOj-QW-vsq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -567,6 +575,7 @@
             </objects>
             <point key="canvasLocation" x="-1351" y="874"/>
         </scene>
+        <!--Location View Controller-->
         <scene sceneID="A4Z-5X-r9g">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EM-qO-RPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -660,6 +669,7 @@
             </objects>
             <point key="canvasLocation" x="-1351" y="100"/>
         </scene>
+        <!--Item View Controller-->
         <scene sceneID="7q0-Dn-pld">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rir-6t-UzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -774,7 +784,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="9E4-sB-6Bt">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="9E4-sB-6Bt">
                                 <rect key="frame" x="264" y="322" width="28" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -818,6 +828,7 @@
             </objects>
             <point key="canvasLocation" x="1185" y="100"/>
         </scene>
+        <!--Add Instructions View Controller-->
         <scene sceneID="8GC-O1-mkC">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9T-pq-4Aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -875,6 +886,7 @@
             </objects>
             <point key="canvasLocation" x="1185" y="874"/>
         </scene>
+        <!--Item Table View Controller-->
         <scene sceneID="9Cb-m7-5cJ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vj-dP-c4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -929,6 +941,7 @@
             </objects>
             <point key="canvasLocation" x="623" y="100"/>
         </scene>
+        <!--Favorites View Controller - Favorites-->
         <scene sceneID="BUM-Wb-lCs">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70g-PQ-4V9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -985,6 +998,7 @@
             </objects>
             <point key="canvasLocation" x="453" y="-999"/>
         </scene>
+        <!--Group View Controller-->
         <scene sceneID="aHN-zV-3If">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zog-5U-Wsb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1045,6 +1059,7 @@
             </objects>
             <point key="canvasLocation" x="987" y="-1870"/>
         </scene>
+        <!--New Group View Controller-->
         <scene sceneID="Rvq-yJ-0cF">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U68-jF-GQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1112,6 +1127,7 @@
             </objects>
             <point key="canvasLocation" x="1529" y="-1870"/>
         </scene>
+        <!--Navigation Controller - Groups-->
         <scene sceneID="gGu-ec-CRt">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOV-WM-TSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1130,6 +1146,7 @@
             </objects>
             <point key="canvasLocation" x="453" y="-1870"/>
         </scene>
+        <!--Initial Login View Controller-->
         <scene sceneID="Oh3-gO-Br1">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WO2-Yv-NGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1154,6 +1171,7 @@
             </objects>
             <point key="canvasLocation" x="-2508" y="-867"/>
         </scene>
+        <!--Login View Controller-->
         <scene sceneID="puh-fq-AZ6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V17-Ki-Mj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1260,6 +1278,7 @@
             </objects>
             <point key="canvasLocation" x="-1664" y="-867"/>
         </scene>
+        <!--Sign Up View Controller-->
         <scene sceneID="aDl-OT-cLQ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VK8-8I-etf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1370,6 +1389,7 @@
             </objects>
             <point key="canvasLocation" x="-314" y="-607"/>
         </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -1390,6 +1410,7 @@
             </objects>
             <point key="canvasLocation" x="-314" y="-1374"/>
         </scene>
+        <!--Navigation Controller - Restaurants-->
         <scene sceneID="GIw-1D-vbu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVK-Ej-BYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1505,6 +1526,8 @@
                 <relationship kind="outlet" name="currentlyInCartLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="extrasPickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="extrasTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="imageSpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="quantityButton" candidateClass="UIButton"/>
@@ -1532,6 +1555,7 @@
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="forgotPassword:"/>
                 <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="passwordEditingChanged:"/>
                 <relationship kind="action" name="signup:"/>
