@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString *phoneOrder;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *commaSeparatedCuisines;
+@property (nonatomic, strong) NSString *dirlogoImageURL;
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSNumber *minimumOrder;
 @property (nonatomic, strong) NSNumber *minimumDelivery;

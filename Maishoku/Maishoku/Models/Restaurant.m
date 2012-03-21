@@ -25,6 +25,7 @@
 @synthesize nameEnglish;
 @synthesize phoneOrder;
 @synthesize address;
+@synthesize dirlogoImageURL;
 @synthesize commaSeparatedCuisines;
 @synthesize identifier;
 @synthesize minimumOrder;
