@@ -35,6 +35,8 @@
 		4E608CBE145ABE75007134EA /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CBD145ABE75007134EA /* Restaurant.m */; };
 		4E608CC2145AD1B5007134EA /* ItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CC1145AD1B5007134EA /* ItemTableViewController.m */; };
 		4E608CC5145AD517007134EA /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CC4145AD517007134EA /* Item.m */; };
+		4E78B881151A2E6A00942AA7 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E78B880151A2E6A00942AA7 /* blank.png */; };
+		4E78B885151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */; };
 		4E8148FD145E64430028CE51 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8148FC145E64430028CE51 /* Security.framework */; };
 		4E814912145E78F00028CE51 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E814911145E78F00028CE51 /* KeychainItemWrapper.m */; };
 		4E814915145EA40F0028CE51 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E814914145EA40F0028CE51 /* LocationViewController.m */; };
@@ -208,6 +210,9 @@
 		4E608CC1145AD1B5007134EA /* ItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewController.m; sourceTree = "<group>"; };
 		4E608CC3145AD517007134EA /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Models/Item.h; sourceTree = "<group>"; };
 		4E608CC4145AD517007134EA /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Models/Item.m; sourceTree = "<group>"; };
+		4E78B880151A2E6A00942AA7 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		4E78B883151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCellImageConnectionDelegate.h; path = Connection/TableViewCellImageConnectionDelegate.h; sourceTree = "<group>"; };
+		4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCellImageConnectionDelegate.m; path = Connection/TableViewCellImageConnectionDelegate.m; sourceTree = "<group>"; };
 		4E8148FC145E64430028CE51 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4E814910145E78F00028CE51 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		4E814911145E78F00028CE51 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
@@ -303,17 +308,17 @@
 		4E608C0114596A92007134EA = {
 			isa = PBXGroup;
 			children = (
-				4EBF19281483B11D0098089B /* CoreLocation.framework */,
-				4E8148FC145E64430028CE51 /* Security.framework */,
 				4E608C8C1459884B007134EA /* libxml2.dylib */,
-				4E608C8A1459883E007134EA /* SystemConfiguration.framework */,
-				4E608C8814598833007134EA /* MobileCoreServices.framework */,
-				4E608C8614598828007134EA /* CoreData.framework */,
 				4E608C841459881C007134EA /* CFNetwork.framework */,
+				4E608C8614598828007134EA /* CoreData.framework */,
+				4EBF19281483B11D0098089B /* CoreLocation.framework */,
+				4E608C8814598833007134EA /* MobileCoreServices.framework */,
+				4E8148FC145E64430028CE51 /* Security.framework */,
+				4E608C8A1459883E007134EA /* SystemConfiguration.framework */,
 				4E608C58145987D8007134EA /* RestKit.xcodeproj */,
+				4E608C0F14596A92007134EA /* Frameworks */,
 				4E608C1614596A92007134EA /* Maishoku */,
 				4E608C3F14596A92007134EA /* MaishokuTests */,
-				4E608C0F14596A92007134EA /* Frameworks */,
 				4E608C0D14596A92007134EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				4E608C2614596A92007134EA /* RestaurantViewController.m */,
 				4EC1277B147E30C700323016 /* SignUpViewController.m */,
 				4E9CC0B814D925230029A0F0 /* ToppingsViewController.m */,
+				4E78B886151A331700942AA7 /* Connection */,
 				4E814909145E68EC0028CE51 /* Keychain */,
 				4E608C2214596A92007134EA /* MainStoryboard.storyboard */,
 				4E608CBF145ABE7C007134EA /* Models */,
@@ -387,6 +393,7 @@
 		4E608C1714596A92007134EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E78B880151A2E6A00942AA7 /* blank.png */,
 				4EC2D17714C97DA50055A79E /* maishoku.png */,
 				4EBF1946148659EA0098089B /* shoku57.png */,
 				4EBF1947148659EA0098089B /* shoku114.png */,
@@ -474,6 +481,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		4E78B886151A331700942AA7 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				4E78B883151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.h */,
+				4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
 		4E814909145E68EC0028CE51 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,7 +554,7 @@
 		4E608C0314596A92007134EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Dynaptico LLC";
 			};
 			buildConfigurationList = 4E608C0614596A92007134EA /* Build configuration list for PBXProject "Maishoku" */;
@@ -663,6 +679,7 @@
 				4EBF1948148659EA0098089B /* shoku57.png in Resources */,
 				4EBF1949148659EA0098089B /* shoku114.png in Resources */,
 				4EC2D17814C97DA50055A79E /* maishoku.png in Resources */,
+				4E78B881151A2E6A00942AA7 /* blank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +747,7 @@
 				4EDF3E1814D960AC003DDCAE /* AddInstructionsViewController.m in Sources */,
 				4EDF3E1B14DBCC52003DDCAE /* OptionSet.m in Sources */,
 				4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */,
+				4E78B885151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

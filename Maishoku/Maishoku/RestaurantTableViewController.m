@@ -11,11 +11,13 @@
 #import "Restaurant.h"
 #import "DeliveryDistance.h"
 #import "RestaurantTableViewController.h"
+#import "TableViewCellImageConnectionDelegate.h"
 
 @implementation RestaurantTableViewController
 {
     NSMutableArray *restaurants;
     UIActivityIndicatorView *spinner;
+    UIImage *blank;
 }
 
 - (void)viewDidLoad
@@ -24,6 +26,7 @@
     [self.navigationItem setTitle:NSLocalizedString(@"Restaurants", nil)];
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     restaurants = [NSMutableArray array];
+    blank = [UIImage imageNamed:@"blank.png"];
 }
 
 - (void)loadRestaurants
@@ -48,6 +51,7 @@
         deliveryTime = @"delivery_time.value_japanese";
     }
     [restaurantObjectMapping mapKeyPath:deliveryTime toAttribute:@"deliveryTime"];
+    [restaurantObjectMapping mapKeyPath:@"dirlogo_image_url" toAttribute:@"dirlogoImageURL"];
     [restaurantObjectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [restaurantObjectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
     [restaurantObjectMapping mapKeyPath:@"phone_order" toAttribute:@"phoneOrder"];
@@ -138,6 +142,19 @@
     cell.textLabel.text = restaurant.name;
     cell.detailTextLabel.text = restaurant.commaSeparatedCuisines;
     
+    if (cell.imageView.image == nil) {
+        cell.imageView.image = blank;
+    }
+    
+    if (cell.imageView.image == blank) {
+        TableViewCellImageConnectionDelegate *delegate = [[TableViewCellImageConnectionDelegate alloc] init];
+        delegate.tableViewCell = cell;
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:restaurant.dirlogoImageURL]] delegate:delegate];
+        if (connection == nil) {
+            NSLog(@"Could not initialize connection");
+        }
+    }
+    
     return cell;
 }
 
@@ -180,6 +197,7 @@
 {
     restaurants = nil;
     spinner = nil;
+    blank = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
