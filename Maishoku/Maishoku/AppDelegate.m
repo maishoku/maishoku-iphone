@@ -44,6 +44,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // 10 Mb cache for downloaded images
+    [[NSURLCache sharedURLCache] setMemoryCapacity:1024*1024*10];
+    
     // Cache the language to display for items and restaurants received from the server
     if ([[[NSLocale preferredLanguages] objectAtIndex:0] isEqualToString:@"ja"]) {
         displayLanguage = japanese;
@@ -56,8 +59,8 @@
     RKObjectManager *objectManager;
     
 #if TARGET_IPHONE_SIMULATOR
-    //[RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api.local/%@", API_VERSION]];
-    //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api.local/%@", API_VERSION]];
+    //[RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api.dev/%@", API_VERSION]];
+    //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api.dev/%@", API_VERSION]];
     [RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
     objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
 	reachabilityWithHostName = [Reachability reachabilityWithHostName:@"api-dev.maishoku.com"];

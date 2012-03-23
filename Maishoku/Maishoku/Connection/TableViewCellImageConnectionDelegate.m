@@ -38,15 +38,16 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     imageData = nil;
-    connection = nil;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    tableViewCell.imageView.image = [[UIImage alloc] initWithData:imageData];
-    [((UITableView *)tableViewCell.superview) reloadData];
+    UIImage *image = [[UIImage alloc] initWithData:imageData];
+    if (image != nil) {
+        tableViewCell.imageView.image = image;
+        [((UITableView *)tableViewCell.superview) reloadData];
+    }
     imageData = nil;
-    connection = nil;
 }
 
 @end

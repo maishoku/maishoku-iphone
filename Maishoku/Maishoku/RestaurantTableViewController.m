@@ -141,17 +141,20 @@
     Restaurant *restaurant = [restaurants objectAtIndex:indexPath.row];
     cell.textLabel.text = restaurant.name;
     cell.detailTextLabel.text = restaurant.commaSeparatedCuisines;
+    cell.imageView.image = blank;
     
-    if (cell.imageView.image == nil) {
-        cell.imageView.image = blank;
-    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:restaurant.dirlogoImageURL]];
+    NSCachedURLResponse *response = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
     
-    if (cell.imageView.image == blank) {
+    if (response.data == nil) {
         TableViewCellImageConnectionDelegate *delegate = [[TableViewCellImageConnectionDelegate alloc] init];
         delegate.tableViewCell = cell;
-        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:restaurant.dirlogoImageURL]] delegate:delegate];
-        if (connection == nil) {
-            NSLog(@"Could not initialize connection");
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:delegate];
+        if (connection == nil) {}; // get rid of "expression result unused" warning
+    } else {
+        UIImage *image = [[UIImage alloc] initWithData:response.data];
+        if (image != nil) {
+            cell.imageView.image = image;
         }
     }
     
