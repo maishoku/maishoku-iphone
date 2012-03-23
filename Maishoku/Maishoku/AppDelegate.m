@@ -17,6 +17,7 @@
 @implementation AppDelegate
 {
 	Reachability *reachabilityWithHostName;
+    NSDateFormatter *formatter;
 }
 
 @synthesize window;
@@ -46,6 +47,11 @@
 {
     // 10 Mb cache for downloaded images
     [[NSURLCache sharedURLCache] setMemoryCapacity:1024*1024*10];
+    
+    // Formatter for day names - always in English
+    formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"us_EN"];
+    formatter.dateFormat = @"EEE";
     
     // Cache the language to display for items and restaurants received from the server
     if ([[[NSLocale preferredLanguages] objectAtIndex:0] isEqualToString:@"ja"]) {
@@ -114,6 +120,11 @@
     manager.client.password = password;
     
     [client get:@"/authenticate" delegate:delegate];
+}
+
+- (NSString *)todaysDateEEE
+{
+    return [[formatter stringFromDate:[NSDate date]] uppercaseString];
 }
 
 /*------------------------------------------------------------------------------------*/

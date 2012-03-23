@@ -91,6 +91,8 @@
 "See Menu" = "この店のメニューを見る";
 "Address" = "住所";
 "Phone Order" = "電話番号";
+"Todays Hours" = "今日の営業時間";
+"Closed" = "休みの日";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "パスワードが一致していません";

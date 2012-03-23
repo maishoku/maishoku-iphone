@@ -94,6 +94,8 @@
 "See Menu" = "See menu for this restaurant";
 "Address" = "Address";
 "Phone Order" = "Phone Number";
+"Todays Hours" = "Today's Hours";
+"Closed" = "Closed";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "Passwords are not the same";

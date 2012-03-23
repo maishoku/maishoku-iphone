@@ -45,4 +45,6 @@ enum DisplayLanguage {
 
 - (void)authenticate:(NSString *)username password:(NSString *)password delegate:(id)delegate;
 
+- (NSString *)todaysDateEEE;
+
 @end

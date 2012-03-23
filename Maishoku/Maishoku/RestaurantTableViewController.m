@@ -9,6 +9,7 @@
 #import "Cart.h"
 #import "AppDelegate.h"
 #import "Restaurant.h"
+#import "RestaurantHours.h"
 #import "DeliveryDistance.h"
 #import "RestaurantTableViewController.h"
 #import "TableViewCellImageConnectionDelegate.h"
@@ -38,6 +39,11 @@
     [spinner startAnimating];
     
     // Set up the object mappings
+    RKObjectMapping *restaurantHoursObjectMapping = [RKObjectMapping mappingForClass:[RestaurantHours class]];
+    [restaurantHoursObjectMapping mapKeyPath:@"day_name" toAttribute:@"dayName"];
+    [restaurantHoursObjectMapping mapKeyPath:@"open_time" toAttribute:@"openTime"];
+    [restaurantHoursObjectMapping mapKeyPath:@"close_time" toAttribute:@"closeTime"];
+    
     RKObjectMapping *deliveryDistanceObjectMapping = [RKObjectMapping mappingForClass:[DeliveryDistance class]];
     [deliveryDistanceObjectMapping mapKeyPath:@"lower_bound" toAttribute:@"lowerBound"];
     [deliveryDistanceObjectMapping mapKeyPath:@"upper_bound" toAttribute:@"upperBound"];
@@ -52,6 +58,7 @@
     }
     [restaurantObjectMapping mapKeyPath:deliveryTime toAttribute:@"deliveryTime"];
     [restaurantObjectMapping mapKeyPath:@"dirlogo_image_url" toAttribute:@"dirlogoImageURL"];
+    [restaurantObjectMapping mapKeyPath:@"mainlogo_image_url" toAttribute:@"mainlogoImageURL"];
     [restaurantObjectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [restaurantObjectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
     [restaurantObjectMapping mapKeyPath:@"phone_order" toAttribute:@"phoneOrder"];
@@ -59,8 +66,8 @@
     [restaurantObjectMapping mapKeyPath:@"distance" toAttribute:@"distance"];
     [restaurantObjectMapping mapKeyPath:@"cuisines" toAttribute:@"cuisines"];
     [restaurantObjectMapping mapKeyPath:@"address" toAttribute:@"address"];
-    [restaurantObjectMapping mapKeyPath:@"hours" toAttribute:@"hours"];
     [restaurantObjectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
+    [restaurantObjectMapping mapKeyPath:@"hours" toRelationship:@"hours" withMapping:restaurantHoursObjectMapping];
     [restaurantObjectMapping mapKeyPath:@"delivery_distances" toRelationship:@"deliveryDistances" withMapping:deliveryDistanceObjectMapping];
     
     // Format the GET query params

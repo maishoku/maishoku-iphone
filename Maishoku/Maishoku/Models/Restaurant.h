@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *commaSeparatedCuisines;
 @property (nonatomic, strong) NSString *dirlogoImageURL;
+@property (nonatomic, strong) NSString *mainlogoImageURL;
+@property (nonatomic, strong) NSString *todaysHours;
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSNumber *minimumOrder;
 @property (nonatomic, strong) NSNumber *minimumDelivery;

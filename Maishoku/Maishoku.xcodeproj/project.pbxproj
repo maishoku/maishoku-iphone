@@ -37,6 +37,7 @@
 		4E608CC5145AD517007134EA /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CC4145AD517007134EA /* Item.m */; };
 		4E78B881151A2E6A00942AA7 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E78B880151A2E6A00942AA7 /* blank.png */; };
 		4E78B885151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */; };
+		4E78B899151C6F7100942AA7 /* RestaurantHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E78B898151C6F7100942AA7 /* RestaurantHours.m */; };
 		4E8148FD145E64430028CE51 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8148FC145E64430028CE51 /* Security.framework */; };
 		4E814912145E78F00028CE51 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E814911145E78F00028CE51 /* KeychainItemWrapper.m */; };
 		4E814915145EA40F0028CE51 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E814914145EA40F0028CE51 /* LocationViewController.m */; };
@@ -213,6 +214,8 @@
 		4E78B880151A2E6A00942AA7 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		4E78B883151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCellImageConnectionDelegate.h; path = Connection/TableViewCellImageConnectionDelegate.h; sourceTree = "<group>"; };
 		4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCellImageConnectionDelegate.m; path = Connection/TableViewCellImageConnectionDelegate.m; sourceTree = "<group>"; };
+		4E78B897151C6F7100942AA7 /* RestaurantHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantHours.h; sourceTree = "<group>"; };
+		4E78B898151C6F7100942AA7 /* RestaurantHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantHours.m; sourceTree = "<group>"; };
 		4E8148FC145E64430028CE51 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4E814910145E78F00028CE51 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		4E814911145E78F00028CE51 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
@@ -463,6 +466,7 @@
 				4EDF3E1914DBCC52003DDCAE /* OptionSet.h */,
 				4EC12774147D00D800323016 /* Position.h */,
 				4E608CBC145ABE75007134EA /* Restaurant.h */,
+				4E78B897151C6F7100942AA7 /* RestaurantHours.h */,
 				4EFB5B7714D6AFE30097E821 /* Topping.h */,
 				4E90DD48145EFC0A00CDE9A5 /* Address.m */,
 				4EC1276F147CF16400323016 /* Cart.m */,
@@ -476,6 +480,7 @@
 				4EDF3E1A14DBCC52003DDCAE /* OptionSet.m */,
 				4EC12775147D00D800323016 /* Position.m */,
 				4E608CBD145ABE75007134EA /* Restaurant.m */,
+				4E78B898151C6F7100942AA7 /* RestaurantHours.m */,
 				4EFB5B7814D6AFE30097E821 /* Topping.m */,
 			);
 			name = Models;
@@ -748,6 +753,7 @@
 				4EDF3E1B14DBCC52003DDCAE /* OptionSet.m in Sources */,
 				4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */,
 				4E78B885151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m in Sources */,
+				4E78B899151C6F7100942AA7 /* RestaurantHours.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -91,6 +91,8 @@
 "See Menu" = "메뉴 보기";
 "Address" = "주소";
 "Phone Order" = "전화 번호";
+"Todays Hours" = "오늘의 영업 시간";
+"Closed" = "문을 닫음";
 
 /* SignUpViewController */
 "Passwords Are Not Same" = "비밀번호가 일치하지 않습니다";

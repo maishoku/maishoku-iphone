@@ -8,13 +8,10 @@
 
 #import "AppDelegate.h"
 #import "Restaurant.h"
+#import "RestaurantHours.h"
 #import "DeliveryDistance.h"
 
 @implementation Restaurant
-{
-    NSString *_commaSeparatedCuisines;
-    NSNumber *_minimumDelivery;
-}
 
 @synthesize hours;
 @synthesize cuisines;
@@ -26,10 +23,12 @@
 @synthesize phoneOrder;
 @synthesize address;
 @synthesize dirlogoImageURL;
-@synthesize commaSeparatedCuisines;
+@synthesize mainlogoImageURL;
+@synthesize todaysHours;
+@synthesize commaSeparatedCuisines = _commaSeparatedCuisines;
 @synthesize identifier;
 @synthesize minimumOrder;
-@synthesize minimumDelivery;
+@synthesize minimumDelivery = _minimumDelivery;
 @synthesize distance;
 
 - (NSString *)name
@@ -37,30 +36,48 @@
     return UIAppDelegate.displayLanguage == english ? nameEnglish : nameJapanese;
 }
 
-- (void)setCommaSeparatedCuisines:(NSString *)string
+- (NSString *)todaysHours
 {
-    _commaSeparatedCuisines = string;
+    NSString *h = NSLocalizedString(@"Closed", nil);
+    NSString *dayName = [UIAppDelegate todaysDateEEE];
+    NSMutableArray *hoursArray = [NSMutableArray array];
+    for (RestaurantHours *rh in hours) {
+        if ([rh.dayName isEqualToString:dayName]) {
+            [hoursArray addObject:[NSString stringWithFormat:@"%@ - %@", rh.openTime, rh.closeTime]];
+        }
+    }
+    if ([hoursArray count] > 0) {
+        NSArray *sortedArray = [hoursArray sortedArrayUsingComparator:^(id a, id b) {
+            NSString *first = [(NSString *)a substringToIndex:2];
+            NSString *second = [(NSString *)b substringToIndex:2];
+            if (first > second) {
+                return 1;
+            } else if (first < second) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }];
+        h = [sortedArray componentsJoinedByString:@", "];
+    }
+    return h;
 }
 
 - (NSString *)commaSeparatedCuisines
 {
-    if (_commaSeparatedCuisines != nil) {
-        return _commaSeparatedCuisines;
+    if (_commaSeparatedCuisines == nil) {
+        NSMutableString *string = [[NSMutableString alloc] initWithString:@""];
+        NSString *n = UIAppDelegate.displayLanguage == english ? @"name_english" : @"name_japanese";
+        for (NSDictionary *dict in cuisines) {
+            if ([string length] != 0) {
+                [string appendString:@", "];
+            }
+            [string appendString:[dict objectForKey:n]];
+        };
+        _commaSeparatedCuisines = string;
     }
     
-    NSMutableString *string = [[NSMutableString alloc] initWithString:@""];
-    NSString *n = UIAppDelegate.displayLanguage == english ? @"name_english" : @"name_japanese";
-    
-    for (NSDictionary *dict in cuisines) {
-        if ([string length] != 0) {
-            [string appendString:@", "];
-        }
-        [string appendString:[dict objectForKey:n]];
-    };
-    
-    _commaSeparatedCuisines = string;
-    
-    return string;
+    return _commaSeparatedCuisines;
 }
 
 - (NSNumber *)minimumDelivery
