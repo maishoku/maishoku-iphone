@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RestaurantViewController : UIViewController <UITableViewDataSource, NSURLConnectionDelegate>
+@interface RestaurantViewController : UIViewController <UITextViewDelegate, UITableViewDataSource, NSURLConnectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *seeItemsButton;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UITableView *restaurantInfoTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *restaurantNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cuisinesLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 - (IBAction)seeItems:(id)sender;
 - (IBAction)showCart:(id)sender;

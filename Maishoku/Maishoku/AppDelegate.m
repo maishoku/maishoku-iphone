@@ -12,6 +12,7 @@
 #import "Reachability.h"
 #import "KeychainItemWrapper.h"
 #import "TargetConditionals.h"
+#import "UnchangeableURLCache.h"
 #import <RestKit/RestKit.h>
 
 @implementation AppDelegate
@@ -45,8 +46,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // 10 Mb cache for downloaded images
-    [[NSURLCache sharedURLCache] setMemoryCapacity:1024*1024*10];
+    // 10 Mb cache for downloaded images - use an UnchangeableURLCache because the built-in shared URL cache sometimes gets set to 0 by other libraries, which we don't want
+    UnchangeableURLCache *urlCache = [[UnchangeableURLCache alloc] init];
+    [urlCache setMemoryCapacity:1024*1024*10];
+    [NSURLCache setSharedURLCache:urlCache];
     
     // Formatter for day names - always in English
     formatter = [[NSDateFormatter alloc] init];

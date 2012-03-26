@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F2E8314EC247E005067BF /* DeliveryDistance.m */; };
 		4E15D7A7152031FD00D2EFDB /* blank40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E15D7A6152031FD00D2EFDB /* blank40x40.png */; };
+		4E15D7D61520A30000D2EFDB /* UnchangeableURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E15D7D51520A30000D2EFDB /* UnchangeableURLCache.m */; };
 		4E608C1114596A92007134EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1014596A92007134EA /* UIKit.framework */; };
 		4E608C1314596A92007134EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1214596A92007134EA /* Foundation.framework */; };
 		4E608C1514596A92007134EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1414596A92007134EA /* CoreGraphics.framework */; };
@@ -172,6 +173,8 @@
 		4E0F2E8214EC247D005067BF /* DeliveryDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryDistance.h; path = Models/DeliveryDistance.h; sourceTree = "<group>"; };
 		4E0F2E8314EC247E005067BF /* DeliveryDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryDistance.m; path = Models/DeliveryDistance.m; sourceTree = "<group>"; };
 		4E15D7A6152031FD00D2EFDB /* blank40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank40x40.png; sourceTree = "<group>"; };
+		4E15D7D41520A30000D2EFDB /* UnchangeableURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnchangeableURLCache.h; path = Connection/UnchangeableURLCache.h; sourceTree = "<group>"; };
+		4E15D7D51520A30000D2EFDB /* UnchangeableURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnchangeableURLCache.m; path = Connection/UnchangeableURLCache.m; sourceTree = "<group>"; };
 		4E243C5A14821A9100677890 /* Maishoku-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Maishoku-Info.plist"; sourceTree = "<group>"; };
 		4E243C5B14821B9B00677890 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E243C5C14821B9D00677890 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 			children = (
 				4E78B883151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.h */,
 				4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */,
+				4E15D7D41520A30000D2EFDB /* UnchangeableURLCache.h */,
+				4E15D7D51520A30000D2EFDB /* UnchangeableURLCache.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */,
 				4E78B885151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m in Sources */,
 				4E78B899151C6F7100942AA7 /* RestaurantHours.m in Sources */,
+				4E15D7D61520A30000D2EFDB /* UnchangeableURLCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

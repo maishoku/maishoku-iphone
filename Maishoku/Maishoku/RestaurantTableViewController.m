@@ -19,6 +19,7 @@
     NSMutableArray *restaurants;
     UIActivityIndicatorView *spinner;
     UIImage *blank;
+    NSMutableSet *urls;
 }
 
 - (void)viewDidLoad
@@ -28,6 +29,7 @@
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     restaurants = [NSMutableArray array];
     blank = [UIImage imageNamed:@"blank60x40.png"];
+    urls = [NSMutableSet set];
 }
 
 - (void)loadRestaurants
@@ -59,6 +61,8 @@
     [restaurantObjectMapping mapKeyPath:deliveryTime toAttribute:@"deliveryTime"];
     [restaurantObjectMapping mapKeyPath:@"dirlogo_image_url" toAttribute:@"dirlogoImageURL"];
     [restaurantObjectMapping mapKeyPath:@"mainlogo_image_url" toAttribute:@"mainlogoImageURL"];
+    [restaurantObjectMapping mapKeyPath:@"description_japanese" toAttribute:@"descriptionJapanese"];
+    [restaurantObjectMapping mapKeyPath:@"description_english" toAttribute:@"descriptionEnglish"];
     [restaurantObjectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [restaurantObjectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
     [restaurantObjectMapping mapKeyPath:@"phone_order" toAttribute:@"phoneOrder"];
@@ -148,19 +152,23 @@
     Restaurant *restaurant = [restaurants objectAtIndex:indexPath.row];
     cell.textLabel.text = restaurant.name;
     cell.detailTextLabel.text = restaurant.commaSeparatedCuisines;
-    cell.imageView.image = blank;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:restaurant.dirlogoImageURL]];
+    NSString *url = restaurant.dirlogoImageURL;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSCachedURLResponse *response = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
     
-    if (response.data == nil) {
+    if (response.data == nil && ![urls containsObject:url]) {
+        [urls addObject:url];
+        cell.imageView.image = blank;
         TableViewCellImageConnectionDelegate *delegate = [[TableViewCellImageConnectionDelegate alloc] init];
         delegate.tableViewCell = cell;
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:delegate];
         if (connection == nil) {}; // get rid of "expression result unused" warning
     } else {
         UIImage *image = [[UIImage alloc] initWithData:response.data];
-        if (image != nil) {
+        if (image == nil) {
+            cell.imageView.image = blank;
+        } else {
             cell.imageView.image = image;
         }
     }
@@ -208,6 +216,12 @@
     restaurants = nil;
     spinner = nil;
     blank = nil;
+    urls = nil;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [urls removeAllObjects];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

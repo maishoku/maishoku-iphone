@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *nameJapanese;
 @property (nonatomic, strong) NSString *nameEnglish;
+@property (nonatomic, strong) NSString *descriptionJapanese;
+@property (nonatomic, strong) NSString *descriptionEnglish;
 @property (nonatomic, strong) NSString *phoneOrder;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *commaSeparatedCuisines;

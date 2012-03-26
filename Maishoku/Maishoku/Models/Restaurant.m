@@ -20,6 +20,8 @@
 @synthesize name;
 @synthesize nameJapanese;
 @synthesize nameEnglish;
+@synthesize descriptionJapanese;
+@synthesize descriptionEnglish;
 @synthesize phoneOrder;
 @synthesize address;
 @synthesize dirlogoImageURL;
@@ -34,6 +36,11 @@
 - (NSString *)name
 {
     return UIAppDelegate.displayLanguage == english ? nameEnglish : nameJapanese;
+}
+
+- (NSString *)description
+{
+    return UIAppDelegate.displayLanguage == english ? descriptionEnglish : descriptionJapanese;
 }
 
 - (NSString *)todaysHours

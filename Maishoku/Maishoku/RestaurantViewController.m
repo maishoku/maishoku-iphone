@@ -27,15 +27,14 @@
 @synthesize navigationItem;
 @synthesize restaurantInfoTableView;
 @synthesize imageView;
-@synthesize restaurantNameLabel;
-@synthesize cuisinesLabel;
+@synthesize textView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:UIAppDelegate.restaurant.name];
+    [textView setText:UIAppDelegate.restaurant.description];
     [seeItemsButton setTitle:NSLocalizedString(@"See Menu", nil) forState:UIControlStateNormal];
-    [restaurantNameLabel setText:UIAppDelegate.restaurant.name];
-    [cuisinesLabel setText:UIAppDelegate.restaurant.commaSeparatedCuisines];
     imageData = [NSMutableData data];
 }
 
@@ -64,6 +63,15 @@
 {
     UIViewController *cartViewController = [UIAppDelegate.storyboard instantiateViewControllerWithIdentifier:@"CartNavigationViewController"];
     [self presentModalViewController:cartViewController animated:YES];
+}
+
+/*------------------------------------------------------------------------------------*/
+/* UITextViewDelegate                                                                 */
+/*------------------------------------------------------------------------------------*/
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    return NO;
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -161,8 +169,7 @@
     [self setSeeItemsButton:nil];
     [self setRestaurantInfoTableView:nil];
     [self setImageView:nil];
-    [self setRestaurantNameLabel:nil];
-    [self setCuisinesLabel:nil];
+    [self setTextView:nil];
     [super viewDidUnload];
 }
 
