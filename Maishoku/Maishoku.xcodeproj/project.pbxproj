@@ -169,8 +169,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E0F2E8214EC247D005067BF /* DeliveryDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryDistance.h; sourceTree = "<group>"; };
-		4E0F2E8314EC247E005067BF /* DeliveryDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryDistance.m; sourceTree = "<group>"; };
+		4E0F2E8214EC247D005067BF /* DeliveryDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryDistance.h; path = Models/DeliveryDistance.h; sourceTree = "<group>"; };
+		4E0F2E8314EC247E005067BF /* DeliveryDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryDistance.m; path = Models/DeliveryDistance.m; sourceTree = "<group>"; };
 		4E15D7A6152031FD00D2EFDB /* blank40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank40x40.png; sourceTree = "<group>"; };
 		4E243C5A14821A9100677890 /* Maishoku-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Maishoku-Info.plist"; sourceTree = "<group>"; };
 		4E243C5B14821B9B00677890 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 		4E78B880151A2E6A00942AA7 /* blank60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank60x40.png; sourceTree = "<group>"; };
 		4E78B883151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCellImageConnectionDelegate.h; path = Connection/TableViewCellImageConnectionDelegate.h; sourceTree = "<group>"; };
 		4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCellImageConnectionDelegate.m; path = Connection/TableViewCellImageConnectionDelegate.m; sourceTree = "<group>"; };
-		4E78B897151C6F7100942AA7 /* RestaurantHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantHours.h; sourceTree = "<group>"; };
-		4E78B898151C6F7100942AA7 /* RestaurantHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantHours.m; sourceTree = "<group>"; };
+		4E78B897151C6F7100942AA7 /* RestaurantHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantHours.h; path = Models/RestaurantHours.h; sourceTree = "<group>"; };
+		4E78B898151C6F7100942AA7 /* RestaurantHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantHours.m; path = Models/RestaurantHours.m; sourceTree = "<group>"; };
 		4E8148FC145E64430028CE51 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4E814910145E78F00028CE51 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		4E814911145E78F00028CE51 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
@@ -267,14 +267,14 @@
 		4EC2D17714C97DA50055A79E /* maishoku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maishoku.png; sourceTree = "<group>"; };
 		4EDF3E1614D960AC003DDCAE /* AddInstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddInstructionsViewController.h; sourceTree = "<group>"; };
 		4EDF3E1714D960AC003DDCAE /* AddInstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddInstructionsViewController.m; sourceTree = "<group>"; };
-		4EDF3E1914DBCC52003DDCAE /* OptionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionSet.h; sourceTree = "<group>"; };
-		4EDF3E1A14DBCC52003DDCAE /* OptionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionSet.m; sourceTree = "<group>"; };
-		4EFB1169148E2CEF006F3200 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
-		4EFB116A148E2CEF006F3200 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
-		4EFB5B7714D6AFE30097E821 /* Topping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topping.h; sourceTree = "<group>"; };
-		4EFB5B7814D6AFE30097E821 /* Topping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topping.m; sourceTree = "<group>"; };
-		4EFB5B7A14D6AFEF0097E821 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Option.h; sourceTree = "<group>"; };
-		4EFB5B7B14D6AFEF0097E821 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
+		4EDF3E1914DBCC52003DDCAE /* OptionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionSet.h; path = Models/OptionSet.h; sourceTree = "<group>"; };
+		4EDF3E1A14DBCC52003DDCAE /* OptionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionSet.m; path = Models/OptionSet.m; sourceTree = "<group>"; };
+		4EFB1169148E2CEF006F3200 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = Models/Favorite.h; sourceTree = "<group>"; };
+		4EFB116A148E2CEF006F3200 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = Models/Favorite.m; sourceTree = "<group>"; };
+		4EFB5B7714D6AFE30097E821 /* Topping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topping.h; path = Models/Topping.h; sourceTree = "<group>"; };
+		4EFB5B7814D6AFE30097E821 /* Topping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topping.m; path = Models/Topping.m; sourceTree = "<group>"; };
+		4EFB5B7A14D6AFEF0097E821 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Option.h; path = Models/Option.h; sourceTree = "<group>"; };
+		4EFB5B7B14D6AFEF0097E821 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Option.m; path = Models/Option.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
