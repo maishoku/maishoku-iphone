@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface ItemViewController : UIViewController <NSURLConnectionDelegate, RKObjectLoaderDelegate, UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ItemViewController : UIViewController <NSURLConnectionDelegate, UITextViewDelegate, RKObjectLoaderDelegate, UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedQuantityLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addToCartButton;
@@ -24,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIPickerView *extrasPickerView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) NSString *categoryName;
 @property (assign, nonatomic) NSInteger itemId;
 

@@ -25,15 +25,13 @@
     NSMutableData *imageData;
 }
 
-@synthesize nameLabel;
-@synthesize priceLabel;
-@synthesize categoryLabel;
 @synthesize quantityLabel;
 @synthesize selectedQuantityLabel;
 @synthesize addToCartButton;
 @synthesize quantityButton;
 @synthesize itemId;
 @synthesize imageView;
+@synthesize textView;
 @synthesize categoryName;
 @synthesize currentlyInCartLabel;
 @synthesize spinner;
@@ -63,6 +61,7 @@
 {
     [super viewDidLoad];
     [self changeQuantity:nil];
+    [self setTitle:categoryName];
     [quantityLabel setText:NSLocalizedString(@"Quantity", nil)];
     [addToCartButton setTitle:NSLocalizedString(@"Add To Cart", nil) forState:UIControlStateNormal];
     [addToCartButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
@@ -110,6 +109,8 @@
     [itemObjectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     [itemObjectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [itemObjectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
+    [itemObjectMapping mapKeyPath:@"description_japanese" toAttribute:@"descriptionJapanese"];
+    [itemObjectMapping mapKeyPath:@"description_english" toAttribute:@"descriptionEnglish"];
     [itemObjectMapping mapKeyPath:@"default_image_url" toAttribute:@"defaultImageURL"];
     [itemObjectMapping mapKeyPath:@"thumbnail_image_url" toAttribute:@"thumbnailImageURL"];
     [itemObjectMapping mapKeyPath:@"price" toAttribute:@"price"];
@@ -152,6 +153,18 @@
 - (void)dealloc
 {
     [[RKClient sharedClient].requestQueue cancelRequestsWithDelegate:self];
+}
+
+/*------------------------------------------------------------------------------------*/
+/* UITextViewDelegate                                                                 */
+/*------------------------------------------------------------------------------------*/
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    // UITextView doesn't respond to touch events, so we have to handle it here instead
+    [extrasPickerView setHidden:YES];
+    [extrasTableView reloadData];
+    return NO;
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -320,9 +333,7 @@
             }
         }
         [item setOptionSets:optionSets];
-        [priceLabel setText:[NSString stringWithFormat:@"¥%@", item.price]];
-        [nameLabel setText:item.name];
-        [categoryLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Category", nil), categoryName]];
+        [textView setText:[NSString stringWithFormat:@"%@\n¥%@\n%@", item.name, item.price, item.description]];
         [self initPosition];
         [extrasTableView reloadData];
         
@@ -385,9 +396,6 @@
     position = nil;
     imageData = nil;
     [self setQuantityLabel:nil];
-    [self setNameLabel:nil];
-    [self setPriceLabel:nil];
-    [self setCategoryLabel:nil];
     [self setAddToCartButton:nil];
     [self setCurrentlyInCartLabel:nil];
     [self setSpinner:nil];
@@ -398,6 +406,7 @@
     [self setSelectedQuantityLabel:nil];
     [self setExtrasPickerView:nil];
     [self setImageView:nil];
+    [self setTextView:nil];
     [super viewDidUnload];
 }
 

@@ -16,6 +16,8 @@
 @synthesize name;
 @synthesize nameEnglish;
 @synthesize nameJapanese;
+@synthesize descriptionEnglish;
+@synthesize descriptionJapanese;
 @synthesize defaultImageURL;
 @synthesize thumbnailImageURL;
 @synthesize available;
@@ -25,6 +27,11 @@
 - (NSString *)name
 {
     return UIAppDelegate.displayLanguage == english ? nameEnglish : nameJapanese;
+}
+
+- (NSString *)description
+{
+    return UIAppDelegate.displayLanguage == english ? descriptionEnglish : descriptionJapanese;
 }
 
 @end

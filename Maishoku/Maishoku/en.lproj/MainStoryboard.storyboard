@@ -699,24 +699,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" id="4ex-0Z-sl7">
-                                <rect key="frame" x="134" y="8" width="166" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="svY-eD-tzN">
-                                <rect key="frame" x="134" y="57" width="166" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" id="brG-xf-K7b">
-                                <rect key="frame" x="134" y="86" width="166" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nXz-QJ-oz9">
                                 <rect key="frame" x="20" y="359" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -824,6 +806,15 @@
                                 <rect key="frame" x="6" y="8" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MPL-hi-eLQ">
+                                <rect key="frame" x="132" y="8" width="180" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7iH-Y2-r2q" id="qJu-s3-7QG"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
@@ -837,18 +828,16 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
                         <outlet property="addToCartButton" destination="nXz-QJ-oz9" id="Wv6-Je-TU4"/>
-                        <outlet property="categoryLabel" destination="brG-xf-K7b" id="ljP-nD-R76"/>
                         <outlet property="currentlyInCartLabel" destination="fhL-SP-HXE" id="AZ5-Bi-XVg"/>
                         <outlet property="extrasPickerView" destination="gDU-fG-8hg" id="b0a-5M-PXk"/>
                         <outlet property="extrasTableView" destination="db2-jG-5F4" id="iV5-fr-xNF"/>
                         <outlet property="imageView" destination="L8t-cD-Xz3" id="W7p-jW-0iV"/>
-                        <outlet property="nameLabel" destination="4ex-0Z-sl7" id="h5B-2j-SZe"/>
-                        <outlet property="priceLabel" destination="svY-eD-tzN" id="fAC-Bn-6FN"/>
                         <outlet property="quantityButton" destination="Lkg-Iy-ESO" id="cj1-aX-6wH"/>
                         <outlet property="quantityLabel" destination="3zF-os-7Te" id="p9j-iS-YX0"/>
                         <outlet property="selectedQuantityLabel" destination="9E4-sB-6Bt" id="j0a-g9-QME"/>
                         <outlet property="slider" destination="LLC-05-jma" id="4yc-PU-wR6"/>
                         <outlet property="spinner" destination="8a8-Z7-g1g" id="q5b-Dr-YHU"/>
+                        <outlet property="textView" destination="MPL-hi-eLQ" id="b0k-aj-VUc"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1548,18 +1537,16 @@
                 <relationship kind="action" name="changeQuantity:"/>
                 <relationship kind="action" name="showCart:"/>
                 <relationship kind="outlet" name="addToCartButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="currentlyInCartLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="extrasPickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="extrasTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="quantityButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="quantityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="selectedQuantityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="LocationViewController" superclassName="UIViewController">
