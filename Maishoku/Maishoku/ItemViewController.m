@@ -22,6 +22,7 @@
     Item *item;
     Position *position;
     NSInteger index;
+    NSMutableData *imageData;
 }
 
 @synthesize nameLabel;
@@ -32,6 +33,7 @@
 @synthesize addToCartButton;
 @synthesize quantityButton;
 @synthesize itemId;
+@synthesize imageView;
 @synthesize categoryName;
 @synthesize currentlyInCartLabel;
 @synthesize spinner;
@@ -72,7 +74,7 @@
     [super viewDidAppear:animated];
     [self reloadLabel];
     
-    if (item != NULL) {
+    if (item != nil) {
         return;
     }
     
@@ -108,6 +110,8 @@
     [itemObjectMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     [itemObjectMapping mapKeyPath:@"name_japanese" toAttribute:@"nameJapanese"];
     [itemObjectMapping mapKeyPath:@"name_english" toAttribute:@"nameEnglish"];
+    [itemObjectMapping mapKeyPath:@"default_image_url" toAttribute:@"defaultImageURL"];
+    [itemObjectMapping mapKeyPath:@"thumbnail_image_url" toAttribute:@"thumbnailImageURL"];
     [itemObjectMapping mapKeyPath:@"price" toAttribute:@"price"];
     [itemObjectMapping mapKeyPath:@"option_sets" toRelationship:@"optionSets" withMapping:optionSetObjectMapping];
     [itemObjectMapping mapKeyPath:@"toppings" toRelationship:@"toppings" withMapping:toppingObjectMapping];
@@ -304,11 +308,10 @@
 {
     [spinner stopAnimating];
     
-    // 'item' is now set, so it is safe to add items to the cart
-    [addToCartButton setEnabled:YES];
-    
     if ([[objectLoader response] isOK]) {
         item = (Item *)object;
+        // 'item' is now set, so it is safe to add items to the cart
+        [addToCartButton setEnabled:YES];
         // Filter out empty OptionSets
         NSMutableArray *optionSets = [NSMutableArray array];
         for (OptionSet *optionSet in item.optionSets) {
@@ -322,6 +325,21 @@
         [categoryLabel setText:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Category", nil), categoryName]];
         [self initPosition];
         [extrasTableView reloadData];
+        
+        // Load the item image
+        imageData = [NSMutableData data];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:item.defaultImageURL]];
+        NSCachedURLResponse *response = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+        
+        if (response.data == nil) {
+            NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+            if (connection == nil) {}; // get rid of "expression result unused" warning
+        } else {
+            UIImage *image = [[UIImage alloc] initWithData:response.data];
+            if (image != nil) {
+                imageView.image = image;
+            }
+        }
     } else {
         // Should never happen - errors should result in a call to didFailWithError
         [self showAlert:NSLocalizedString(@"Load Screen Again", nil)];
@@ -335,6 +353,29 @@
 }
 
 /*------------------------------------------------------------------------------------*/
+/* NSURLConnectionDelegate                                                            */
+/*------------------------------------------------------------------------------------*/
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [imageData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    imageData = nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    UIImage *image = [[UIImage alloc] initWithData:imageData];
+    if (image != nil) {
+        imageView.image = image;
+    }
+    imageData = nil;
+}
+
+/*------------------------------------------------------------------------------------*/
 /* XCode-generated stuff below                                                        */
 /*------------------------------------------------------------------------------------*/
 
@@ -342,6 +383,7 @@
 {
     item = nil;
     position = nil;
+    imageData = nil;
     [self setQuantityLabel:nil];
     [self setNameLabel:nil];
     [self setPriceLabel:nil];
@@ -355,6 +397,7 @@
     [self setSlider:nil];
     [self setSelectedQuantityLabel:nil];
     [self setExtrasPickerView:nil];
+    [self setImageView:nil];
     [super viewDidUnload];
 }
 

@@ -16,6 +16,8 @@
 @synthesize name;
 @synthesize nameEnglish;
 @synthesize nameJapanese;
+@synthesize defaultImageURL;
+@synthesize thumbnailImageURL;
 @synthesize available;
 @synthesize price;
 @synthesize identifier;

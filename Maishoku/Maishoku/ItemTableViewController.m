@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "ItemViewController.h"
 #import "ItemTableViewController.h"
+#import "TableViewCellImageConnectionDelegate.h"
 
 @implementation ItemTableViewController
 {
@@ -18,12 +19,14 @@
     UIActivityIndicatorView *spinner;
     NSInteger itemId;
     NSString *categoryName;
+    UIImage *blank;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.navigationItem setTitle:NSLocalizedString(@"Menu", nil)];
+    blank = [UIImage imageNamed:@"blank40x40.png"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -110,6 +113,23 @@
     NSString *name = UIAppDelegate.displayLanguage == english ? @"name_english" : @"name_japanese";
     cell.textLabel.text = [dict objectForKey:name];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"¥%@", [dict objectForKey:@"price"]];
+    cell.imageView.image = blank;
+    
+    NSString *thumbnailImageURL = [dict objectForKey:@"thumbnail_image_url"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:thumbnailImageURL]];
+    NSCachedURLResponse *response = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+    
+    if (response.data == nil) {
+        TableViewCellImageConnectionDelegate *delegate = [[TableViewCellImageConnectionDelegate alloc] init];
+        delegate.tableViewCell = cell;
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:delegate];
+        if (connection == nil) {}; // get rid of "expression result unused" warning
+    } else {
+        UIImage *image = [[UIImage alloc] initWithData:response.data];
+        if (image != nil) {
+            cell.imageView.image = image;
+        }
+    }
     
     return cell;
 }
@@ -159,6 +179,7 @@
 
 - (void)viewDidUnload
 {
+    blank = nil;
     spinner = nil;
     categories = nil;
     categoryName = nil;

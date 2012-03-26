@@ -27,7 +27,7 @@
     [self.navigationItem setTitle:NSLocalizedString(@"Restaurants", nil)];
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     restaurants = [NSMutableArray array];
-    blank = [UIImage imageNamed:@"blank.png"];
+    blank = [UIImage imageNamed:@"blank60x40.png"];
 }
 
 - (void)loadRestaurants

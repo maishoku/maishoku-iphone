@@ -39,7 +39,7 @@
     imageData = [NSMutableData data];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:UIAppDelegate.restaurant.mainlogoImageURL]];
     NSCachedURLResponse *response = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];

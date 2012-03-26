@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E0F2E8414EC247F005067BF /* DeliveryDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F2E8314EC247E005067BF /* DeliveryDistance.m */; };
+		4E15D7A7152031FD00D2EFDB /* blank40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E15D7A6152031FD00D2EFDB /* blank40x40.png */; };
 		4E608C1114596A92007134EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1014596A92007134EA /* UIKit.framework */; };
 		4E608C1314596A92007134EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1214596A92007134EA /* Foundation.framework */; };
 		4E608C1514596A92007134EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E608C1414596A92007134EA /* CoreGraphics.framework */; };
@@ -35,7 +36,7 @@
 		4E608CBE145ABE75007134EA /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CBD145ABE75007134EA /* Restaurant.m */; };
 		4E608CC2145AD1B5007134EA /* ItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CC1145AD1B5007134EA /* ItemTableViewController.m */; };
 		4E608CC5145AD517007134EA /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E608CC4145AD517007134EA /* Item.m */; };
-		4E78B881151A2E6A00942AA7 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E78B880151A2E6A00942AA7 /* blank.png */; };
+		4E78B881151A2E6A00942AA7 /* blank60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E78B880151A2E6A00942AA7 /* blank60x40.png */; };
 		4E78B885151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */; };
 		4E78B899151C6F7100942AA7 /* RestaurantHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E78B898151C6F7100942AA7 /* RestaurantHours.m */; };
 		4E8148FD145E64430028CE51 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8148FC145E64430028CE51 /* Security.framework */; };
@@ -170,6 +171,7 @@
 /* Begin PBXFileReference section */
 		4E0F2E8214EC247D005067BF /* DeliveryDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryDistance.h; sourceTree = "<group>"; };
 		4E0F2E8314EC247E005067BF /* DeliveryDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryDistance.m; sourceTree = "<group>"; };
+		4E15D7A6152031FD00D2EFDB /* blank40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank40x40.png; sourceTree = "<group>"; };
 		4E243C5A14821A9100677890 /* Maishoku-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Maishoku-Info.plist"; sourceTree = "<group>"; };
 		4E243C5B14821B9B00677890 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E243C5C14821B9D00677890 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -211,7 +213,7 @@
 		4E608CC1145AD1B5007134EA /* ItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewController.m; sourceTree = "<group>"; };
 		4E608CC3145AD517007134EA /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Models/Item.h; sourceTree = "<group>"; };
 		4E608CC4145AD517007134EA /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Models/Item.m; sourceTree = "<group>"; };
-		4E78B880151A2E6A00942AA7 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		4E78B880151A2E6A00942AA7 /* blank60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank60x40.png; sourceTree = "<group>"; };
 		4E78B883151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCellImageConnectionDelegate.h; path = Connection/TableViewCellImageConnectionDelegate.h; sourceTree = "<group>"; };
 		4E78B884151A32ED00942AA7 /* TableViewCellImageConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCellImageConnectionDelegate.m; path = Connection/TableViewCellImageConnectionDelegate.m; sourceTree = "<group>"; };
 		4E78B897151C6F7100942AA7 /* RestaurantHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantHours.h; sourceTree = "<group>"; };
@@ -396,7 +398,8 @@
 		4E608C1714596A92007134EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E78B880151A2E6A00942AA7 /* blank.png */,
+				4E15D7A6152031FD00D2EFDB /* blank40x40.png */,
+				4E78B880151A2E6A00942AA7 /* blank60x40.png */,
 				4EC2D17714C97DA50055A79E /* maishoku.png */,
 				4EBF1946148659EA0098089B /* shoku57.png */,
 				4EBF1947148659EA0098089B /* shoku114.png */,
@@ -684,7 +687,8 @@
 				4EBF1948148659EA0098089B /* shoku57.png in Resources */,
 				4EBF1949148659EA0098089B /* shoku114.png in Resources */,
 				4EC2D17814C97DA50055A79E /* maishoku.png in Resources */,
-				4E78B881151A2E6A00942AA7 /* blank.png in Resources */,
+				4E78B881151A2E6A00942AA7 /* blank60x40.png in Resources */,
+				4E15D7A7152031FD00D2EFDB /* blank40x40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
