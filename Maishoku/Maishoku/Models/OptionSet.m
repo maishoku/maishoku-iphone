@@ -19,7 +19,12 @@
 
 - (NSString *)name
 {
-    return UIAppDelegate.displayLanguage == english ? nameEnglish : nameJapanese;
+    NSRange range;
+    NSString *string = [(UIAppDelegate.displayLanguage == english ? nameEnglish : nameJapanese) copy];
+    while ((range = [string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {
+        string = [string stringByReplacingCharactersInRange:range withString:@""];
+    }
+    return string;
 }
 
 @end

@@ -195,6 +195,26 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = 44.0;
+    
+    if (indexPath.section == 0 && [item.optionSets count] > 0) {
+        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        // It would be great to get the width from cell.textLabel.frame.size.width, but tableView:heightForRowAtIndexPath:
+        // is called before the UITableViewCell is rendered, so the width is not yet set.
+        CGFloat width = 250.0;
+        CGFloat singleLineSize = [cell.textLabel.text sizeWithFont:cell.textLabel.font].height;
+        CGFloat multiLineSize = [cell.textLabel.text sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)].height;
+        height += multiLineSize - singleLineSize;
+        singleLineSize = [cell.detailTextLabel.text sizeWithFont:cell.detailTextLabel.font].height;
+        multiLineSize = [cell.detailTextLabel.text sizeWithFont:cell.detailTextLabel.font constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)].height;
+        height += multiLineSize - singleLineSize;
+    }
+    
+    return height;
+}
+
 /*------------------------------------------------------------------------------------*/
 /* UITableViewDataSource                                                              */
 /*------------------------------------------------------------------------------------*/
@@ -209,8 +229,7 @@
     }
     
     if (indexPath.section == 0) {
-        int n = [item.optionSets count];
-        if (n > 0) {
+        if ([item.optionSets count] > 0) {
             OptionSet *optionSet = [item.optionSets objectAtIndex:indexPath.row];
             for (Option *option in position.options) {
                 if ([optionSet.options containsObject:option]) {
@@ -218,11 +237,17 @@
                     break;
                 }
             }
+            cell.detailTextLabel.numberOfLines = 0;
+            cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
             cell.textLabel.text = optionSet.name;
             cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             cell.userInteractionEnabled = YES;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            [cell.textLabel sizeToFit];
+            [cell.detailTextLabel sizeToFit];
         } else {
             cell.textLabel.text = NSLocalizedString(@"No Options", nil);
             cell.textLabel.textColor = [UIColor grayColor];
@@ -231,8 +256,7 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
     } else if (indexPath.section == 1) {
-        int n = [item.toppings count];
-        if (n > 0) {
+        if ([item.toppings count] > 0) {
             cell.textLabel.text = NSLocalizedString(@"Add Toppings", nil);
             cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
