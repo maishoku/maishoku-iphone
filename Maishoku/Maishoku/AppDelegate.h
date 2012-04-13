@@ -30,7 +30,7 @@ enum DisplayLanguage {
     english = 1, japanese = 2
 };
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIStoryboard *storyboard;

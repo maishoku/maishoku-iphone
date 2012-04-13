@@ -19,6 +19,7 @@
 {
 	Reachability *reachabilityWithHostName;
     NSDateFormatter *formatter;
+    BOOL alertShown;
 }
 
 @synthesize window;
@@ -38,10 +39,16 @@
 	Reachability *reachability = [notification object];
     if (reachability == reachabilityWithHostName) {
         NetworkStatus currentReachabilityStatus = [reachability currentReachabilityStatus];
-        if (currentReachabilityStatus == NotReachable || [reachability connectionRequired]) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Network Error", nil) message:NSLocalizedString(@"Check Connection", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        if ((currentReachabilityStatus == NotReachable || [reachability connectionRequired]) && !alertShown) {
+            alertShown = YES;
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Network Error", nil) message:NSLocalizedString(@"Check Connection", nil) delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
         }
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    alertShown = NO;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -98,6 +105,7 @@
     // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method "reachabilityChanged" will be called.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
+    alertShown = NO;
 	[reachabilityWithHostName startNotifier];
     
     return YES;
