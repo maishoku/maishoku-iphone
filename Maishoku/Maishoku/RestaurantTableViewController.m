@@ -36,8 +36,8 @@
 {
     // Show a spinner while we wait
     struct CGSize size = [[UIScreen mainScreen] bounds].size;
-    [spinner setCenter:CGPointMake(size.width/2.0, ((size.height)/2.0)-49)]; // tab bar is 49 pixels high
-    [self.view addSubview:spinner];
+    [spinner setCenter:CGPointMake(size.width/2.0, size.height/2.0)];
+    [self.navigationController.view addSubview:spinner];
     [spinner startAnimating];
     
     // Set up the object mappings
