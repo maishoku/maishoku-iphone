@@ -19,7 +19,6 @@
     UIActivityIndicatorView *spinner;
     NSInteger itemId;
     NSString *categoryName;
-    UIImage *blank;
     NSMutableSet *urls;
 }
 
@@ -27,7 +26,6 @@
 {
     [super viewDidLoad];
     [self.navigationItem setTitle:NSLocalizedString(@"Menu", nil)];
-    blank = [UIImage imageNamed:@"blank40x40.png"];
     urls = [NSMutableSet set];
 }
 
@@ -122,7 +120,7 @@
     
     if (response.data == nil && ![urls containsObject:url]) {
         [urls addObject:url];
-        cell.imageView.image = blank;
+        cell.imageView.image = UIAppDelegate.blank40x40;
         TableViewCellImageConnectionDelegate *delegate = [[TableViewCellImageConnectionDelegate alloc] init];
         delegate.tableViewCell = cell;
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:delegate];
@@ -130,7 +128,7 @@
     } else {
         UIImage *image = [[UIImage alloc] initWithData:response.data];
         if (image == nil) {
-            cell.imageView.image = blank;
+            cell.imageView.image = UIAppDelegate.blank40x40;
         } else {
             cell.imageView.image = image;
         }
@@ -185,7 +183,6 @@
 - (void)viewDidUnload
 {
     urls = nil;
-    blank = nil;
     spinner = nil;
     categories = nil;
     categoryName = nil;

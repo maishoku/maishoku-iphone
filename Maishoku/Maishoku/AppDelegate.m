@@ -22,6 +22,9 @@
     BOOL alertShown;
 }
 
+@synthesize blank40x40;
+@synthesize blank60x40;
+@synthesize white120x120;
 @synthesize window;
 @synthesize keychain;
 @synthesize address;
@@ -53,6 +56,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    blank40x40 = [UIImage imageNamed:@"blank40x40.png"];
+    blank60x40 = [UIImage imageNamed:@"blank60x40.png"];
+    white120x120 = [UIImage imageNamed:@"white120x120.png"];
+    
     // 10 Mb cache for downloaded images - use an UnchangeableURLCache because the built-in shared URL cache sometimes gets set to 0 by other libraries, which we don't want
     UnchangeableURLCache *urlCache = [[UnchangeableURLCache alloc] init];
     [urlCache setMemoryCapacity:1024*1024*10];

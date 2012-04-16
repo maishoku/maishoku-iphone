@@ -18,7 +18,6 @@
 {
     NSMutableArray *restaurants;
     UIActivityIndicatorView *spinner;
-    UIImage *blank;
     NSMutableSet *urls;
 }
 
@@ -28,7 +27,6 @@
     [self.navigationItem setTitle:NSLocalizedString(@"Restaurants", nil)];
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     restaurants = [NSMutableArray array];
-    blank = [UIImage imageNamed:@"blank60x40.png"];
     urls = [NSMutableSet set];
 }
 
@@ -159,7 +157,7 @@
     
     if (response.data == nil && ![urls containsObject:url]) {
         [urls addObject:url];
-        cell.imageView.image = blank;
+        cell.imageView.image = UIAppDelegate.blank60x40;
         TableViewCellImageConnectionDelegate *delegate = [[TableViewCellImageConnectionDelegate alloc] init];
         delegate.tableViewCell = cell;
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:delegate];
@@ -167,7 +165,7 @@
     } else {
         UIImage *image = [[UIImage alloc] initWithData:response.data];
         if (image == nil) {
-            cell.imageView.image = blank;
+            cell.imageView.image = UIAppDelegate.blank60x40;
         } else {
             cell.imageView.image = image;
         }
@@ -215,7 +213,6 @@
 {
     restaurants = nil;
     spinner = nil;
-    blank = nil;
     urls = nil;
 }
 

@@ -371,7 +371,9 @@
             if (connection == nil) {}; // get rid of "expression result unused" warning
         } else {
             UIImage *image = [[UIImage alloc] initWithData:response.data];
-            if (image != nil) {
+            if (image == nil) {
+                imageView.image = UIAppDelegate.white120x120;
+            } else {
                 imageView.image = image;
             }
         }
@@ -404,7 +406,9 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     UIImage *image = [[UIImage alloc] initWithData:imageData];
-    if (image != nil) {
+    if (image == nil) {
+        imageView.image = UIAppDelegate.white120x120;
+    } else {
         imageView.image = image;
     }
     imageData = nil;

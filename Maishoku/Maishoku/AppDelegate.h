@@ -32,6 +32,9 @@ enum DisplayLanguage {
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
+@property (strong, nonatomic) UIImage *blank40x40;
+@property (strong, nonatomic) UIImage *blank60x40;
+@property (strong, nonatomic) UIImage *white120x120;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIStoryboard *storyboard;
 @property (nonatomic, retain) KeychainItemWrapper *keychain;
