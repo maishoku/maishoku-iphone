@@ -17,4 +17,14 @@
     }
 }
 
+- (void)storeCachedResponse:(NSCachedURLResponse *)cachedResponse forRequest:(NSURLRequest *)request
+{
+    if ([cachedResponse.response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *r = (NSHTTPURLResponse *)cachedResponse.response;
+        if (r.statusCode == 200) {
+            [super storeCachedResponse:cachedResponse forRequest:request];
+        }
+    }
+}
+
 @end
