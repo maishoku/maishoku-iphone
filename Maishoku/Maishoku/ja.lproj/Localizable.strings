@@ -76,6 +76,8 @@
 "Failed To Add New Address" = "エラーが発生しました";
 "Submit" = "送信";
 "Cancel" = "キャンセル";
+"Fake Address" = "東京都港区六本木６−１０−１";
+"Building Name" = "建物名";
 
 /* NewGroupViewController */
 "Group Name" = "グループ名";

@@ -75,6 +75,7 @@
     
     RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[Address class]];
     [objectMapping mapKeyPath:@"address" toAttribute:@"address"];
+    [objectMapping mapKeyPath:@"building_name" toAttribute:@"buildingName"];
     [objectMapping mapKeyPath:@"first_date" toAttribute:@"firstDate"];
     [objectMapping mapKeyPath:@"last_date" toAttribute:@"lastDate"];
     [objectMapping mapKeyPath:@"frequency" toAttribute:@"frequency"];

@@ -527,7 +527,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="uEV-KL-vaO">
-                                <rect key="frame" x="20" y="96" width="280" height="31"/>
+                                <rect key="frame" x="20" y="55" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -537,7 +537,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="pWC-ne-bXy">
-                                <rect key="frame" x="20" y="53" width="280" height="21"/>
+                                <rect key="frame" x="20" y="20" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -576,12 +576,22 @@
                                     <action selector="cancel:" destination="An1-7Y-wcN" eventType="touchUpInside" id="cCy-uM-UME"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="93A-tR-Ggw">
+                                <rect key="frame" x="20" y="104" width="280" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="buildingNameEditingChanged:" destination="An1-7Y-wcN" eventType="editingChanged" id="rk2-4g-hwy"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="pWC-ne-bXy" id="PwE-TP-AS3"/>
                         <outlet property="addressTextField" destination="uEV-KL-vaO" id="3sw-rZ-ozS"/>
+                        <outlet property="buildingNameTextField" destination="93A-tR-Ggw" id="5TD-J2-1SU"/>
                         <outlet property="cancelButton" destination="WZ3-5J-uYg" id="JsD-PN-ja9"/>
                         <outlet property="spinner" destination="8C2-kX-bmj" id="lRk-bt-96P"/>
                         <outlet property="submitButton" destination="2g3-J3-zfg" id="vOB-9a-Jvh"/>
@@ -1579,10 +1589,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewAddressViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addressEditingChanged:"/>
+                <relationship kind="action" name="buildingNameEditingChanged:"/>
                 <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="submit:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="buildingNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="submitButton" candidateClass="UIButton"/>

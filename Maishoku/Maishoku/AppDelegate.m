@@ -82,14 +82,10 @@
     RKObjectManager *objectManager;
     
 #if TARGET_IPHONE_SIMULATOR
-    //[RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api.dev/%@", API_VERSION]];
-    //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api.dev/%@", API_VERSION]];
     [RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
     objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
 	reachabilityWithHostName = [Reachability reachabilityWithHostName:@"api-dev.maishoku.com"];
 #else
-    //[RKClient clientWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
-    //objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"http://api-dev.maishoku.com/%@", API_VERSION]];
     [RKClient clientWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
     objectManager = [RKObjectManager objectManagerWithBaseURL:[NSString stringWithFormat:@"https://api.maishoku.com/%@", API_VERSION]];
 	reachabilityWithHostName = [Reachability reachabilityWithHostName:@"api.maishoku.com"];

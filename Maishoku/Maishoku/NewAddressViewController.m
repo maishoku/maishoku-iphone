@@ -15,13 +15,14 @@
 
 @synthesize addressLabel;
 @synthesize addressTextField;
+@synthesize buildingNameTextField;
 @synthesize submitButton;
 @synthesize cancelButton;
 @synthesize spinner;
 
 - (void)setButtonStatus
 {
-    if (0 == [addressTextField.text length]) {
+    if (0 == [addressTextField.text length] || 0 == [buildingNameTextField.text length]) {
         [submitButton setEnabled:NO];
     } else {
         [submitButton setEnabled:YES];
@@ -35,11 +36,16 @@
     [submitButton setTitle:NSLocalizedString(@"Submit", nil) forState:UIControlStateNormal];
     [cancelButton setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
     [addressLabel setText:NSLocalizedString(@"Enter New Address", nil)];
-    NSString *placeholder = UIAppDelegate.displayLanguage == english ? @"Roppongi 6-10-1, Minato-ku, Tokyo" : @"東京都港区六本木６−１０−１";
-    [addressTextField setPlaceholder:placeholder];
+    [addressTextField setPlaceholder:NSLocalizedString(@"Fake Address", nil)];
+    [buildingNameTextField setPlaceholder:NSLocalizedString(@"Building Name", nil)];
 }
 
 - (IBAction)addressEditingChanged:(id)sender
+{
+    [self setButtonStatus];
+}
+
+- (IBAction)buildingNameEditingChanged:(id)sender
 {
     [self setButtonStatus];
 }
@@ -51,16 +57,19 @@
     [spinner startAnimating];
     
     Address *address = [[Address alloc] init];
-    address.address = self.addressTextField.text;
+    address.address = addressTextField.text;
+    address.buildingName = buildingNameTextField.text;
     
     RKObjectMapping *requestObjectMapping = [RKObjectMapping mappingForClass:[Address class]];
     [requestObjectMapping mapKeyPath:@"address" toAttribute:@"address"];
+    [requestObjectMapping mapKeyPath:@"buildingName" toAttribute:@"building_name"];
     
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
     [objectManager.mappingProvider setSerializationMapping:requestObjectMapping forClass:[Address class]];
     
     RKObjectMapping *responseObjectMapping = [RKObjectMapping mappingForClass:[Address class]];
     [responseObjectMapping mapKeyPath:@"address" toAttribute:@"address"];
+    [responseObjectMapping mapKeyPath:@"building_name" toAttribute:@"buildingName"];
     [responseObjectMapping mapKeyPath:@"first_date" toAttribute:@"firstDate"];
     [responseObjectMapping mapKeyPath:@"last_date" toAttribute:@"lastDate"];
     [responseObjectMapping mapKeyPath:@"frequency" toAttribute:@"frequency"];
@@ -80,6 +89,7 @@
 {
     [super touchesBegan:touches withEvent:event];
     [addressTextField resignFirstResponder];
+    [buildingNameTextField resignFirstResponder];
 }
 
 - (void)dealloc
@@ -138,6 +148,7 @@
 - (void)viewDidUnload
 {
     [self setAddressTextField:nil];
+    [self setBuildingNameTextField:nil];
     [self setSpinner:nil];
     [self setAddressLabel:nil];
     [self setSubmitButton:nil];

@@ -79,6 +79,8 @@
 "Failed To Add New Address" = "Failed to add new address";
 "Submit" = "Submit";
 "Cancel" = "Cancel";
+"Fake Address" = "Roppongi 6-10-1, Minato-ku, Tokyo";
+"Building Name" = "Building Name";
 
 /* NewGroupViewController */
 "Group Name" = "Group Name";

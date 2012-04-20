@@ -11,6 +11,7 @@
 @implementation Address
 
 @synthesize address;
+@synthesize buildingName;
 @synthesize firstDate;
 @synthesize lastDate;
 @synthesize identifier;
